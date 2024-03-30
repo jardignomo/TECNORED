@@ -383,37 +383,41 @@ header {
 
   /* Ajusta el contenedor del carrusel para dispositivos móviles */
   .container {
-    height: auto; /* Altura automática para ajustarse al contenido */
-}
+    position: relative;
+    max-width: 100%; /* Adjusted to 100% for responsiveness */
+    margin: auto;
+    overflow: hidden;
+    border-radius: 20px;
+  }
 
-/* Asegúrate de que las imágenes del carrusel ocupen todo el ancho y alto disponibles */
-.slider img {
-    width: 100%; /* Ocupa todo el ancho disponible */
-    height: 400px; /* Altura automática para mantener la proporción */
-    object-fit: cover; /* Ajusta la imagen para cubrir completamente */
-}
+  .slider {
+    display: flex;
+    transition: transform 0.5s ease;
+    overflow: hidden; /* Ensures images don't overflow the container */
+  }
 
-/* Ajusta las flechas de navegación para que no se superpongan con el contenido */
-.flecha {
-    background-color: rgba(255, 255, 255, 0.7); /* Fondo más opaco para mejor visibilidad */
-    padding: 5px; /* Reduce el padding */
-}
+  .slider img {
+    width: 100%;
+    height: auto;
+  }
 
-/* Posiciona las flechas dentro del contenedor para evitar que se salgan de la vista */
-.left, .right {
-    top: auto;
-    bottom: 10px; /* Ubica las flechas en la parte inferior del carrusel */
-}
+  .flecha {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    font-size: 24px;
+    color: white;
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 10px;
+    border-radius: 50%;
+  }
 
-/* Ajusta la posición de la flecha izquierda para dispositivos móviles */
-.left {
-    left: 50%;
-    transform: translateX(-60%); /* Ajusta la posición horizontalmente */
-}
+  .flecha.left {
+    left: 10px;
+  }
 
-/* Ajusta la posición de la flecha derecha para dispositivos móviles */
-.right {
-    right: 50%;
-    transform: translateX(60%); /* Ajusta la posición horizontalmente */
-}
+  .flecha.right {
+    right: 10px;
+  }
 }
