@@ -341,33 +341,38 @@ header {
     font-size: 14px;
   }
 
-  .navbar {
-    flex-direction: column;
-    align-items: center;
-    
-  }
+/* Estilos para la barra de navegación */
+.navbar {
+  flex-direction: column; /* Cambia la dirección de los elementos a vertical */
+  align-items: center;
+}
 
-  .navbar ul {
-    display: block;
-  }
+/* Estilos para los elementos de la lista de navegación */
+.navbar ul {
+  display: block; /* Muestra la lista verticalmente */
+  padding: 0; /* Elimina el espacio entre los elementos de la lista */
+}
 
-  .navbar .toggle-btn {
-    display: block;
-    cursor: pointer;
-    padding: 10px;
-    justify-content: center;
+/* Estilos para el botón de alternar (toggle) */
+.navbar .toggle-btn {
+  display: block;
+  cursor: pointer;
+  padding: 10px;
+  justify-content: center;
+}
 
-  }
+/* Efecto de cambio de color al pasar el cursor sobre el botón de alternar */
+.navbar .toggle-btn:hover {
+  background-color: transparent;
+}
 
-  .navbar .toggle-btn:hover {
-    background-color: transparent;
-  }
+/* Estilos para las barras del botón de alternar */
+.navbar .toggle-btn .bar {
+  display: block;
+  width: 25px;
+  height: 3px;
+  background-color: #000;
+  margin: 5px 0;
+}
 
-  .navbar .toggle-btn .bar {
-    display: block;
-    width: 25px;
-    height: 3px;
-    background-color: #000;
-    margin: 5px 0;
-  }
 }
