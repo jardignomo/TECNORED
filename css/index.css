@@ -378,4 +378,46 @@ header {
     background-color: #000;
     margin: 5px 0;
   }
+
+  /* Ajusta el contenedor del carrusel para dispositivos móviles */
+  .container {
+    height: auto; /* Altura automática para ajustarse al contenido */
+  }
+
+  /* Asegúrate de que las imágenes del carrusel ocupen todo el ancho y alto disponibles */
+  .slider img {
+    width: 100%; /* Ocupa todo el ancho disponible */
+    height: 400px; /* Altura automática para mantener la proporción */
+    object-fit: cover; /* Ajusta la imagen para cubrir completamente */
+  }
+
+  /* Ajusta las flechas de navegación para que no se superpongan con el contenido */
+  .flecha {
+    background-color: rgba(
+      255,
+      255,
+      255,
+      0.7
+    ); /* Fondo más opaco para mejor visibilidad */
+    padding: 5px; /* Reduce el padding */
+  }
+
+  /* Posiciona las flechas dentro del contenedor para evitar que se salgan de la vista */
+  .left,
+  .right {
+    top: auto;
+    bottom: 10px; /* Ubica las flechas en la parte inferior del carrusel */
+  }
+
+  /* Ajusta la posición de la flecha izquierda para dispositivos móviles */
+  .left {
+    left: 50%;
+    transform: translateX(-60%); /* Ajusta la posición horizontalmente */
+  }
+
+  /* Ajusta la posición de la flecha derecha para dispositivos móviles */
+  .right {
+    right: 50%;
+    transform: translateX(60%); /* Ajusta la posición horizontalmente */
+  }
 }
