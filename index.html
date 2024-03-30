@@ -32,7 +32,9 @@
 <div id="resultados-busqueda">
     <!-- Aquí se mostrarán los resultados de la búsqueda -->
 </div>
-
+ 
+<div class="menu-hamburguesa">
+  <div class="hamburguesa"></div>
 
     <ul class="navbar"> <!--<ul> es una lista que contendrá elementos <li> -->
             <li><a href="index.html">INICIO</a></li> <!-- Cada elemento de la lista es un botón de navegación -->
@@ -257,6 +259,15 @@
                 });
             }
         }
+</script>
+  
+<script>
+  // Script para abrir/cerrar el menú hamburguesa
+$(document).ready(function() {
+    $('.hamburguesa').click(function() {
+        $('.menu-hamburguesa').toggleClass('menu-abierto');
+    });
+});
 </script>
 
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
