@@ -411,7 +411,7 @@ header {
     right: 50%; /* Centrar horizontalmente la flecha derecha */
     transform: translateX(
       50%
-                          ); /* Ajustar la posición horizontal de la flecha derecha */
+      ); /* Ajustar la posición horizontal de la flecha derecha */
   }
 
     /* Estilos para el nuevo contenedor principal del carrusel lo mas */
