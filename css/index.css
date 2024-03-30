@@ -343,11 +343,12 @@ header {
 
   .navbar {
     flex-direction: column;
-    align-items: flex-start;
+    align-items: center; /* Centra los elementos en el eje vertical */
   }
 
   .navbar ul {
     display: none;
+    width: 100%; /* Ajusta el ancho del menú desplegable */
   }
 
   .navbar .toggle-btn {
