@@ -392,6 +392,7 @@ header {
   .slider img {
     width: 100%; /* Cambiar el ancho a 100% para adaptarse a la pantalla más pequeña */
     height: auto; /* Establecer una altura automática para las imágenes en pantallas más pequeñas */
+    max-height: 300px; /* Limitar la altura máxima de las imágenes */
   }
 
   .flecha {
@@ -403,15 +404,7 @@ header {
   .flecha.right {
     top: 5px; /* Ajustar la posición de las flechas en pantallas más pequeñas */
     transform: none; /* Reiniciar cualquier transformación existente */
-  }
-
-  .flecha.left {
-    left: 10px; /* Ajustar la posición de la flecha izquierda en pantallas más pequeñas */
-    right: auto; /* Reiniciar cualquier posicionamiento derecho existente */
-  }
-
-  .flecha.right {
-    right: 10px; /* Ajustar la posición de la flecha derecha en pantallas más pequeñas */
+    right: 10px; /* Ajustar la posición de las flechas en pantallas más pequeñas */
     left: auto; /* Reiniciar cualquier posicionamiento izquierdo existente */
   }
 
