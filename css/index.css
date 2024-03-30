@@ -398,14 +398,16 @@ header {
   .flecha {
     font-size: 16px; /* Reducir el tamaño de la flecha en pantallas más pequeñas */
     padding: 6px; /* Reducir el padding de la flecha en pantallas más pequeñas */
-  }
-
-  .flecha.left,
-  .flecha.right {
-    top: 5px; /* Ajustar la posición de las flechas en pantallas más pequeñas */
+    top: 5px; /* Ajustar la posición vertical de las flechas */
     transform: none; /* Reiniciar cualquier transformación existente */
-    right: 10px; /* Ajustar la posición de las flechas en pantallas más pequeñas */
-    left: auto; /* Reiniciar cualquier posicionamiento izquierdo existente */
+    position: absolute; /* Asegurar posicionamiento absoluto de las flechas */
   }
 
+  .flecha.left {
+    left: 10px; /* Ajustar la posición izquierda de la flecha izquierda */
+  }
+
+  .flecha.right {
+    right: 10px; /* Ajustar la posición derecha de la flecha derecha */
+  }
 }
