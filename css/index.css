@@ -95,8 +95,8 @@ header {
   background-color: whitesmoke;
   display: flex;
   justify-content: center;
-  
-  
+  align-items: center; /* Añade esta línea para centrar verticalmente */
+   
 }
 
 /* Estilos para los elementos de la lista de navegación */
