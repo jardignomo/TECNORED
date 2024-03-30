@@ -380,4 +380,38 @@ header {
     background-color: #000;
     margin: 5px 0;
   }
+
+  .container {
+    border-radius: 0; /* Eliminar el borde redondeado en pantallas más pequeñas */
+  }
+
+  .slider {
+    flex-direction: column; /* Cambiar a dirección de columna en pantallas más pequeñas */
+  }
+
+  .slider img {
+    width: auto; /* Cambiar el ancho a automático para adaptarse a la pantalla más pequeña */
+    height: 300px; /* Establecer una altura fija para las imágenes en pantallas más pequeñas */
+  }
+
+  .flecha {
+    font-size: 20px; /* Reducir el tamaño de la flecha en pantallas más pequeñas */
+    padding: 8px; /* Reducir el padding de la flecha en pantallas más pequeñas */
+  }
+
+  .flecha.left {
+    top: 10px; /* Ajustar la posición de la flecha izquierda en pantallas más pequeñas */
+    left: 50%; /* Centrar horizontalmente la flecha izquierda */
+    transform: translateX(
+      -50%
+    ); /* Ajustar la posición horizontal de la flecha izquierda */
+  }
+
+  .flecha.right {
+    top: 10px; /* Ajustar la posición de la flecha derecha en pantallas más pequeñas */
+    right: 50%; /* Centrar horizontalmente la flecha derecha */
+    transform: translateX(
+      50%
+    ); /* Ajustar la posición horizontal de la flecha derecha */
+  }
 }
