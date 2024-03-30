@@ -337,7 +337,7 @@ header {
   /* Cambia la barra de navegación a una columna vertical */
   .navbar {
     flex-direction: column;
-    align-items: flex-start;
+    align-items: center;
   }
 
   /* Ajusta los elementos de la lista para que se muestren como bloques */
@@ -351,5 +351,6 @@ header {
     display: block;
     width: 100%;
     box-sizing: border-box; /* Asegura que el padding no afecte el ancho total */
+    text-align: center;
   }
 }
