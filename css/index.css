@@ -384,6 +384,12 @@ header {
   /* Ajusta el contenedor del carrusel para dispositivos móviles */
   .container {
     border-radius: 0; /* Eliminar el borde redondeado en pantallas más pequeñas */
+    width: 100%; /* Ajustar el ancho del contenedor al 100% */
+    max-width: none; /* Eliminar la restricción del ancho máximo */
+    margin: 0; /* Eliminar los márgenes */
+    padding: 0; /* Eliminar el relleno */
+    overflow: hidden; /* Ocultar cualquier desbordamiento */
+    position: relative; /* Asegurar el posicionamiento relativo */
   }
 
   .slider {
@@ -391,22 +397,29 @@ header {
     align-items: center; /* Centrar las imágenes verticalmente */
   }
 
+  .slider img {
+    width: 100%; /* Ajustar el ancho de las imágenes al 100% */
+    height: auto; /* Establecer una altura automática para las imágenes */
+    max-height: 300px; /* Limitar la altura máxima de las imágenes */
+  }
+
   .flecha {
     font-size: 18px; /* Reducir el tamaño de la flecha en pantallas más pequeñas */
     padding: 8px; /* Reducir el padding de la flecha en pantallas más pequeñas */
     border-radius: 50%;
+    position: absolute; /* Asegurar que las flechas se posicionen correctamente */
+    top: 50%; /* Alinear las flechas verticalmente al centro */
+    transform: translateY(-50%); /* Centrar verticalmente las flechas */
+    background-color: rgba(0, 0, 0, 0.5); /* Añadir un fondo semi-transparente a las flechas */
+    color: white; /* Establecer el color del texto de las flechas */
+    cursor: pointer; /* Cambiar el cursor a puntero */
   }
 
   .flecha.left {
-    left: 50%; /* Alinear la flecha izquierda al centro horizontal */
-    transform: translateX(-50%) translateY(-50%); /* Centrar la flecha vertical y horizontalmente */
-    bottom: 10px; /* Ajustar la posición de la flecha izquierda desde la parte inferior */
+    left: 10px; /* Posicionar la flecha izquierda a 10px del borde izquierdo */
   }
 
   .flecha.right {
-    right: 50%; /* Alinear la flecha derecha al centro horizontal */
-    transform: translateX(50%) translateY(-50%); /* Centrar la flecha vertical y horizontalmente */
-    bottom: 10px; /* Ajustar la posición de la flecha derecha desde la parte inferior */
+    right: 10px; /* Posicionar la flecha derecha a 10px del borde derecho */
   }
-  
 }
