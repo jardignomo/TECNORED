@@ -101,6 +101,7 @@ header {
 /* Estilos para los elementos de la lista de navegación */
 .navbar li {
   display: inline;
+  margin-right: 10px;
 }
 
 /* Estilos para los enlaces dentro de los elementos de la lista de navegación */
