@@ -360,9 +360,10 @@ header {
 
   /* Estilos para el botón de alternar (toggle) */
   .navbar .toggle-btn {
-    display: flex;
+    display: block;
+    cursor: pointer;
+    padding: 10px;
     justify-content: center;
-    align-items: center;
   }
 
   /* Efecto de cambio de color al pasar el cursor sobre el botón de alternar */
@@ -378,7 +379,4 @@ header {
     background-color: #000;
     margin: 5px 0;
   }
-
-
-  
 }
