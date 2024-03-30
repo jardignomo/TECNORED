@@ -348,7 +348,7 @@ header {
   }
 
   .navbar ul {
-    display: none;
+    display: block;
   }
 
   .navbar .toggle-btn {
@@ -356,6 +356,7 @@ header {
     cursor: pointer;
     padding: 10px;
     justify-content: center;
+
   }
 
   .navbar .toggle-btn:hover {
