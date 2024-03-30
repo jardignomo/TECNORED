@@ -391,7 +391,7 @@ header {
 
   .slider img {
     width: auto; /* Cambiar el ancho a automático para adaptarse a la pantalla más pequeña */
-    height: 300px; /* Establecer una altura fija para las imágenes en pantallas más pequeñas */
+    height: auto; /* Establecer una altura fija para las imágenes en pantallas más pequeñas */
   }
 
   .flecha {
