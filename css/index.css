@@ -381,5 +381,18 @@ header {
     margin: 5px 0;
   }
 
+  .container {
+    max-width: 100%;
+    border-radius: 0;
+  }
 
+  .slider img {
+    width: auto;
+    max-height: 300px;
+  }
+
+  .flecha {
+    font-size: 20px;
+    padding: 8px;
+  }
 }
