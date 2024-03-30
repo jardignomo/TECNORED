@@ -383,11 +383,10 @@ header {
 
   /* Ajusta el contenedor del carrusel para dispositivos móviles */
   .container {
-    border-radius: 0; /* Eliminar el borde redondeado en pantallas más pequeñas */
     width: 100%; /* Ajustar el ancho del contenedor al 100% */
     max-width: none; /* Eliminar la restricción del ancho máximo */
-    margin: 0; /* Eliminar los márgenes */
-    padding: 0; /* Eliminar el relleno */
+    margin: 0 auto; /* Centrar horizontalmente el contenedor */
+    border-radius: 0; /* Eliminar el borde redondeado */
     overflow: hidden; /* Ocultar cualquier desbordamiento */
     position: relative; /* Asegurar el posicionamiento relativo */
   }
