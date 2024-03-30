@@ -118,26 +118,7 @@ header {
   background-color: red;
 }
 
-/* Estilos para el menú hamburguesa */
-.mobile-menu {
-  display: none; /* Oculta el menú móvil inicialmente */
-}
 
-/* Estilos para el ícono de hamburguesa (puedes usar Font Awesome u otro) */
-.hamburger-icon {
-  font-size: 24px;
-  cursor: pointer;
-}
-
-/* Estilos para los enlaces del menú móvil */
-.mobile-links {
-  list-style: none;
-  padding: 0;
-}
-
-.mobile-links li {
-  margin-bottom: 10px;
-}
 /* Estilos de carrusel  para el carrusel */
 .container {
   position: relative;
