@@ -344,6 +344,7 @@ header {
   .navbar {
     flex-direction: column; /* Cambia la dirección de los elementos a vertical */
     align-items: center;
+    display: flex;
   }
 
   /* Estilos para los elementos de la lista de navegación */
