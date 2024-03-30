@@ -398,21 +398,16 @@ header {
     font-size: 20px; /* Reducir el tamaño de la flecha en pantallas más pequeñas */
     padding: 8px; /* Reducir el padding de la flecha en pantallas más pequeñas */
   }
+
   .flecha.left {
     top: 10px; /* Ajustar la posición de la flecha izquierda en pantallas más pequeñas */
     left: 50%; /* Centrar horizontalmente la flecha izquierda */
-    transform: translateX(
-      -50%
-    ); /* Ajustar la posición horizontal de la flecha izquierda */
+    transform: translateX(-50%); /* Ajustar la posición horizontal de la flecha izquierda */
   }
 
   .flecha.right {
     top: 10px; /* Ajustar la posición de la flecha derecha en pantallas más pequeñas */
     right: 50%; /* Centrar horizontalmente la flecha derecha */
-    transform: translateX(
-      50%
-      ); /* Ajustar la posición horizontal de la flecha derecha */
+    transform: translateX(50%); /* Ajustar la posición horizontal de la flecha derecha */
   }
-
-   
 }
