@@ -118,32 +118,7 @@ header {
   background-color: red;
 }
 
-/* Estilos para el menú hamburguesa */
-.menu-hamburguesa {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 10px;
-  background-color: #333;
-  color: #fff;
-}
 
-.hamburguesa {
-  width: 30px;
-  height: 3px;
-  background-color: #fff;
-  cursor: pointer;
-}
-
-/* Estilos para la lista de navegación */
-.navbar {
-  list-style: none;
-  display: none; /* Oculta la lista inicialmente */
-}
-
-.navbar li {
-  margin: 10px 0;
-}
 /* Estilos de carrusel  para el carrusel */
 .container {
   position: relative;
@@ -381,7 +356,4 @@ header {
     text-align: center;
   }
 
-  .menu-abierto .navbar {
-    display: block; /* Muestra la lista cuando se abre el menú */
-  }
 }
