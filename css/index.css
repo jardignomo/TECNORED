@@ -117,7 +117,7 @@ header {
   color: white;
   background-color: red;
 }
- 
+
 /* Estilos para el menú hamburguesa */
 .menu-hamburguesa {
   display: flex;
@@ -381,7 +381,7 @@ header {
     text-align: center;
   }
 
-.menu-abierto .navbar {
+  .menu-abierto .navbar {
     display: block; /* Muestra la lista cuando se abre el menú */
-}
+  }
 }
