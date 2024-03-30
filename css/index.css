@@ -387,10 +387,9 @@ header {
   }
 
   .slider img {
-    width: auto;
-    max-height: 300px;
-  }
-
+    width: 100%; /* Ajustado para llenar el ancho del contenedor */
+    height: auto; /* Ajustado para mantener la proporción de aspecto */
+   }
   .flecha {
     font-size: 20px;
     padding: 8px;
