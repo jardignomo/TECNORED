@@ -1,11 +1,60 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MOUSES</title>
+    <link rel="stylesheet" type="text/css" href="css/index.css" />
+    <link
+      href="https://fonts.googleapis.com/css?family=Just+Another+Hand"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <header>
+      <div class="left-images">
+        <!-- Aquí coloca tus imágenes de la izquierda -->
+        <img src="img/index/Logo.png" alt="Logo" />
+        <img src="img/index/nombre empresa.png" alt="Nombre de la empresa" />
+      </div>
+      <div class="right-image">
+        <!-- Aquí coloca la imagen del carrito de compras -->
+
+        <a href="Carrito.html">
+          <img src="img/carrito.png" alt="Carrito de compras"
+        /></a>
+      </div>
+    </header>
+
+    <div class="search-container">
+      <input
+        type="text"
+        id="search-input"
+        class="search-input"
+        placeholder="BUSCAR PRODUCTOS"
+      />
+      <button class="search-button" onclick="buscarProducto()">Buscar</button>
+    </div>
+
+    <div id="resultados-busqueda">
+      <!-- Aquí se mostrarán los resultados de la búsqueda -->
+    </div>
+
+    <div class="navbar">
+      <ul>
+        <li><a href="index.html">INICIO</a></li>
+        <li><a href="TECLADOS.html">TECLADOS</a></li>
+        <li><a href="MOUSES.html">MOUSES</a></li>
+        <li><a href="AURICULARES/CASCOS.html">AURICULARES/CASCOS</a></li>
+        <li><a href="TORRES.html">TORRES</a></li>
+        <li><a href="COMPONENTES PC.html">COMPONENTES PC</a></li>
+        <li><a href="PORTATILES.html">PORTATILES</a></li>
+      </ul>
+      <div class="toggle-btn" onclick="toggleMenu()">
+        <div class="bar"></div>
+        <div class="bar"></div>
+        <div class="bar"></div>
+      </div>
+    </div>
+  </body>
 </html>
