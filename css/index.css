@@ -93,7 +93,7 @@ header {
   gap: 30px;
   margin-left: 0;
   font-size: 15px;
-  font-family: "Just Another Hand";
+  font-family: 'Just Another Hand';
   background-color: whitesmoke;
   padding: 10px;
   justify-content: center;
@@ -109,7 +109,7 @@ header {
   text-decoration: none;
   color: #000;
   font-weight: bold;
-  transition: 0.7s;
+  transition: .7s;
 }
 
 /* Efecto de cambio de color al pasar el cursor sobre los enlaces de la barra de navegación */
@@ -334,23 +334,5 @@ header {
     font-size: 14px;
   }
 
-  /* Cambia la barra de navegación a una columna vertical */
-  .navbar {
-    flex-direction: column;
-    align-items: center;
-  }
 
-  /* Ajusta los elementos de la lista para que se muestren como bloques */
-  .navbar li {
-    display: block;
-    width: 100%;
-  }
-
-  /* Asegúrate de que los enlaces ocupen todo el ancho disponible */
-  .navbar li a {
-    display: block;
-    width: 100%;
-    box-sizing: border-box; /* Asegura que el padding no afecte el ancho total */
-    text-align: center;
-  }
 }
