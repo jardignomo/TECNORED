@@ -420,4 +420,112 @@ header {
     right: 50%;
     transform: translateX(60%); /* Ajusta la posición horizontalmente */
   }
+
+  /* Ajusta el ancho del contenedor principal del carrusel */
+  .product-carousel-container {
+    width: 100%; /* Ocupa todo el ancho disponible */
+  }
+
+  /* Ajusta el tamaño del título del carrusel */
+  .carousel-title {
+    font-size: 20px; /* Reduce el tamaño de la fuente para dispositivos más pequeños */
+  }
+
+  /* Cambia la disposición de los productos a una fila vertical */
+  .product-carousel {
+    flex-direction: column; /* Apila los elementos verticalmente */
+  }
+
+  /* Ajusta el tamaño de cada producto en el carrusel */
+  .product-carousel .producto {
+    flex: 0 0 100%; /* Cada producto ocupa el 100% del espacio horizontal */
+    margin-bottom: 20px; /* Añade un margen inferior entre productos */
+  }
+
+  /* Ajusta el tamaño de las imágenes de los productos */
+  .product-carousel .producto img {
+    width: 80%; /* Reduce el ancho de las imágenes para mejor visualización */
+    margin: 0 auto; /* Centra las imágenes horizontalmente */
+  }
+
+  /* Ajusta el tamaño del título de los productos */
+  .product-carousel .producto h2 {
+    font-size: 18px; /* Reduce el tamaño de la fuente del título del producto */
+  }
+
+  /* Ajusta el tamaño del texto de los productos */
+  .product-carousel .producto p {
+    font-size: 14px; /* Reduce el tamaño de la fuente del texto del producto */
+  }
+
+  /* Ajusta el ancho del contenedor principal del carrusel de novedades */
+  .new-arrivals-carousel-container {
+    width: 100%; /* Ocupa todo el ancho disponible */
+    margin: 10px auto; /* Reduce el margen para dispositivos más pequeños */
+  }
+
+  /* Ajusta el tamaño del título "Novedades" */
+  .carousel-title {
+    font-size: 18px; /* Reduce el tamaño de la fuente para dispositivos más pequeños */
+    margin-top: 10px; /* Reduce el margen superior */
+  }
+
+  /* Cambia la disposición de los productos a dos columnas */
+  .new-arrivals-carousel {
+    grid-template-columns: repeat(2, 1fr); /* 2 columnas de tamaño igual */
+    gap: 10px; /* Reduce el espacio entre las celdas de la cuadrícula */
+  }
+
+  /* Ajusta el tamaño de cada producto en el carrusel */
+  .new-arrivals-carousel .producto {
+    padding: 10px; /* Reduce el espacio interno alrededor del producto */
+  }
+
+  /* Ajusta el tamaño de las imágenes de los productos */
+  .new-arrivals-carousel .producto img {
+    border-radius: 5px; /* Mantiene los bordes redondeados */
+  }
+
+  /* Ajusta el tamaño del título de los productos */
+  .new-arrivals-carousel .producto h3 {
+    font-size: 14px; /* Reduce el tamaño de la fuente del título del producto */
+  }
+
+  /* Ajusta el tamaño del texto de los productos */
+  .new-arrivals-carousel .producto p {
+    font-size: 12px; /* Reduce el tamaño de la fuente del texto del producto */
+  }
+
+  /* Ajusta el ancho del contenedor principal del carrusel de logos */
+  .logos-carousel-container {
+    width: 100%; /* Ocupa todo el ancho disponible */
+    height: 120px; /* Reduce aún más la altura del contenedor */
+    margin: 5px auto; /* Reduce el margen para dispositivos más pequeños */
+  }
+
+  /* Ajusta el carrusel de logos */
+  .logos-carousel {
+    flex-wrap: wrap; /* Permite que los elementos se ajusten en varias filas */
+    justify-content: center; /* Centra los logos horizontalmente */
+    align-items: center; /* Centra los logos verticalmente */
+  }
+
+  /* Ajusta los logos dentro del carrusel */
+  .logos-carousel img {
+    max-height: 60px; /* Reduce aún más la altura máxima de los logos */
+    margin: 2px; /* Reduce el margen entre los logos */
+  }
+
+  /* Ajusta el tamaño del texto del pie de página */
+  .footer {
+    font-size: 14px; /* Reduce el tamaño de la fuente para el texto del pie de página */
+    padding: 5px; /* Ajusta el padding para reducir el espacio */
+    margin-top: 10px; /* Ajusta el margen superior para evitar la superposición con otros elementos */
+  }
+
+  /* Ajusta el tamaño del texto de los enlaces del pie de página */
+  .footer a {
+    font-size: 14px; /* Reduce el tamaño de la fuente para los enlaces */
+    margin-bottom: 5px; /* Ajusta el espacio entre enlaces */
+  }
 }
