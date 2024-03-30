@@ -352,6 +352,10 @@ header {
   display: block; /* Muestra la lista verticalmente */
   padding: 0; /* Elimina el espacio entre los elementos de la lista */
 }
+.navbar li {
+  display: block;
+  padding: 10px; /* Ajusta el espaciado según tus preferencias */
+}
 
 /* Estilos para el botón de alternar (toggle) */
 .navbar .toggle-btn {
