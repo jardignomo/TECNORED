@@ -88,21 +88,27 @@ header {
 /* Estilos para la barra de navegación */
 .navbar {
   list-style-type: none;
-  display: flex;
-  gap: 30px;
-  margin-left: 0;
+  margin: 0;
+  padding: 10px;
   font-size: 15px;
   font-family: 'Just Another Hand';
   background-color: whitesmoke;
-  padding: 10px;
-  justify-content: center;
-  text-align: center;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 /* Estilos para los elementos de la lista de navegación */
+.navbar .menu-list {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column; /* Alinear los enlaces verticalmente */
+  align-items: center; /* Centrar los enlaces horizontalmente */
+}
+
 .navbar li {
-  display: inline;
-  margin-right: 10px;
+  display: block; /* Cambiar a bloque para que los enlaces ocupen toda la anchura */
 }
 
 /* Estilos para los enlaces dentro de los elementos de la lista de navegación */
@@ -111,6 +117,7 @@ header {
   color: #000;
   font-weight: bold;
   transition: .7s;
+  padding: 10px;
 }
 
 /* Efecto de cambio de color al pasar el cursor sobre los enlaces de la barra de navegación */
@@ -119,16 +126,6 @@ header {
   background-color: red;
 }
 
-
-.menu {
-  display: none;
-  list-style-type: none;
-}
-
-.menu-toggle {
-  display: none;
-  cursor: pointer;
-}
 
 /* Estilos de carrusel  para el carrusel */
 .container {
@@ -345,16 +342,30 @@ header {
     padding: 8px 16px;
     font-size: 14px;
   }
-
-  .menu-toggle {
-    display: block;
+  .navbar {
+    flex-direction: column;
+    align-items: center;
   }
 
-  .menu {
-    display: block;
+  .navbar .menu-list {
+    display: none;
   }
 
-  .menu li {
-    margin-bottom: 10px;
+  .navbar .toggle-btn {
+    display: block;
+    cursor: pointer;
+    padding: 10px;
+  }
+
+  .navbar .toggle-btn:hover {
+    background-color: transparent;
+  }
+
+  .navbar .toggle-btn .bar {
+    display: block;
+    width: 25px;
+    height: 3px;
+    background-color: #000;
+    margin: 5px 0;
   }
 }
