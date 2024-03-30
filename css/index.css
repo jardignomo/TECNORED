@@ -383,41 +383,30 @@ header {
 
   /* Ajusta el contenedor del carrusel para dispositivos móviles */
   .container {
-    position: relative;
-    max-width: 100%; /* Adjusted to 100% for responsiveness */
-    margin: auto;
-    overflow: hidden;
-    border-radius: 20px;
+    border-radius: 0; /* Eliminar el borde redondeado en pantallas más pequeñas */
   }
 
   .slider {
-    display: flex;
-    transition: transform 0.5s ease;
-    overflow: hidden; /* Ensures images don't overflow the container */
-  }
-
-  .slider img {
-    width: 100%;
-    height: auto;
+    flex-direction: column; /* Cambiar a dirección de columna en pantallas más pequeñas */
+    align-items: center; /* Centrar las imágenes verticalmente */
   }
 
   .flecha {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    cursor: pointer;
-    font-size: 24px;
-    color: white;
-    background-color: rgba(0, 0, 0, 0.5);
-    padding: 10px;
+    font-size: 18px; /* Reducir el tamaño de la flecha en pantallas más pequeñas */
+    padding: 8px; /* Reducir el padding de la flecha en pantallas más pequeñas */
     border-radius: 50%;
   }
 
   .flecha.left {
-    left: 10px;
+    left: 50%; /* Alinear la flecha izquierda al centro horizontal */
+    transform: translateX(-50%) translateY(-50%); /* Centrar la flecha vertical y horizontalmente */
+    bottom: 10px; /* Ajustar la posición de la flecha izquierda desde la parte inferior */
   }
 
   .flecha.right {
-    right: 10px;
+    right: 50%; /* Alinear la flecha derecha al centro horizontal */
+    transform: translateX(50%) translateY(-50%); /* Centrar la flecha vertical y horizontalmente */
+    bottom: 10px; /* Ajustar la posición de la flecha derecha desde la parte inferior */
   }
+  
 }
