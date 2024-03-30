@@ -117,6 +117,26 @@ header {
   color: white;
   background-color: red;
 }
+.navbar {
+  text-align: center;
+}
+
+.menu {
+  display: none;
+  list-style-type: none;
+}
+
+.menu-toggle {
+  display: none;
+  cursor: pointer;
+}
+
+.hamburger {
+  width: 25px;
+  height: 3px;
+  background-color: #333;
+  margin: 5px 0;
+}
 
 /* Estilos de carrusel  para el carrusel */
 .container {
@@ -334,5 +354,14 @@ header {
     font-size: 14px;
   }
 
+  .menu-toggle {
+    display: block;
+  }
 
+  .menu {
+    display: block;
+  }
+
+  .menu li {
+    
 }
