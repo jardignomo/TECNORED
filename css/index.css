@@ -89,7 +89,7 @@ header {
 /* Estilos para la barra de navegación */
 .navbar {
   list-style-type: none;
-  margin: 0;
+  margin: 0 auto; /* Centra el menú horizontalmente */
   padding: 10px;
   font-size: 15px;
   font-family: 'Just Another Hand';
@@ -97,6 +97,7 @@ header {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  max-width: 1000px; /* Establece un ancho máximo para el menú */
 }
 
 /* Estilos para los elementos de la lista de navegación */
@@ -124,7 +125,6 @@ header {
   color: white;
   background-color: red;
 }
-
 /* Estilos de carrusel  para el carrusel */
 .container {
   position: relative;
