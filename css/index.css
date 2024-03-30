@@ -390,7 +390,7 @@ header {
   }
 
   .slider img {
-    width: auto; /* Cambiar el ancho a automático para adaptarse a la pantalla más pequeña */
+    width: 100%; /* Cambiar el ancho a automático para adaptarse a la pantalla más pequeña */
     height: auto; /* Establecer una altura fija para las imágenes en pantallas más pequeñas */
   }
 
