@@ -390,24 +390,29 @@ header {
   }
 
   .slider img {
-    width: auto; /* Cambiar el ancho a automático para adaptarse a la pantalla más pequeña */
-    height: 300px; /* Establecer una altura fija para las imágenes en pantallas más pequeñas */
+    width: 100%; /* Cambiar el ancho a 100% para adaptarse a la pantalla más pequeña */
+    height: auto; /* Establecer una altura automática para las imágenes en pantallas más pequeñas */
   }
 
   .flecha {
-    font-size: 20px; /* Reducir el tamaño de la flecha en pantallas más pequeñas */
-    padding: 8px; /* Reducir el padding de la flecha en pantallas más pequeñas */
+    font-size: 16px; /* Reducir el tamaño de la flecha en pantallas más pequeñas */
+    padding: 6px; /* Reducir el padding de la flecha en pantallas más pequeñas */
+  }
+
+  .flecha.left,
+  .flecha.right {
+    top: 5px; /* Ajustar la posición de las flechas en pantallas más pequeñas */
+    transform: none; /* Reiniciar cualquier transformación existente */
   }
 
   .flecha.left {
-    top: 10px; /* Ajustar la posición de la flecha izquierda en pantallas más pequeñas */
-    left: 50%; /* Centrar horizontalmente la flecha izquierda */
-    transform: translateX(-50%); /* Ajustar la posición horizontal de la flecha izquierda */
+    left: 10px; /* Ajustar la posición de la flecha izquierda en pantallas más pequeñas */
+    right: auto; /* Reiniciar cualquier posicionamiento derecho existente */
   }
 
   .flecha.right {
-    top: 10px; /* Ajustar la posición de la flecha derecha en pantallas más pequeñas */
-    right: 50%; /* Centrar horizontalmente la flecha derecha */
-    transform: translateX(50%); /* Ajustar la posición horizontal de la flecha derecha */
+    right: 10px; /* Ajustar la posición de la flecha derecha en pantallas más pequeñas */
+    left: auto; /* Reiniciar cualquier posicionamiento izquierdo existente */
   }
+
 }
