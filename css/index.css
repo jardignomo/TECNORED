@@ -381,33 +381,39 @@ header {
     margin: 5px 0;
   }
 
+  /* Ajusta el contenedor del carrusel para dispositivos móviles */
   .container {
-    border-radius: 0; /* Eliminar el borde redondeado en pantallas más pequeñas */
-  }
+    height: auto; /* Altura automática para ajustarse al contenido */
+}
 
-  .slider {
-    flex-direction: column; /* Cambiar a dirección de columna en pantallas más pequeñas */
-  }
+/* Asegúrate de que las imágenes del carrusel ocupen todo el ancho y alto disponibles */
+.slider img {
+    width: 100%; /* Ocupa todo el ancho disponible */
+    height: 400px; /* Altura automática para mantener la proporción */
+    object-fit: cover; /* Ajusta la imagen para cubrir completamente */
+}
 
-  .slider img {
-    width: 100%; /* Cambiar el ancho a 100% para adaptarse a la pantalla más pequeña */
-    height: auto; /* Establecer una altura automática para las imágenes en pantallas más pequeñas */
-    max-height: 300px; /* Limitar la altura máxima de las imágenes */
-  }
+/* Ajusta las flechas de navegación para que no se superpongan con el contenido */
+.flecha {
+    background-color: rgba(255, 255, 255, 0.7); /* Fondo más opaco para mejor visibilidad */
+    padding: 5px; /* Reduce el padding */
+}
 
-  .flecha {
-    font-size: 16px; /* Reducir el tamaño de la flecha en pantallas más pequeñas */
-    padding: 6px; /* Reducir el padding de la flecha en pantallas más pequeñas */
-    top: 5px; /* Ajustar la posición vertical de las flechas */
-    transform: none; /* Reiniciar cualquier transformación existente */
-    position: absolute; /* Asegurar posicionamiento absoluto de las flechas */
-  }
+/* Posiciona las flechas dentro del contenedor para evitar que se salgan de la vista */
+.left, .right {
+    top: auto;
+    bottom: 10px; /* Ubica las flechas en la parte inferior del carrusel */
+}
 
-  .flecha.left {
-    left: 10px; /* Ajustar la posición izquierda de la flecha izquierda */
-  }
+/* Ajusta la posición de la flecha izquierda para dispositivos móviles */
+.left {
+    left: 50%;
+    transform: translateX(-60%); /* Ajusta la posición horizontalmente */
+}
 
-  .flecha.right {
-    right: 10px; /* Ajustar la posición derecha de la flecha derecha */
-  }
+/* Ajusta la posición de la flecha derecha para dispositivos móviles */
+.right {
+    right: 50%;
+    transform: translateX(60%); /* Ajusta la posición horizontalmente */
+}
 }
