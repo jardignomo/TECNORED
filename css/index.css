@@ -381,44 +381,5 @@ header {
     margin: 5px 0;
   }
 
-  /* Ajusta el contenedor del carrusel para dispositivos móviles */
-  .container {
-    width: 100%; /* Ajustar el ancho del contenedor al 100% */
-    max-width: none; /* Eliminar la restricción del ancho máximo */
-    margin: 0 auto; /* Centrar horizontalmente el contenedor */
-    border-radius: 0; /* Eliminar el borde redondeado */
-    overflow: hidden; /* Ocultar cualquier desbordamiento */
-    position: relative; /* Asegurar el posicionamiento relativo */
-  }
 
-  .slider {
-    flex-direction: column; /* Cambiar a dirección de columna en pantallas más pequeñas */
-    align-items: center; /* Centrar las imágenes verticalmente */
-  }
-
-  .slider img {
-    width: 100%; /* Ajustar el ancho de las imágenes al 100% */
-    height: auto; /* Establecer una altura automática para las imágenes */
-    max-height: 300px; /* Limitar la altura máxima de las imágenes */
-  }
-
-  .flecha {
-    font-size: 18px; /* Reducir el tamaño de la flecha en pantallas más pequeñas */
-    padding: 8px; /* Reducir el padding de la flecha en pantallas más pequeñas */
-    border-radius: 50%;
-    position: absolute; /* Asegurar que las flechas se posicionen correctamente */
-    top: 50%; /* Alinear las flechas verticalmente al centro */
-    transform: translateY(-50%); /* Centrar verticalmente las flechas */
-    background-color: rgba(0, 0, 0, 0.5); /* Añadir un fondo semi-transparente a las flechas */
-    color: white; /* Establecer el color del texto de las flechas */
-    cursor: pointer; /* Cambiar el cursor a puntero */
-  }
-
-  .flecha.left {
-    left: 10px; /* Posicionar la flecha izquierda a 10px del borde izquierdo */
-  }
-
-  .flecha.right {
-    right: 10px; /* Posicionar la flecha derecha a 10px del borde derecho */
-  }
 }
