@@ -96,6 +96,7 @@ header {
   background-color: whitesmoke;
   padding: 10px;
   justify-content: center;
+  text-align: center;
 }
 
 /* Estilos para los elementos de la lista de navegación */
@@ -117,9 +118,7 @@ header {
   color: white;
   background-color: red;
 }
-.navbar {
-  text-align: center;
-}
+
 
 .menu {
   display: none;
@@ -129,13 +128,6 @@ header {
 .menu-toggle {
   display: none;
   cursor: pointer;
-}
-
-.hamburger {
-  width: 25px;
-  height: 3px;
-  background-color: #333;
-  margin: 5px 0;
 }
 
 /* Estilos de carrusel  para el carrusel */
@@ -363,5 +355,6 @@ header {
   }
 
   .menu li {
-    
+    margin-bottom: 10px;
+  }
 }
