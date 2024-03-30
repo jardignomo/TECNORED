@@ -433,6 +433,7 @@ header {
 
   /* Cambia la disposición de los productos a una fila vertical */
   .product-carousel {
+    display: flex;
     flex-direction: column; /* Apila los elementos verticalmente */
   }
 
