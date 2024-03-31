@@ -80,6 +80,10 @@ header {
 .contenedor-carrito button:hover {
   background-color: #E57A7A; /* Color al pasar el mouse */
 }
+.producto-carrito img {
+  width: 256px;
+  height: 256px;
+}
 
 
 /*footer*/
