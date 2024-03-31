@@ -166,3 +166,23 @@ header {
   font-size: 14px;
   font-family: "Just Another Hand";
 }
+/* Estilos para el pie de página */
+.footer {
+  background-color: #e43636;
+  color: white;
+  text-align: left;
+  padding: 10px;
+  position: relative;
+  z-index: 1;
+  bottom: 0;
+  width: 100%;
+  margin-top: 20px;
+}
+
+.footer a {
+  color: white;
+  margin-bottom: 10px;
+  display: block;
+  font-family: "Just Another Hand";
+  font-size: 20px;
+}
