@@ -47,28 +47,33 @@
             <h2>Nombre del Producto</h2>
             <p>Precio: $100.00</p>
             <button onclick="agregarAlCarrito()">Agregar al Carrito</button>
-            <p class="empty-cart-message">¡Tu carrito está vacío!</p>
+           
             <!-- Enlace para redirigir al carrito -->
             <a href="Carrito.html">Ver Carrito</a>
         </div>
     </div>
 
     <script>
-        function agregarAlCarrito() {
-            // Lógica para agregar al carrito aquí
-            alert("Producto agregado al carrito");
+       function agregarAlCarrito() {
+    // Lógica para agregar al carrito aquí
+    alert("Producto agregado al carrito");
 
-            // Ejemplo: Agregar el producto al carrito (puedes adaptarlo según tus necesidades)
-            const producto = {
-                nombre: 'Nombre del Producto',
-                precio: 100
-            };
+    // Ejemplo: Agregar el producto al carrito (puedes adaptarlo según tus necesidades)
+    const producto = {
+        nombre: 'Nombre del Producto',
+        precio: 100
+    };
 
-            // Crear un elemento de lista para mostrar el producto en el carrito
-            const itemCarrito = document.createElement('li');
-            itemCarrito.textContent = `${producto.nombre} - $${producto.precio}`;
-            document.getElementById('lista-carrito').appendChild(itemCarrito);
-        }
+    // Obtener el carrito de localStorage (o inicializarlo si no existe)
+    let carrito = JSON.parse(localStorage.getItem('carrito')) || [];
+
+    // Agregar el producto al carrito
+    carrito.push(producto);
+
+    // Guardar el carrito en localStorage
+    localStorage.setItem('carrito', JSON.stringify(carrito));
+}
+
     </script>
 
     <!-- Lista para mostrar los productos en el carrito -->

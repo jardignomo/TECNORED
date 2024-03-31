@@ -51,10 +51,28 @@
     </ul>
   </nav>
 </footer>
+
 <script>
 function irATienda() {
     window.location.href = "index.html";
 }
+</script>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    const carrito = JSON.parse(localStorage.getItem('carrito')) || [];
+
+    const carritoButton = document.querySelector('.contenedor-carrito button');
+
+    if (carrito.length > 0) {
+        carritoButton.textContent = 'Ver Carrito';
+        carritoButton.addEventListener('click', function() {
+            // Aquí puedes redirigir al usuario a la página del carrito
+            window.location.href = 'carrito.html';
+        });
+    }
+});
+
 </script>
 </body>
 </html>
