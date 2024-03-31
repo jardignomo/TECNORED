@@ -1,58 +1,58 @@
 <!DOCTYPE html>
 <html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Producto</title>
     <style>
-        /* Estilos CSS para la disposición de los elementos */
-        .product-container {
-            display: flex;
-            align-items: center;
-            padding: 20px; /* Añadido para mayor espacio alrededor del producto */
-            border: 1px solid #ddd; /* Añadido un borde para resaltar el producto */
-        }
-        .product-image {
-            max-width: 200px;
-            margin-right: 20px;
-        }
-        .product-details {
-            flex-grow: 1;
-        }
-        .empty-cart-message {
-            color: red;
-        }
-        /* Estilos para el botón */
-        button {
-            background-color: #007bff;
-            color: #fff;
-            border: none;
-            padding: 10px 20px;
-            cursor: pointer;
-        }
-        button:hover {
-            background-color: #0056b3;
-        }
+      /* Estilos CSS para la disposición de los elementos */
+      .product-container {
+        display: flex;
+        align-items: center;
+        padding: 20px; /* Añadido para mayor espacio alrededor del producto */
+        border: 1px solid #ddd; /* Añadido un borde para resaltar el producto */
+      }
+      .product-image {
+        max-width: 200px;
+        margin-right: 20px;
+      }
+      .product-details {
+        flex-grow: 1;
+      }
+      .empty-cart-message {
+        color: red;
+      }
+      /* Estilos para el botón */
+      button {
+        background-color: #007bff;
+        color: #fff;
+        border: none;
+        padding: 10px 20px;
+        cursor: pointer;
+      }
+      button:hover {
+        background-color: #0056b3;
+      }
     </style>
-</head>
-<body>
+  </head>
+  <body>
     <div class="product-container">
-        <img src="img/index/ASUS.png" alt="Producto" class="product-image">
-        <div class="product-details">
-            <h2>Nombre del Producto</h2>
-            <p>Precio: $100.00</p>
-            <button onclick="agregarAlCarrito()">Agregar al Carrito</button>
-            <p class="empty-cart-message">¡Tu carrito está vacío!</p>
-       <!-- Enlace para redirigir al carrito -->
-       <a href="Carrito.html">Ver Carrito</a>
-    </div>
-</div>
+      <img src="img/index/ASUS.png" alt="Producto" class="product-image" />
+      <div class="product-details">
+        <h2>Nombre del Producto</h2>
+        <p>Precio: $100.00</p>
+        <button onclick="agregarAlCarrito()">Agregar al Carrito</button>
 
-<script>
-    function agregarAlCarrito() {
+        <!-- Enlace para redirigir al carrito -->
+        <a href="Carrito.html">Ver Carrito</a>
+      </div>
+    </div>
+
+    <script>
+      function agregarAlCarrito() {
         // Lógica para agregar al carrito aquí
         alert("Producto agregado al carrito");
-    }
-</script>
-</body>
+      }
+    </script>
+  </body>
 </html>
