@@ -54,11 +54,7 @@
   </nav>
 </footer>
 
-<script>
-function irATienda() {
-    window.location.href = "index.html";
-}
-</script>
+
 <script>
   document.addEventListener('DOMContentLoaded', function() {
       const carrito = JSON.parse(localStorage.getItem('carrito')) || [];
@@ -66,17 +62,16 @@ function irATienda() {
       const vaciarCarritoBtn = document.getElementById('vaciarCarrito');
 
       // Mostrar productos en el carrito
-      carrito.forEach(producto => {
-          const productoDiv = document.createElement('div');
-          productoDiv.classList.add('producto-carrito');
-          productoDiv.innerHTML = `
-              <img src="css/index/ASUS.png" alt="${producto.nombre}">
-              <p>${producto.nombre} - $${producto.precio}</p>
-              <button onclick="eliminarProducto('${producto.nombre}')">Eliminar</button>
-          `;
-          contenedorProductos.appendChild(productoDiv);
-      });
-
+      carrito.forEach((producto, index) => {
+    const productoDiv = document.createElement('div');
+    productoDiv.classList.add('producto-carrito');
+    productoDiv.innerHTML = `
+        <img src="css/index/ASUS.png" alt="${producto.nombre}">
+        <p>${producto.nombre} - $${producto.precio}</p>
+        <button onclick="eliminarProducto('${producto.nombre}', this)">Eliminar</button>
+    `;
+    contenedorProductos.appendChild(productoDiv);
+});
       // Mostrar el botón "Vaciar Carrito" si hay productos en el carrito
       if (carrito.length > 0) {
           vaciarCarritoBtn.style.display = 'block';
@@ -92,13 +87,12 @@ function irATienda() {
       window.location.href = "index.html";
   }
 
-  function eliminarProducto(nombreProducto) {
-      let carrito = JSON.parse(localStorage.getItem('carrito')) || [];
-      // Filtrar el carrito para excluir el producto a eliminar
-      carrito = carrito.filter(producto => producto.nombre !== nombreProducto);
-      localStorage.setItem('carrito', JSON.stringify(carrito));
-      location.reload(); // Recargar la página para reflejar los cambios
-  }
+  function eliminarProducto(nombreProducto, boton) {
+    let carrito = JSON.parse(localStorage.getItem('carrito')) || [];
+    carrito = carrito.filter(producto => producto.nombre !== nombreProducto);
+    localStorage.setItem('carrito', JSON.stringify(carrito));
+    boton.closest('.producto-carrito').remove(); // Elimina solo el producto específico del DOM
+}
 </script>
 
 
