@@ -49,34 +49,49 @@
             <button onclick="agregarAlCarrito()">Agregar al Carrito</button>
            
             <!-- Enlace para redirigir al carrito -->
-            <a href="Carrito.html">Ver Carrito</a>
+            <a href="Carrito.html" onclick="mostrarCarrito()">Ver Carrito</a>
         </div>
     </div>
 
-    <script>
-       function agregarAlCarrito() {
-    // Lógica para agregar al carrito aquí
-    alert("Producto agregado al carrito");
-
-    // Ejemplo: Agregar el producto al carrito (puedes adaptarlo según tus necesidades)
-    const producto = {
-        nombre: 'Nombre del Producto',
-        precio: 100
-    };
-
-    // Obtener el carrito de localStorage (o inicializarlo si no existe)
-    let carrito = JSON.parse(localStorage.getItem('carrito')) || [];
-
-    // Agregar el producto al carrito
-    carrito.push(producto);
-
-    // Guardar el carrito en localStorage
-    localStorage.setItem('carrito', JSON.stringify(carrito));
-}
-
-    </script>
-
     <!-- Lista para mostrar los productos en el carrito -->
     <ul id="lista-carrito"></ul>
+
+    <script>
+        function agregarAlCarrito() {
+            // Lógica para agregar al carrito aquí
+            alert("Producto agregado al carrito");
+
+            // Ejemplo: Agregar el producto al carrito (puedes adaptarlo según tus necesidades)
+            const producto = {
+                nombre: 'Nombre del Producto',
+                precio: 100
+            };
+
+            // Obtener el carrito de localStorage (o inicializarlo si está vacío)
+            let carrito = JSON.parse(localStorage.getItem('carrito')) || [];
+            carrito.push(producto);
+
+            // Guardar el carrito en localStorage
+            localStorage.setItem('carrito', JSON.stringify(carrito));
+        }
+
+        function mostrarCarrito() {
+            // Obtener los productos del carrito de localStorage
+            const carrito = JSON.parse(localStorage.getItem('carrito')) || [];
+
+            // Obtener el elemento ul donde se mostrará el carrito
+            const listaCarrito = document.getElementById('lista-carrito');
+
+            // Limpiar el contenido previo del carrito
+            listaCarrito.innerHTML = '';
+
+            // Mostrar cada producto en el carrito
+            carrito.forEach(producto => {
+                const itemCarrito = document.createElement('li');
+                itemCarrito.textContent = `${producto.nombre} - $${producto.precio}`;
+                listaCarrito.appendChild(itemCarrito);
+            });
+        }
+    </script>
 </body>
 </html>
