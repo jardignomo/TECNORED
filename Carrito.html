@@ -57,6 +57,31 @@ function irATienda() {
     window.location.href = "index.html";
 }
 </script>
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+      // Obtener el elemento del botón del carrito vacío
+      const carritoVacioBtn = document.querySelector('.contenedor-carrito button');
+      
+      // Obtener el elemento de la lista del carrito
+      const listaCarrito = document.querySelector('.contenedor-carrito div');
+
+      // Obtener los productos del carrito de localStorage
+      const carrito = JSON.parse(localStorage.getItem('carrito')) || [];
+
+      // Si el carrito tiene productos, mostrarlos
+      if (carrito.length > 0) {
+          // Limpiar el mensaje de carrito vacío
+          carritoVacioBtn.style.display = 'none';
+
+          // Mostrar cada producto en el carrito
+          carrito.forEach(producto => {
+              const itemCarrito = document.createElement('p');
+              itemCarrito.textContent = `${producto.nombre} - $${producto.precio}`;
+              listaCarrito.appendChild(itemCarrito);
+          });
+      }
+  });
+</script>
 
 
 </body>
