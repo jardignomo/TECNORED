@@ -38,6 +38,8 @@
     <div>
       <button>Oh! Tu carrito está vacío</button>
     </div>
+    <div class="carrito-productos"></div>
+    <button onclick="limpiarCarrito()">Vaciar Carrito</button>
     <button onclick="irATienda()">Volver a la tienda</button>
 </div>
 
@@ -59,28 +61,37 @@ function irATienda() {
 </script>
 <script>
   document.addEventListener('DOMContentLoaded', function() {
-      // Obtener el elemento del botón del carrito vacío
-      const carritoVacioBtn = document.querySelector('.contenedor-carrito button');
-      
-      // Obtener el elemento de la lista del carrito
-      const listaCarrito = document.querySelector('.contenedor-carrito div');
-
-      // Obtener los productos del carrito de localStorage
       const carrito = JSON.parse(localStorage.getItem('carrito')) || [];
+      const contenedorProductos = document.querySelector('.carrito-productos');
 
-      // Si el carrito tiene productos, mostrarlos
-      if (carrito.length > 0) {
-          // Limpiar el mensaje de carrito vacío
-          carritoVacioBtn.style.display = 'none';
-
-          // Mostrar cada producto en el carrito
-          carrito.forEach(producto => {
-              const itemCarrito = document.createElement('p');
-              itemCarrito.textContent = `${producto.nombre} - $${producto.precio}`;
-              listaCarrito.appendChild(itemCarrito);
-          });
-      }
+      // Mostrar productos en el carrito
+      carrito.forEach(producto => {
+          const productoDiv = document.createElement('div');
+          productoDiv.classList.add('producto-carrito');
+          productoDiv.innerHTML = `
+              <img src="${producto.imagen}" alt="${producto.nombre}">
+              <p>${producto.nombre} - $${producto.precio}</p>
+              <button onclick="eliminarProducto('${producto.nombre}')">Eliminar</button>
+          `;
+          contenedorProductos.appendChild(productoDiv);
+      });
   });
+
+  function limpiarCarrito() {
+      localStorage.removeItem('carrito');
+      location.reload(); // Recargar la página para reflejar los cambios
+  }
+
+  function irATienda() {
+      window.location.href = "index.html";
+  }
+
+  function eliminarProducto(nombreProducto) {
+      let carrito = JSON.parse(localStorage.getItem('carrito')) || [];
+      carrito = carrito.filter(producto => producto.nombre !== nombreProducto);
+      localStorage.setItem('carrito', JSON.stringify(carrito));
+      location.reload(); // Recargar la página para reflejar los cambios
+  }
 </script>
 
 
