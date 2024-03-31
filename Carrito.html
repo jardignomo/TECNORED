@@ -70,7 +70,7 @@ function irATienda() {
           const productoDiv = document.createElement('div');
           productoDiv.classList.add('producto-carrito');
           productoDiv.innerHTML = `
-              <img src="${producto.imagen}" alt="${producto.nombre}">
+              <img src="css/index/ASUS.png" alt="${producto.nombre}">
               <p>${producto.nombre} - $${producto.precio}</p>
               <button onclick="eliminarProducto('${producto.nombre}')">Eliminar</button>
           `;
@@ -94,11 +94,13 @@ function irATienda() {
 
   function eliminarProducto(nombreProducto) {
       let carrito = JSON.parse(localStorage.getItem('carrito')) || [];
+      // Filtrar el carrito para excluir el producto a eliminar
       carrito = carrito.filter(producto => producto.nombre !== nombreProducto);
       localStorage.setItem('carrito', JSON.stringify(carrito));
       location.reload(); // Recargar la página para reflejar los cambios
   }
 </script>
+
 
 </body>
 </html>
