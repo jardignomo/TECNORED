@@ -226,6 +226,57 @@
       </nav>
     </footer>
 
+     
+    <script>
+      // Datos de ejemplo de productos
+      var productos = [
+        { nombre: "Producto 1", descripcion: "Descripción del Producto 1" },
+        { nombre: "Producto 2", descripcion: "Descripción del Producto 2" },
+        { nombre: "Producto 3", descripcion: "Descripción del Producto 3" },
+        // Agrega más productos según sea necesario
+      ];
+
+      // Función para buscar productos
+      function buscarProducto() {
+        var query = document.getElementById("search-input").value.toLowerCase();
+        var resultados = productos.filter(function (producto) {
+          return (
+            producto.nombre.toLowerCase().includes(query) ||
+            producto.descripcion.toLowerCase().includes(query)
+          );
+        });
+        mostrarResultados(resultados);
+      }
+
+      // Función para mostrar resultados de búsqueda
+      function mostrarResultados(resultados) {
+        var resultadosContainer = document.getElementById(
+          "resultados-busqueda"
+        );
+        resultadosContainer.innerHTML = "";
+        if (resultados.length === 0) {
+          resultadosContainer.innerHTML = "<p>No se encontraron resultados</p>";
+        } else {
+          resultados.forEach(function (producto) {
+            var productoHTML = `
+                        <div class="producto">
+                            <h3>${producto.nombre}</h3>
+                            <p>${producto.descripcion}</p>
+                        </div>
+                    `;
+            resultadosContainer.innerHTML += productoHTML;
+          });
+        }
+      }
+    </script>
+
+    <script>
+      function toggleMenu() {
+        var ul = document.querySelector(".navbar ul");
+        ul.style.display = ul.style.display === "none" ? "block" : "none";
+      }
+    </script>
+
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script>
       $(document).ready(function () {
