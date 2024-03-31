@@ -49,10 +49,21 @@
     </div>
 
     <script>
-      function agregarAlCarrito() {
-        // Lógica para agregar al carrito aquí
-        alert("Producto agregado al carrito");
-      }
+          // Ejemplo de productos almacenados (puedes adaptarlo según tus necesidades)
+          const productosSeleccionados = [
+            { nombre: 'Nombre del Producto 1', precio: 100 },
+            { nombre: 'Nombre del Producto 2', precio: 50 },
+            // ... otros productos
+        ];
+
+        // Mostrar los productos en el carrito
+        const listaCarrito = document.getElementById('lista-carrito');
+        productosSeleccionados.forEach(producto => {
+            const item = document.createElement('li');
+            item.textContent = `${producto.nombre} - $${producto.precio}`;
+            listaCarrito.appendChild(item);
+        });
     </script>
+    
   </body>
 </html>
