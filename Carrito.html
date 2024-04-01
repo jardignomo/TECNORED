@@ -68,55 +68,65 @@
         </ul>
       </nav>
     </footer>
-
+    
     <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            const carrito = JSON.parse(localStorage.getItem('carrito')) || [];
-            const contenedorProductos = document.querySelector('.carrito-productos');
-            const vaciarCarritoBtn = document.getElementById('vaciarCarrito');
-            const mensajeCarritoVacio = document.querySelector('.mensaje-carrito-vacio');
-      
-            // Mostrar productos en el carrito
-            carrito.forEach((producto, index) => {
-                const productoDiv = document.createElement('div');
-                productoDiv.classList.add('producto-carrito');
-                productoDiv.innerHTML = `
-                    <img src="css/index/ASUS.PNG" alt="${producto.nombre}">
-                    <p>${producto.nombre} - $${producto.precio}</p>
-                    <button onclick="eliminarProducto('${producto.nombre}', this)">Eliminar</button>
-                `;
-                contenedorProductos.appendChild(productoDiv);
-            });
-      
-            // Mostrar el botón "Vaciar Carrito" si hay productos en el carrito
-            if (carrito.length > 0) {
-                vaciarCarritoBtn.style.display = 'block';
-            } else {
-                mensajeCarritoVacio.style.display = 'block'; // Mostrar el mensaje de carrito vacío
-            }
+      document.addEventListener("DOMContentLoaded", function () {
+        const carrito = JSON.parse(localStorage.getItem("carrito")) || [];
+        const contenedorProductos =
+          document.querySelector(".carrito-productos");
+        const vaciarCarritoBtn = document.getElementById("vaciarCarrito");
+        const mensajeCarritoVacio = document.querySelector(
+          ".mensaje-carrito-vacio"
+        );
+
+        // Mostrar productos en el carrito
+        carrito.forEach((producto, index) => {
+          const productoDiv = document.createElement("div");
+          productoDiv.classList.add("producto-carrito");
+          productoDiv.innerHTML = `
+                  <img src="img/index/ASUS.PNG" alt="${producto.nombre}">
+                  <p>${producto.nombre} - $${producto.precio}</p>
+                  <button onclick="eliminarProducto('${producto.nombre}', this)">Eliminar</button>
+              `;
+          contenedorProductos.appendChild(productoDiv);
         });
-      
-        function limpiarCarrito() {
-            localStorage.removeItem('carrito');
-            location.reload(); // Recargar la página para reflejar los cambios
+
+        // Mostrar el botón "Vaciar Carrito" si hay productos en el carrito
+        if (carrito.length > 0) {
+          vaciarCarritoBtn.style.display = "block";
+          mensajeCarritoVacio.style.display = "none"; // Ocultar el mensaje de carrito vacío
+        } else {
+          mensajeCarritoVacio.style.display = "block"; // Mostrar el mensaje de carrito vacío si está vacío
         }
-      
-        function irATienda() {
-            window.location.href = "index.html";
+      });
+
+      function limpiarCarrito() {
+        localStorage.removeItem("carrito");
+        location.reload(); // Recargar la página para reflejar los cambios
+      }
+
+      function irATienda() {
+        window.location.href = "index.html";
+      }
+
+      function eliminarProducto(nombreProducto, boton) {
+        let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
+        carrito = carrito.filter(
+          (producto) => producto.nombre !== nombreProducto
+        );
+        localStorage.setItem("carrito", JSON.stringify(carrito));
+        boton.closest(".producto-carrito").remove(); // Elimina solo el producto específico del DOM
+
+        // Actualizar el mensaje de carrito vacío si el carrito está vacío después de eliminar un producto
+        const mensajeCarritoVacio = document.querySelector(
+          ".mensaje-carrito-vacio"
+        );
+        if (carrito.length === 0) {
+          mensajeCarritoVacio.style.display = "block";
+        } else {
+          mensajeCarritoVacio.style.display = "none"; // Ocultar el mensaje de carrito vacío si hay productos en el carrito
         }
-      
-        function eliminarProducto(nombreProducto, boton) {
-            let carrito = JSON.parse(localStorage.getItem('carrito')) || [];
-            carrito = carrito.filter(producto => producto.nombre !== nombreProducto);
-            localStorage.setItem('carrito', JSON.stringify(carrito));
-            boton.closest('.producto-carrito').remove(); // Elimina solo el producto específico del DOM
-      
-            // Actualizar el mensaje de carrito vacío si el carrito está vacío después de eliminar un producto
-            const mensajeCarritoVacio = document.querySelector('.mensaje-carrito-vacio');
-            if (carrito.length === 0) {
-                mensajeCarritoVacio.style.display = 'block';
-            }
-        }
-      </script>
+      }
+    </script>
   </body>
 </html>
