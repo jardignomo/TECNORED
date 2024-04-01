@@ -1,100 +1,122 @@
 <!DOCTYPE html>
 <html>
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Carrito de compra</title>
-    <link rel="stylesheet" type="text/css" href="css/carrito.css">
-     <link href="https://fonts.googleapis.com/css?family=Just+Another+Hand" rel="stylesheet">
-    
-</head>    
-    
-<body>
+    <link rel="stylesheet" type="text/css" href="css/carrito.css" />
+    <link
+      href="https://fonts.googleapis.com/css?family=Just+Another+Hand"
+      rel="stylesheet"
+    />
+  </head>
+
+  <body>
     <header>
-        <div class="left-images">
-            <!-- Aquí coloca tus imágenes de la izquierda -->
-            <img src="img/index/Logo.png" alt="Logo">
-            <img src="img/index/nombre empresa.png" alt="Nombre de la empresa">
-        </div>
-        <div class="right-image">
-            <!-- Aquí coloca la imagen del carrito de compras -->
-               
-            <a href="carrito.html"> <img src="img/carrito.png" alt="Carrito de compras"></a>
-        </div>
+      <div class="left-images">
+        <!-- Aquí coloca tus imágenes de la izquierda -->
+        <img src="img/index/Logo.png" alt="Logo" />
+        <img src="img/index/nombre empresa.png" alt="Nombre de la empresa" />
+      </div>
+      <div class="right-image">
+        <!-- Aquí coloca la imagen del carrito de compras -->
+
+        <a href="carrito.html">
+          <img src="img/carrito.png" alt="Carrito de compras"
+        /></a>
+      </div>
     </header>
-   
-     <ul class="navbar"> <!--<ul> es una lista que contendrá elementos <li> -->
-            <li><a href="index.html">INICIO</a></li> <!-- Cada elemento de la lista es un botón de navegación -->
-            <li><a href="TECLADOS.html">TECLADOS</a></li>
-            <li><a href="MOUSES.html">MOUSES</a></li>
-            <li><a href="AURICULARES/CASCOS.html">AURICULARES/CASCOS</a></li>
-            <li><a href="TORRES.html">TORRES</a></li>
-            <li><a href="COMPONENTES PC.html">COMPONENTES PC</a></li>
-            <li><a href="PORTATILES.html">PORTATILES</a></li>
-        </ul>
 
-<div class="contenedor-carrito">
-    <p>Carrito</p>
-    <div>
-      <button>Oh! Tu carrito está vacío</button>
-    </div>
-    <div class="carrito-productos"></div>
-    <button onclick="limpiarCarrito()" id="vaciarCarrito" style="display: none;"></button>
-    <button onclick="irATienda()">Volver a la tienda</button>
-</div>
-
-      
-<footer class="footer">
-  <nav>
-    <ul>
-      <li><a href="Terminos y Condiciones.html">Términos y condiciones</a></li>
-      <li><a href="Política de privacidad.html">Política de privacidad</a></li>
-      <li><a href="Política de envíos.html">Política de envíos</a></li>
+    <ul class="navbar">
+      <!--<ul> es una lista que contendrá elementos <li> -->
+      <li><a href="index.html">INICIO</a></li>
+      <!-- Cada elemento de la lista es un botón de navegación -->
+      <li><a href="TECLADOS.html">TECLADOS</a></li>
+      <li><a href="MOUSES.html">MOUSES</a></li>
+      <li><a href="AURICULARES/CASCOS.html">AURICULARES/CASCOS</a></li>
+      <li><a href="TORRES.html">TORRES</a></li>
+      <li><a href="COMPONENTES PC.html">COMPONENTES PC</a></li>
+      <li><a href="PORTATILES.html">PORTATILES</a></li>
     </ul>
-  </nav>
-</footer>
 
+    <div class="contenedor-carrito">
+      <p>Carrito</p>
+      <div class="mensaje-carrito-vacio">
+        <button>Oh! Tu carrito está vacío</button>
+      </div>
+      <div class="carrito-productos"></div>
+      <button
+        onclick="limpiarCarrito()"
+        id="vaciarCarrito"
+        style="display: none"
+      >
+        Vaciar Carrito
+      </button>
+      <button onclick="irATienda()">Volver a la tienda</button>
+    </div>
 
-<script>
-  document.addEventListener('DOMContentLoaded', function() {
-      const carrito = JSON.parse(localStorage.getItem('carrito')) || [];
-      const contenedorProductos = document.querySelector('.carrito-productos');
-      const vaciarCarritoBtn = document.getElementById('vaciarCarrito');
+    <footer class="footer">
+      <nav>
+        <ul>
+          <li>
+            <a href="Terminos y Condiciones.html">Términos y condiciones</a>
+          </li>
+          <li>
+            <a href="Política de privacidad.html">Política de privacidad</a>
+          </li>
+          <li><a href="Política de envíos.html">Política de envíos</a></li>
+        </ul>
+      </nav>
+    </footer>
 
-      // Mostrar productos en el carrito
-      carrito.forEach((producto, index) => {
-    const productoDiv = document.createElement('div');
-    productoDiv.classList.add('producto-carrito');
-    productoDiv.innerHTML = `
-        <img src="css/index/ASUS.PNG" alt="${producto.nombre}">
-        <p>${producto.nombre} - $${producto.precio}</p>
-        <button onclick="eliminarProducto('${producto.nombre}', this)">Eliminar</button>
-    `;
-    contenedorProductos.appendChild(productoDiv);
-});
-      // Mostrar el botón "Vaciar Carrito" si hay productos en el carrito
-      if (carrito.length > 0) {
-          vaciarCarritoBtn.style.display = 'block';
-      }
-  });
-
-  function limpiarCarrito() {
-      localStorage.removeItem('carrito');
-      location.reload(); // Recargar la página para reflejar los cambios
-  }
-
-  function irATienda() {
-      window.location.href = "index.html";
-  }
-
-  function eliminarProducto(nombreProducto, boton) {
-    let carrito = JSON.parse(localStorage.getItem('carrito')) || [];
-    carrito = carrito.filter(producto => producto.nombre !== nombreProducto);
-    localStorage.setItem('carrito', JSON.stringify(carrito));
-    boton.closest('.producto-carrito').remove(); // Elimina solo el producto específico del DOM
-}
-</script>
-
-
-</body>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const carrito = JSON.parse(localStorage.getItem('carrito')) || [];
+            const contenedorProductos = document.querySelector('.carrito-productos');
+            const vaciarCarritoBtn = document.getElementById('vaciarCarrito');
+            const mensajeCarritoVacio = document.querySelector('.mensaje-carrito-vacio');
+      
+            // Mostrar productos en el carrito
+            carrito.forEach((producto, index) => {
+                const productoDiv = document.createElement('div');
+                productoDiv.classList.add('producto-carrito');
+                productoDiv.innerHTML = `
+                    <img src="css/index/ASUS.PNG" alt="${producto.nombre}">
+                    <p>${producto.nombre} - $${producto.precio}</p>
+                    <button onclick="eliminarProducto('${producto.nombre}', this)">Eliminar</button>
+                `;
+                contenedorProductos.appendChild(productoDiv);
+            });
+      
+            // Mostrar el botón "Vaciar Carrito" si hay productos en el carrito
+            if (carrito.length > 0) {
+                vaciarCarritoBtn.style.display = 'block';
+            } else {
+                mensajeCarritoVacio.style.display = 'block'; // Mostrar el mensaje de carrito vacío
+            }
+        });
+      
+        function limpiarCarrito() {
+            localStorage.removeItem('carrito');
+            location.reload(); // Recargar la página para reflejar los cambios
+        }
+      
+        function irATienda() {
+            window.location.href = "index.html";
+        }
+      
+        function eliminarProducto(nombreProducto, boton) {
+            let carrito = JSON.parse(localStorage.getItem('carrito')) || [];
+            carrito = carrito.filter(producto => producto.nombre !== nombreProducto);
+            localStorage.setItem('carrito', JSON.stringify(carrito));
+            boton.closest('.producto-carrito').remove(); // Elimina solo el producto específico del DOM
+      
+            // Actualizar el mensaje de carrito vacío si el carrito está vacío después de eliminar un producto
+            const mensajeCarritoVacio = document.querySelector('.mensaje-carrito-vacio');
+            if (carrito.length === 0) {
+                mensajeCarritoVacio.style.display = 'block';
+            }
+        }
+      </script>
+  </body>
 </html>
