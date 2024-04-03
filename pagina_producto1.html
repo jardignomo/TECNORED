@@ -3,56 +3,194 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://fonts.googleapis.com/css?family=Just+Another+Hand"
+      rel="stylesheet"
+    />
     <title>Producto</title>
     <style>
-      /* Estilos CSS para la disposición de los elementos */
-      .product-container {
+      body {
+        background-color: #d3d3d3;
+        margin: 0;
+        padding: 0;
+        font-family: "Just Another Hand", cursive;
+      }
+
+      header {
+        background-color: #e43636;
+        color: white;
+        padding: 10px;
+        text-align: center;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      .logo,
+      .cart {
+        width: 100px;
+        height: 100px;
+      }
+
+      .search-container {
         display: flex;
         align-items: center;
+        justify-content: center;
+        background-color: #f5f5f5;
+        border-radius: 25px;
+        padding: 10px 20px;
+        max-width: 400px;
+        margin: 0 auto 20px auto;
+      }
+
+      .search-input {
+        flex: 1;
+        border: none;
+        border-radius: 25px;
+        padding: 10px;
+        font-size: 16px;
+        outline: none;
+      }
+
+      .search-button {
+        background-color: #ff0000;
+        color: #ffffff;
+        border: none;
+        border-radius: 25px;
+        padding: 10px 20px;
+        cursor: pointer;
+        transition: background-color 0.3s;
+      }
+
+      .search-button:hover {
+        background-color: #cc0000;
+      }
+
+      .navbar {
+        list-style-type: none;
+        margin: 0;
+        padding: 10px;
+        font-size: 15px;
+        font-family: "Just Another Hand";
+        background-color: whitesmoke;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .navbar ul {
+        margin: 0;
+        padding: 0;
+        display: flex;
+      }
+
+      .navbar li {
+        display: inline;
+      }
+
+      .navbar li a {
+        text-decoration: none;
+        color: #000;
+        font-weight: bold;
+        transition: 0.7s;
+        padding: 10px;
+      }
+
+      .navbar li a:hover {
+        color: white;
+        background-color: red;
+      }
+
+      .product-container {
+        display: flex;
         padding: 20px;
         border: 1px solid #ddd;
+        max-width: 800px;
+        margin: 0 auto;
       }
+
       .product-image {
-        max-width: 200px;
-        margin-right: 20px;
+        width: 100%;
+        margin-right: 100px;
       }
-      .product-details {
-        flex-grow: 1;
+
+      .product-image img {
+        width: 100%;
+        border-radius: 15px;
+        border: 1px solid #ccc;
       }
-      .empty-cart-message {
-        color: red;
+
+      .product-info {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
       }
-      /* Estilos para el botón */
-      button {
+
+      .product-info h2 {
+        font-size: 1.5rem;
+        margin-bottom: 10px;
+      }
+
+      .product-info p {
+        font-size: 1rem;
+        margin-bottom: 3px;
+      }
+
+      .product-info input[type="number"] {
+        width: 50px;
+        margin-bottom: 10px;
+      }
+
+      .product-info button {
         background-color: #007bff;
         color: #fff;
         border: none;
         padding: 10px 20px;
         cursor: pointer;
+        transition: background-color 0.3s;
+        margin-top: 10px;
+        border-radius: 5px;
       }
-      button:hover {
+
+      .product-info button:hover {
         background-color: #0056b3;
       }
-      /* Estilos para el carrito */
-      #lista-carrito {
-        list-style-type: none;
-        padding: 0;
+
+      .footer {
+        background-color: #e43636;
+        color: white;
+        text-align: left;
+        padding: 10px;
+        width: 100%;
+        margin-top: 20px;
+        position: fixed;
+        bottom: 0;
+        left: 0;
+      }
+
+      .footer a {
+        color: white;
+        margin-bottom: 10px;
+        display: block;
+        font-size: 16px;
+        margin-right: 20px;
       }
     </style>
   </head>
   <body>
     <header>
       <div class="left-images">
-        <!-- Aquí coloca tus imágenes de la izquierda -->
-        <img src="img/index/Logo.png" alt="Logo" />
-        <img src="img/index/nombre empresa.png" alt="Nombre de la empresa" />
+        <img src="img/index/Logo.png" alt="Logo" class="logo" />
+        <img
+          src="img/index/nombre empresa.png"
+          alt="Nombre de la empresa"
+          class="logo"
+        />
       </div>
       <div class="right-image">
-        <!-- Aquí coloca la imagen del carrito de compras -->
-
         <a href="Carrito.html">
-          <img src="img/carrito.png" alt="Carrito de compras"
-        /></a>
+          <img src="img/carrito.png" alt="Carrito de compras" class="cart" />
+        </a>
       </div>
     </header>
 
@@ -66,18 +204,16 @@
       <button class="search-button" onclick="buscarProducto()">Buscar</button>
     </div>
 
-    <div id="resultados-busqueda">
-      <!-- Aquí se mostrarán los resultados de la búsqueda -->
-    </div>
+    <div id="resultados-busqueda"></div>
 
-    <div class="navbar">
+    <nav class="navbar">
       <ul>
         <li><a href="index.html">INICIO</a></li>
         <li><a href="TECLADOS.html">TECLADOS</a></li>
         <li><a href="MOUSES.html">MOUSES</a></li>
         <li><a href="AURICULARES-CASCOS.html">AURICULARES/CASCOS</a></li>
         <li><a href="TORRES.html">TORRES</a></li>
-        <li><a href="COMPONENTES PC.html">COMPONENTES PC</a></li>
+        <li><a href="COMPONENTES_PC.html">COMPONENTES PC</a></li>
         <li><a href="PORTATILES.html">PORTATILES</a></li>
       </ul>
       <div class="toggle-btn" onclick="toggleMenu()">
@@ -85,85 +221,93 @@
         <div class="bar"></div>
         <div class="bar"></div>
       </div>
-    </div>
-    <div class="product-container">
-      <img src="img/index/ASUS.png" alt="Producto" class="product-image" />
-      <div class="product-details">
-        <h2>portatil asus 345</h2>
-        <p>Precio: $100.00</p>
-        <button onclick="agregarAlCarrito()">Agregar al Carrito</button>
+    </nav>
 
-        <!-- Enlace para redirigir al carrito -->
-        <a href="Carrito.html" onclick="mostrarCarrito()">Ver Carrito</a>
+    <div class="product-container">
+      <div class="product-image">
+        <img
+          src="img/index/ASUS.png"
+          alt="Portátil ASUS 345"
+          class="product-img"
+        />
+      </div>
+      <div class="product-info">
+        <h2>Portátil ASUS 345</h2>
+        <p>Precio: <strong id="precioProducto">$100.00</strong></p>
+        <label for="cantidadProducto">Cantidad:</label>
+        <input
+          type="number"
+          id="cantidadProducto"
+          min="1"
+          max="5"
+          value="1"
+          onchange="actualizarPrecioTotal()"
+        />
+
+        <button
+          id="btnAgregarCarrito"
+          onclick="agregarAlCarrito('Portátil ASUS 345', 100, 'img/ASUS.png')"
+        >
+          Agregar al Carrito - Total: $100.00
+        </button>
+        <p>
+          Este portátil ASUS 345 es una excelente opción para aquellos que
+          buscan potencia y portabilidad. Con un procesador rápido y una
+          pantalla de alta resolución, es perfecto para trabajar o jugar sobre
+          la marcha.
+        </p>
       </div>
     </div>
 
-    <!-- Lista para mostrar los productos en el carrito -->
-    <ul id="lista-carrito"></ul>
-
     <footer class="footer">
-      <nav>
-        <ul>
-          <li>
-            <a href="Terminos y Condiciones.html">Términos y condiciones</a>
-          </li>
-          <li>
-            <a href="Política de privacidad.html">Política de privacidad</a>
-          </li>
-          <li><a href="Política de envíos.html">Política de envíos</a></li>
-        </ul>
-      </nav>
+      <a href="Terminos y Condiciones.html">Términos y condiciones</a>
+      <a href="Politica de privacidad.html">Política de privacidad</a>
+      <a href="Politica de envios.html">Política de envíos</a>
     </footer>
 
     <script>
-      // Función para agregar un producto al carrito
-      function agregarAlCarrito(nombre, precio) {
-        // Crear un objeto de producto con el nombre y precio proporcionados
-        const producto = {
-          nombre: nombre,
-          precio: precio,
-        };
+      function agregarAlCarrito(nombre, precio, imagen) {
+        const cantidad = parseInt(
+          document.getElementById("cantidadProducto").value
+        );
+        const precioUnitario = parseFloat(precio);
+        const precioTotal = cantidad * precioUnitario;
 
-        // Obtener el carrito de localStorage o inicializarlo si está vacío
         let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
+        let productoExistente = carrito.find(
+          (producto) => producto.nombre === nombre
+        );
 
-        // Verificar si el producto ya está en el carrito
-        const indiceProducto = carrito.findIndex((p) => p.nombre === nombre);
-        if (indiceProducto === -1) {
-          // Si el producto no está en el carrito, agregarlo
-          carrito.push(producto);
+        if (productoExistente) {
+          // Si el producto ya está en el carrito, actualiza la cantidad y el precio total
+          productoExistente.cantidad += cantidad;
+          productoExistente.precio += precioTotal;
         } else {
-          // Si el producto ya está, opcionalmente puedes incrementar la cantidad o actualizar el precio
-          // carrito[indiceProducto].cantidad++;
+          // Si el producto no está en el carrito, agrega un nuevo elemento al carrito
+          const producto = { nombre, precio: precioTotal, imagen, cantidad };
+          carrito.push(producto);
         }
 
-        // Guardar el carrito actualizado en localStorage
         localStorage.setItem("carrito", JSON.stringify(carrito));
+        alert("¡Producto agregado al carrito!");
 
-        // Opcional: Mostrar una confirmación al usuario
-        alert("Producto agregado al carrito");
+        // Actualizar el precio total y el texto del botón "Agregar al Carrito"
+        actualizarPrecioTotal();
       }
 
-      // Función para mostrar los productos del carrito
-      function mostrarCarrito() {
-        // Obtener los productos del carrito de localStorage
-        const carrito = JSON.parse(localStorage.getItem("carrito")) || [];
+      function actualizarPrecioTotal() {
+        const cantidad = parseInt(
+          document.getElementById("cantidadProducto").value
+        );
+        const precioUnitario = parseFloat(
+          document.getElementById("precioProducto").innerText.replace("$", "")
+        );
+        const precioTotal = cantidad * precioUnitario;
 
-        // Obtener el elemento donde se mostrará el carrito
-        const listaCarrito = document.getElementById("lista-carrito");
-        listaCarrito.innerHTML = ""; // Limpiar el contenido previo
-
-        // Mostrar cada producto en el carrito
-        carrito.forEach((producto) => {
-          const itemCarrito = document.createElement("li");
-          itemCarrito.textContent = `${producto.nombre} - $${producto.precio}`;
-          listaCarrito.appendChild(itemCarrito);
-        });
+        document.getElementById(
+          "btnAgregarCarrito"
+        ).innerText = `Agregar al Carrito - Total: $${precioTotal.toFixed(2)}`;
       }
-
-      // Ejemplo de uso:
-      // agregarAlCarrito('Laptop ASUS', 999);
-      // mostrarCarrito();
     </script>
   </body>
 </html>
