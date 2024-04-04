@@ -27,17 +27,22 @@
       </div>
     </header>
 
-    <ul class="navbar">
-      <!--<ul> es una lista que contendrá elementos <li> -->
-      <li><a href="index.html">INICIO</a></li>
-      <!-- Cada elemento de la lista es un botón de navegación -->
-      <li><a href="TECLADOS.html">TECLADOS</a></li>
-      <li><a href="MOUSES.html">MOUSES</a></li>
-      <li><a href="AURICULARES/CASCOS.html">AURICULARES/CASCOS</a></li>
-      <li><a href="TORRES.html">TORRES</a></li>
-      <li><a href="COMPONENTES PC.html">COMPONENTES PC</a></li>
-      <li><a href="PORTATILES.html">PORTATILES</a></li>
-    </ul>
+    <div class="navbar">
+      <div class="toggle-btn" onclick="toggleMenu()">
+        <div class="bar"></div>
+        <div class="bar"></div>
+        <div class="bar"></div>
+      </div>
+      <ul>
+        <li><a href="index.html">INICIO</a></li>
+        <li><a href="TECLADOS.html">TECLADOS</a></li>
+        <li><a href="MOUSES.html">MOUSES</a></li>
+        <li><a href="AURICULARES-CASCOS.html">AURICULARES/CASCOS</a></li>
+        <li><a href="TORRES.html">TORRES</a></li>
+        <li><a href="COMPONENTES PC.html">COMPONENTES PC</a></li>
+        <li><a href="PORTATILES.html">PORTATILES</a></li>
+      </ul>
+    </div>
 
     <div class="contenedor-carrito">
       <p>Carrito</p>
@@ -56,17 +61,9 @@
     </div>
 
     <footer class="footer">
-      <nav>
-        <ul>
-          <li>
-            <a href="Terminos y Condiciones.html">Términos y condiciones</a>
-          </li>
-          <li>
-            <a href="Política de privacidad.html">Política de privacidad</a>
-          </li>
-          <li><a href="Política de envíos.html">Política de envíos</a></li>
-        </ul>
-      </nav>
+      <a href="Terminos y Condiciones.html">Términos y condiciones</a>
+      <a href="Politica de privacidad.html">Política de privacidad</a>
+      <a href="Política de envíos.html">Política de envíos</a>
     </footer>
 
     <script>
@@ -128,5 +125,11 @@
         }
       }
     </script>
+      <script>
+        function toggleMenu() {
+          var ul = document.querySelector(".navbar ul");
+          ul.style.display = ul.style.display === "none" ? "block" : "none";
+        }
+      </script>
   </body>
 </html>

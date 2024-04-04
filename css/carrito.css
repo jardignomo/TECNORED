@@ -1,55 +1,69 @@
 /* Estilos generales */
 body {
-  background-color: whitesmoke; /* Establece el color de fondo de la página */
+  background-color: #d3d3d3;
+  margin: 0;
+  padding: 0;
 }
 
 /* Estilos para el encabezado */
 header {
-  background-color: #e43636; /* Establece el color de fondo del encabezado */
-  color: white; /* Establece el color del texto del encabezado */
-  padding: 10px; /* Añade espacio interno alrededor del encabezado */
-  text-align: center; /* Alinea el texto al centro */
-  display: flex; /* Usa el modelo de caja flexible para el diseño */
-  justify-content: space-between; /* Distribuye los elementos equitativamente en el espacio disponible */
+  background-color: #e43636;
+  color: white;
+  padding: 10px;
+  text-align: center;
+  display: flex;
+  justify-content: space-between;
 }
+
 /* Estilos para las imágenes en el lado izquierdo del encabezado */
-.left-images img {
-  width: 100px; /* Establece el ancho de las imágenes */
-  height: 100px; /* Establece la altura de las imágenes */
-}
-/* Estilos para la imagen del carrito de compras en el lado derecho del encabezado */
+.left-images img,
 .right-image img {
-  margin-left: auto; /* Mueve la imagen hacia la derecha */
-  width: 100px; /* Establece el ancho de la imagen */
-  height: 100px; /* Establece la altura de la imagen */
+  width: 100px;
+  height: 100px;
 }
+
+.right-image img {
+  margin-left: auto;
+}
+
+
 /* Estilos para la barra de navegación */
 .navbar {
-  list-style-type: none; /* Quita los puntos de la lista */
-  display: flex; /* Usa el modelo de caja flexible para el diseño */
-  gap: 30px; /* Establece el espacio entre los elementos de la lista */
-  margin-left: 0; /* Establece el margen izquierdo de la barra de navegación */
-  font-size: 15px; /* Establece el tamaño de fuente de la barra de navegación */
-  font-family: "Just Another Hand"; /* Establece la familia de fuentes de la barra de navegación */
-  background-color: whitesmoke; /* Establece el color de fondo de la barra de navegación */
-  padding: 10px; /* Añade espacio interno alrededor de la barra de navegación */
-  justify-content: center; /* Alinea los elementos horizontalmente en el centro */
+  list-style-type: none;
+  margin: 0;
+  padding: 10px;
+  font-size: 15px;
+  font-family: "Just Another Hand";
+  background-color: whitesmoke;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
+
 /* Estilos para los elementos de la lista de navegación */
-.navbar li {
-  display: inline; /* Muestra los elementos de la lista en línea (horizontalmente) */
+.navbar ul {
+  margin: 0;
+  padding: 0;
+  display: flex;
 }
+
+.navbar li {
+  display: inline;
+}
+
 /* Estilos para los enlaces dentro de los elementos de la lista de navegación */
 .navbar li a {
-  text-decoration: none; /* Quita el subrayado de los enlaces */
-  color: #000; /* Establece el color del texto de los enlaces */
-  font-weight: bold; /* Establece el grosor de fuente de los enlaces */
-  transition: 0.7s; /* Establece la duración de la transición al pasar el cursor sobre los enlaces */
+  text-decoration: none;
+  color: #000;
+  font-weight: bold;
+  transition: 0.7s;
+  padding: 10px;
 }
+
 /* Efecto de cambio de color al pasar el cursor sobre los enlaces de la barra de navegación */
 .navbar li a:hover {
-  color: white; /* Cambia el color del texto al pasar el cursor sobre los enlaces */
-  background-color: red; /* Cambia el color de fondo al pasar el cursor sobre los enlaces */
+  color: white;
+  background-color: red;
 }
 
 .contenedor-carrito {
@@ -62,7 +76,7 @@ header {
   font-family: "Just Another Hand", cursive;
   font-size: 24px; /* Ajusta al tamaño deseado */
   color: #000000; /* Ajusta al color deseado */
-  margin-left: 20px; /* Añade un margen izquierdo si es necesario */
+  margin-left: 48px; /* Añade un margen izquierdo si es necesario */
 }
 
 .contenedor-carrito button {
@@ -85,12 +99,7 @@ header {
   height: 256px;
 }
 
-/*footer*/
-body,
-html {
-  margin: 0;
-  padding: 0;
-}
+
 
 .footer {
   background-color: #e43636;
@@ -102,11 +111,68 @@ html {
   width: 100%;
 }
 
-
 .footer a {
   color: white;
   margin-bottom: 10px; /* Agrega un espacio vertical entre los enlaces */
   display: block; /* Hace que cada enlace ocupe toda la anchura disponible */
   font-family: "Just Another Hand"; /* Establece la familia de fuentes de la barra de navegación */
-  font-size: 20px; /* Establece el tamaño de fuente de la barra de navegación */
+  font-size: 28px; /* Establece el tamaño de fuente de la barra de navegación */
+}
+
+@media screen and (max-width: 768px) {
+  header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  
+  .navbar ul {
+    display: none; /* Oculta la lista de navegación */
+  }
+
+  .toggle-btn {
+    display: block; /* Muestra el botón de alternar */
+    cursor: pointer;
+    padding: 10px;
+    justify-content: center;
+    position: relative;
+    z-index: 2;
+  }
+
+  .toggle-btn .bar {
+    display: block;
+    width: 25px;
+    height: 3px;
+    background-color: #000;
+    margin: 5px 0;
+  }
+
+  .navbar ul.active {
+    display: flex; /* Muestra la lista de navegación cuando está activa */
+  }
+  .contenedor-carrito {
+    align-items: flex-start; /* Alinea el contenido al lado izquierdo en dispositivos móviles */
+    text-align: left; /* Alinea el texto a la izquierda */
+  }
+
+  .contenedor-carrito p {
+    margin-left: 1px; /* Elimina el margen izquierdo */
+    font-size: 18px; /* Reduzca el tamaño de fuente para adaptarse a dispositivos móviles */
+  }
+
+  .contenedor-carrito button {
+    margin: 10px 0; /* Alinea el botón con el texto */
+    font-size: 18px; /* Reduzca el tamaño de fuente para adaptarse a dispositivos móviles */
+  }
+
+  .producto-carrito img {
+    width: 200px; /* Reduzca el tamaño de la imagen para adaptarse a dispositivos móviles */
+    height: 200px;
+  }
+  .footer {
+    position: fixed;
+    bottom: 0;
+  }
 }
