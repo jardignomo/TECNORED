@@ -41,8 +41,12 @@
     <div id="resultados-busqueda">
       <!-- Aquí se mostrarán los resultados de la búsqueda -->
     </div>
-
     <div class="navbar">
+      <div class="toggle-btn" onclick="toggleMenu()">
+        <div class="bar"></div>
+        <div class="bar"></div>
+        <div class="bar"></div>
+      </div>
       <ul>
         <li><a href="index.html">INICIO</a></li>
         <li><a href="TECLADOS.html">TECLADOS</a></li>
@@ -52,11 +56,6 @@
         <li><a href="COMPONENTES PC.html">COMPONENTES PC</a></li>
         <li><a href="PORTATILES.html">PORTATILES</a></li>
       </ul>
-      <div class="toggle-btn" onclick="toggleMenu()">
-        <div class="bar"></div>
-        <div class="bar"></div>
-        <div class="bar"></div>
-      </div>
     </div>
 
     <div class="container">
@@ -232,7 +231,57 @@
         </ul>
       </nav>
     </footer>
-
+    
+    <script>
+      function toggleMenu() {
+        var ul = document.querySelector(".navbar ul");
+        ul.classList.toggle("active");
+      }
+    </script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+      $(document).ready(function () {
+        // Slider
+        var slideIndex = 0;
+        var slides = $(".slider img");
+        var totalSlides = slides.length;
+    
+        function showSlide(index) {
+          slides.css("transform", "translateX(-" + index * 100 + "%)");
+        }
+    
+        $(".left, .right").click(function () {
+          var increment = $(this).hasClass("left") ? -1 : 1;
+          slideIndex = (slideIndex + increment + totalSlides) % totalSlides;
+          showSlide(slideIndex);
+        });
+    
+        // Productos más vendidos
+        setInterval(function () {
+          $(".product-carousel").append($(".product-carousel").children().first().detach());
+        }, 10000); // Cambia cada 10 segundos (10000 milisegundos)
+    
+        // Distribuidores oficiales
+        var scrollAmount = 5; // Cantidad de desplazamiento (en pixels)
+        var currentScroll = 0; // Posición de desplazamiento actual
+    
+        function scrollRight() {
+          currentScroll += scrollAmount;
+          var carouselWidth = $(".logos-carousel").prop("scrollWidth");
+          if (currentScroll >= carouselWidth) {
+            currentScroll = 0;
+          }
+          $(".logos-carousel").css("transform", "translateX(-" + currentScroll + "px)");
+        }
+    
+        function startScroll() {
+          setInterval(scrollRight, 1000);
+        }
+    
+        startScroll(); // Iniciar el carrusel automático al cargar la página
+      });
+    </script>
+    
     <script>
       // Datos de ejemplo de productos
       var productos = [
@@ -241,106 +290,36 @@
         { nombre: "Producto 3", descripcion: "Descripción del Producto 3" },
         // Agrega más productos según sea necesario
       ];
-
+    
       // Función para buscar productos
       function buscarProducto() {
-        var query = document.getElementById("search-input").value.toLowerCase();
+        var query = $("#search-input").val().toLowerCase();
         var resultados = productos.filter(function (producto) {
-          return (
-            producto.nombre.toLowerCase().includes(query) ||
-            producto.descripcion.toLowerCase().includes(query)
-          );
+          return producto.nombre.toLowerCase().includes(query) ||
+            producto.descripcion.toLowerCase().includes(query);
         });
         mostrarResultados(resultados);
       }
-
+    
       // Función para mostrar resultados de búsqueda
       function mostrarResultados(resultados) {
-        var resultadosContainer = document.getElementById(
-          "resultados-busqueda"
-        );
-        resultadosContainer.innerHTML = "";
+        var resultadosContainer = $("#resultados-busqueda");
+        resultadosContainer.empty();
         if (resultados.length === 0) {
-          resultadosContainer.innerHTML = "<p>No se encontraron resultados</p>";
+          resultadosContainer.html("<p>No se encontraron resultados</p>");
         } else {
           resultados.forEach(function (producto) {
             var productoHTML = `
-                        <div class="producto">
-                            <h3>${producto.nombre}</h3>
-                            <p>${producto.descripcion}</p>
-                        </div>
-                    `;
-            resultadosContainer.innerHTML += productoHTML;
+              <div class="producto">
+                <h3>${producto.nombre}</h3>
+                <p>${producto.descripcion}</p>
+              </div>`;
+            resultadosContainer.append(productoHTML);
           });
         }
       }
     </script>
+    
 
-    <script>
-      function toggleMenu() {
-        var ul = document.querySelector(".navbar ul");
-        ul.style.display = ul.style.display === "none" ? "block" : "none";
-      }
-    </script>
-
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script>
-      $(document).ready(function () {
-        var slideIndex = 0;
-        var slides = $(".slider img");
-        var totalSlides = slides.length;
-
-        function showSlide(index) {
-          slides.css("transform", "translateX(-" + index * 100 + "%)");
-        }
-
-        $(".left").click(function () {
-          slideIndex = slideIndex === 0 ? totalSlides - 1 : slideIndex - 1;
-          showSlide(slideIndex);
-        });
-
-        $(".right").click(function () {
-          slideIndex = slideIndex === totalSlides - 1 ? 0 : slideIndex + 1;
-          showSlide(slideIndex);
-        });
-      });
-    </script>
-
-    <script>
-      //LO MAS VENDIDOS
-      // Función para mover el carrusel automáticamente cada 10 segundos
-      setInterval(function () {
-        var carousel = document.querySelector(".product-carousel");
-        var firstProduct = carousel.children[0];
-        carousel.appendChild(firstProduct); // Mueve el primer producto al final del carrusel
-      }, 10000); // Cambia cada 10 segundos (10000 milisegundos)
-    </script>
-
-    <script>
-      //DISTRIBUIDORES OFICIALES
-      // Variables para el carrusel automático
-      var slideInterval; // Variable para almacenar el intervalo del carrusel automático
-      var scrollAmount = 5; // Cantidad de desplazamiento (en pixels)
-      var carouselWidth = document.querySelector(".logos-carousel").scrollWidth; // Ancho total del carrusel
-      var currentScroll = 0; // Posición de desplazamiento actual
-
-      // Iniciar el carrusel automático al cargar la página
-      startScroll();
-
-      // Función para iniciar el carrusel automático (nunca se detendrá)
-      function startScroll() {
-        slideInterval = setInterval(scrollRight, 1000); // Desplaza hacia la derecha cada 1 segundos
-      }
-
-      // Función para desplazar el carrusel hacia la derecha
-      function scrollRight() {
-        currentScroll += scrollAmount; // Aumenta la posición de desplazamiento
-        if (currentScroll >= carouselWidth) {
-          currentScroll = 0; // Vuelve al principio cuando alcanza el final del carrusel
-        }
-        document.querySelector(".logos-carousel").style.transform =
-          "translateX(-" + currentScroll + "px)"; // Aplica el desplazamiento
-      }
-    </script>
   </body>
 </html>

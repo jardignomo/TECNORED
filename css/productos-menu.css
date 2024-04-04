@@ -16,16 +16,14 @@ header {
 }
 
 /* Estilos para las imágenes en el lado izquierdo del encabezado */
-.left-images img {
+.left-images img,
+.right-image img {
   width: 100px;
   height: 100px;
 }
 
-/* Estilos para la imagen del carrito de compras en el lado derecho del encabezado */
 .right-image img {
   margin-left: auto;
-  width: 100px;
-  height: 100px;
 }
 
 /* Estilos para el contenedor del buscador */
@@ -85,6 +83,19 @@ header {
   text-align: center;
   font-family: "Just Another Hand";
 }
+  /* Estilos para los resultados de búsqueda */
+  #resultados-busqueda {
+    margin-top: 20px;
+  }
+  .producto {
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin-bottom: 10px;
+  }
+  .producto h3 {
+    margin-top: 0;
+  }
+
 /* Estilos para la barra de navegación */
 .navbar {
   list-style-type: none;
@@ -95,7 +106,7 @@ header {
   background-color: whitesmoke;
   display: flex;
   justify-content: center;
-  align-items: center; /* Añade esta línea para centrar verticalmente */
+  align-items: center;
 }
 
 /* Estilos para los elementos de la lista de navegación */
@@ -156,7 +167,6 @@ header {
   margin-top: 10px;
   margin-bottom: 5px;
   font-size: 20px;
-  font-family: "Just Another Hand";
 }
 
 /* Estilos para el texto de los productos en el nuevo carrusel de novedades */
@@ -164,14 +174,36 @@ header {
   margin-bottom: 10px;
   color: #666;
   font-size: 14px;
-  font-family: "Just Another Hand";
 }
 
-/* Estilos para el título del carrusel de logos */
+/* Estilos para el título del carrusel de novedades */
 .carousel-title {
-  text-align: center; /* Centramos horizontalmente */
-  font-family: "Just Another Hand"; /* Aplicamos la tipografía */
-  font-size: 30px; /* Aplicamos el tamaño de fuente */
+  text-align: center;
+  font-family: "Just Another Hand";
+  font-size: 30px;
+  margin: 0 auto; /* Agrega este estilo para centrar horizontalmente */
+}
+.pagination {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.pagination button {
+  background-color: #ff0000;
+  color: #ffffff;
+  border: none;
+  border-radius: 25px;
+  padding: 10px 20px;
+  cursor: pointer;
+  font-size: 16px;
+  font-family: "Just Another Hand";
+  transition: background-color 0.3s;
+  margin: 0 10px; /* Agrega un margen entre los botones */
+}
+
+.pagination button:hover {
+  background-color: #cc0000;
 }
 
 /* Estilos para el pie de página */
@@ -180,13 +212,10 @@ header {
   color: white;
   text-align: left;
   padding: 10px;
-  position: relative;
-  z-index: 1;
+  position: relative; /* Fija el footer */
   bottom: 0;
   width: 100%;
-  margin-top: 20px;
 }
-
 .footer a {
   color: white;
   margin-bottom: 10px;
@@ -194,6 +223,8 @@ header {
   font-family: "Just Another Hand";
   font-size: 20px;
 }
+
+
 
 @media screen and (max-width: 768px) {
   header {
@@ -219,44 +250,83 @@ header {
     font-size: 14px;
   }
 
-  /* Estilos para la barra de navegación */
-  .navbar {
-    flex-direction: column; /* Cambia la dirección de los elementos a vertical */
-    align-items: center;
-    display: flex;
-  }
-
-  /* Estilos para los elementos de la lista de navegación */
   .navbar ul {
-    display: block; /* Muestra la lista verticalmente */
-    padding: 0; /* Elimina el espacio entre los elementos de la lista */
-    text-align: center; /* Añadido para centrar los enlaces */
+    display: none;
   }
 
-  .navbar li {
-    display: block;
-    padding: 10px; /* Ajusta el espaciado según tus preferencias */
-  }
-
-  /* Estilos para el botón de alternar (toggle) */
-  .navbar .toggle-btn {
+  .toggle-btn {
     display: block;
     cursor: pointer;
     padding: 10px;
     justify-content: center;
+    position: relative;
+    z-index: 2;
   }
 
-  /* Efecto de cambio de color al pasar el cursor sobre el botón de alternar */
-  .navbar .toggle-btn:hover {
-    background-color: transparent;
-  }
-
-  /* Estilos para las barras del botón de alternar */
-  .navbar .toggle-btn .bar {
+  .toggle-btn .bar {
     display: block;
     width: 25px;
     height: 3px;
     background-color: #000;
     margin: 5px 0;
+  }
+
+  .navbar ul.active {
+    display: flex;
+  }
+  .new-arrivals-carousel {
+    grid-template-columns: repeat(
+      2,
+      1fr
+    ); /* Cambia a dos columnas en dispositivos móviles */
+    gap: 10px; /* Reduce el espacio entre los productos */
+    padding: 10px; /* Reduce el relleno del carrusel */
+  }
+
+  /* Estilos para cada producto en el nuevo carrusel de novedades en dispositivos móviles */
+  .new-arrivals-carousel .producto {
+    padding: 10px; /* Reduce el relleno de cada producto */
+    font-size: 14px; /* Reduce el tamaño del texto */
+  }
+
+  /* Estilos para las imágenes de los productos en el nuevo carrusel de novedades en dispositivos móviles */
+  .new-arrivals-carousel .producto img {
+    max-width: 100%; /* Ajusta el ancho máximo de las imágenes */
+    height: auto;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+
+  /* Estilos para el título de los productos en el nuevo carrusel de novedades en dispositivos móviles */
+  .new-arrivals-carousel .producto h3 {
+    margin-top: 5px; /* Reduce el espacio superior */
+    margin-bottom: 5px;
+    font-size: 16px; /* Ajusta el tamaño del texto */
+  }
+
+  /* Estilos para el texto de los productos en el nuevo carrusel de novedades en dispositivos móviles */
+  .new-arrivals-carousel .producto p {
+    margin-bottom: 5px; /* Reduce el espacio inferior */
+    font-size: 12px; /* Ajusta el tamaño del texto */
+  }
+  /* Estilos para el pie de página */
+  .footer {
+    background-color: #e43636;
+    color: white;
+    text-align: left;
+    padding: 10px;
+    width: 100%;
+    margin-top: 20px;
+    position: relative;
+    bottom: 0;
+    left: 0;
+  }
+
+  .footer a {
+    color: white;
+    margin-bottom: 10px;
+    display: block;
+    font-size: 16px;
+    margin-right: 20px;
   }
 }

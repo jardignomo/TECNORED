@@ -42,6 +42,11 @@
     </div>
 
     <div class="navbar">
+      <div class="toggle-btn" onclick="toggleMenu()">
+        <div class="bar"></div>
+        <div class="bar"></div>
+        <div class="bar"></div>
+      </div>
       <ul>
         <li><a href="index.html">INICIO</a></li>
         <li><a href="TECLADOS.html">TECLADOS</a></li>
@@ -51,11 +56,6 @@
         <li><a href="COMPONENTES PC.html">COMPONENTES PC</a></li>
         <li><a href="PORTATILES.html">PORTATILES</a></li>
       </ul>
-      <div class="toggle-btn" onclick="toggleMenu()">
-        <div class="bar"></div>
-        <div class="bar"></div>
-        <div class="bar"></div>
-      </div>
     </div>
 
     <div class="new-arrivals-carousel-container">
@@ -214,20 +214,11 @@
     </div>
 
     <footer class="footer">
-      <nav>
-        <ul>
-          <li>
-            <a href="Terminos y Condiciones.html">Términos y condiciones</a>
-          </li>
-          <li>
-            <a href="Política de privacidad.html">Política de privacidad</a>
-          </li>
-          <li><a href="Política de envíos.html">Política de envíos</a></li>
-        </ul>
-      </nav>
+      <a href="Terminos y Condiciones.html">Términos y condiciones</a>
+      <a href="Politica de privacidad.html">Política de privacidad</a>
+      <a href="Política de envíos.html">Política de envíos</a>
     </footer>
-
-
+    
     <script>
       // Datos de ejemplo de productos
       var productos = [
@@ -236,41 +227,44 @@
         { nombre: "Producto 3", descripcion: "Descripción del Producto 3" },
         // Agrega más productos según sea necesario
       ];
-
+  
       // Función para buscar productos
       function buscarProducto() {
-        var query = document.getElementById("search-input").value.toLowerCase();
-        var resultados = productos.filter(function (producto) {
-          return (
-            producto.nombre.toLowerCase().includes(query) ||
-            producto.descripcion.toLowerCase().includes(query)
-          );
-        });
+        var query = document.getElementById("search-input").value.trim().toLowerCase();
+        var resultados;
+        if (query === "") {
+          // Si la búsqueda está vacía, mostrar todos los productos
+          resultados = productos;
+        } else {
+          // Filtrar productos según la consulta
+          resultados = productos.filter(function(producto) {
+            var nombre = producto.nombre.toLowerCase();
+            var descripcion = producto.descripcion.toLowerCase();
+            return nombre.includes(query) || descripcion.includes(query);
+          });
+        }
         mostrarResultados(resultados);
       }
-
+  
       // Función para mostrar resultados de búsqueda
       function mostrarResultados(resultados) {
-        var resultadosContainer = document.getElementById(
-          "resultados-busqueda"
-        );
+        var resultadosContainer = document.getElementById("resultados-busqueda");
         resultadosContainer.innerHTML = "";
         if (resultados.length === 0) {
           resultadosContainer.innerHTML = "<p>No se encontraron resultados</p>";
         } else {
-          resultados.forEach(function (producto) {
+          resultados.forEach(function(producto) {
             var productoHTML = `
-                        <div class="producto">
-                            <h3>${producto.nombre}</h3>
-                            <p>${producto.descripcion}</p>
-                        </div>
-                    `;
+              <div class="producto">
+                <h3>${producto.nombre}</h3>
+                <p>${producto.descripcion}</p>
+              </div>
+            `;
             resultadosContainer.innerHTML += productoHTML;
           });
         }
       }
     </script>
-
     <script>
       function toggleMenu() {
         var ul = document.querySelector(".navbar ul");
