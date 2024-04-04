@@ -366,38 +366,55 @@ header {
     display: flex; /* Muestra la lista de navegación cuando está activa */
   }
 
-
-  .container {
-    border-radius: 0; /* Eliminar el borde redondeado en pantallas más pequeñas */
+  /* Estilos para el nuevo carrusel */
+  .product-carousel {
+    flex-wrap: wrap;
   }
 
-  .slider {
-    flex-direction: column; /* Cambiar a dirección de columna en pantallas más pequeñas */
+  .product-carousel .producto {
+    flex: 0 0 50%;
+    padding: 10px;
   }
 
-  .slider img {
-    width: 80%; /* Cambiar el ancho a automático para adaptarse a la pantalla más pequeña */
-    height: auto; /* Establecer una altura fija para las imágenes en pantallas más pequeñas */
+  /* Estilos para el nuevo carrusel de novedades */
+  .new-arrivals-carousel {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
   }
 
-  .flecha {
-    font-size: 20px; /* Reducir el tamaño de la flecha en pantallas más pequeñas */
-    padding: 8px; /* Reducir el padding de la flecha en pantallas más pequeñas */
+  .new-arrivals-carousel .producto {
+    padding: 10px;
   }
 
-  .flecha.left {
-    top: 10px; /* Ajustar la posición de la flecha izquierda en pantallas más pequeñas */
-    left: 50%; /* Centrar horizontalmente la flecha izquierda */
-    transform: translateX(
-      -50%
-    ); /* Ajustar la posición horizontal de la flecha izquierda */
-  }
+  /* Estilos para el último carrusel */
+.logos-carousel-container {
+  width: 90%;
+  margin: 20px auto;
+  overflow: hidden;
+  position: relative;
+  max-width: 1200px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 
-  .flecha.right {
-    top: 10px; /* Ajustar la posición de la flecha derecha en pantallas más pequeñas */
-    right: 50%; /* Centrar horizontalmente la flecha derecha */
-    transform: translateX(
-      50%
-    ); /* Ajustar la posición horizontal de la flecha derecha */
+/* Estilos para el carrusel de logos */
+.logos-carousel {
+  display: flex;
+  flex-wrap: wrap; /* Permite que los logos se envuelvan en múltiples líneas */
+  justify-content: center; /* Centra los logos horizontalmente */
+  gap: 20px; /* Espacio entre los logos */
+}
+
+/* Estilos para los logos en el carrusel */
+.logos-carousel img {
+  max-width: 100%; /* Ajusta el tamaño máximo de los logos */
+  height: auto;
+  border-radius: 10px; /* Agrega bordes redondeados a los logos */
+}
+
+  .footer {
+    position: fixed;
+    bottom: 0;
   }
 }
