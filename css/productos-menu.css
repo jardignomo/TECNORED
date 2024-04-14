@@ -83,18 +83,18 @@ header {
   text-align: center;
   font-family: "Just Another Hand";
 }
-  /* Estilos para los resultados de búsqueda */
-  #resultados-busqueda {
-    margin-top: 20px;
-  }
-  .producto {
-    border: 1px solid #ccc;
-    padding: 10px;
-    margin-bottom: 10px;
-  }
-  .producto h3 {
-    margin-top: 0;
-  }
+/* Estilos para los resultados de búsqueda */
+#resultados-busqueda {
+  margin-top: 20px;
+}
+.producto {
+  border: 1px solid #ccc;
+  padding: 10px;
+  margin-bottom: 10px;
+}
+.producto h3 {
+  margin-top: 0;
+}
 
 /* Estilos para la barra de navegación */
 .navbar {
@@ -224,8 +224,6 @@ header {
   font-size: 20px;
 }
 
-
-
 @media screen and (max-width: 768px) {
   header {
     display: flex;
@@ -251,7 +249,7 @@ header {
   }
 
   .navbar ul {
-    display: none;
+    display: flex;
   }
 
   .toggle-btn {
@@ -270,10 +268,14 @@ header {
     background-color: #000;
     margin: 5px 0;
   }
-
-  .navbar ul.active {
+ 
+  .navbar ul {
     display: flex;
+    flex-direction: column; /* Cambiar la dirección a columna */
+    align-items: center; /* Centrar los elementos horizontalmente */
   }
+ 
+
   .new-arrivals-carousel {
     grid-template-columns: repeat(
       2,

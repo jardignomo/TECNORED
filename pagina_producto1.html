@@ -53,6 +53,7 @@
         padding: 10px;
         font-size: 16px;
         outline: none;
+        font-family: "Just Another Hand", cursive;
       }
 
       .search-button {
@@ -63,6 +64,7 @@
         padding: 10px 20px;
         cursor: pointer;
         transition: background-color 0.3s;
+        font-family: "Just Another Hand", cursive;
       }
 
       .search-button:hover {
@@ -111,6 +113,21 @@
       @media only screen and (max-width: 768px) {
         .navbar ul {
           display: none;
+          position: absolute;
+          top: 130px;
+          left: 0;
+          width: 100%;
+          background-color: whitesmoke;
+          flex-direction: column;
+          text-align: center;
+        }
+
+        .navbar ul.active {
+          display: flex;
+        }
+
+        .navbar li {
+          display: block;
         }
 
         .toggle-btn {
@@ -121,17 +138,28 @@
           position: relative;
           z-index: 2;
         }
-
+        .toggle-btn.active {
+          left: -100px; /* Ajusta este valor según sea necesario */
+        }
         .toggle-btn .bar {
           display: block;
           width: 25px;
           height: 3px;
           background-color: #000;
           margin: 5px 0;
+          transition: all 0.3s ease;
         }
 
-        .navbar ul.active {
-          display: flex;
+        .toggle-btn.active .bar:nth-child(1) {
+          transform: translateY(6px) rotate(45deg);
+        }
+
+        .toggle-btn.active .bar:nth-child(2) {
+          opacity: 0;
+        }
+
+        .toggle-btn.active .bar:nth-child(3) {
+          transform: translateY(-6px) rotate(-45deg);
         }
       }
 
@@ -185,6 +213,7 @@
         transition: background-color 0.3s;
         margin-top: 10px;
         border-radius: 5px;
+        font-family: "Just Another Hand", cursive;
       }
 
       .product-info button:hover {
@@ -341,6 +370,8 @@
       function toggleMenu() {
         var ul = document.querySelector(".navbar ul");
         ul.classList.toggle("active");
+        var toggleBtn = document.querySelector(".toggle-btn");
+        toggleBtn.classList.toggle("active");
       }
     </script>
   </body>
