@@ -123,6 +123,7 @@ header {
   color: white;
   background-color: red;
 }
+
 /* Estilos de carrusel  para el carrusel */
 .container {
   position: relative;
@@ -300,13 +301,10 @@ header {
   color: white;
   text-align: left;
   padding: 10px;
-  position: relative;
-  z-index: 1;
-  bottom: 0;
   width: 100%;
-  margin-top: 20px;
+  position: fixed;
+  bottom: 0;
 }
-
 .footer a {
   color: white;
   margin-bottom: 10px;
@@ -339,33 +337,55 @@ header {
     font-size: 14px;
   }
 
-  /* Estilos para la barra de navegación */
-
   .navbar ul {
-    display: none; /* Oculta la lista de navegación */
+    display: none;
+    position: absolute;
+    top: 130px;
+    left: 0;
+    width: 100%;
+    background-color: whitesmoke;
+    flex-direction: column;
+    text-align: center;
   }
 
+  .navbar ul.active {
+    display: flex;
+  }
+
+  .navbar li {
+    display: block;
+  }
   .toggle-btn {
-    display: block; /* Muestra el botón de alternar */
+    display: block;
     cursor: pointer;
     padding: 10px;
     justify-content: center;
     position: relative;
     z-index: 2;
   }
-
+  .toggle-btn.active {
+    left: -100px; /* Ajusta este valor según sea necesario */
+  }
   .toggle-btn .bar {
     display: block;
     width: 25px;
     height: 3px;
     background-color: #000;
     margin: 5px 0;
+    transition: all 0.3s ease;
   }
 
-  .navbar ul.active {
-    display: flex; /* Muestra la lista de navegación cuando está activa */
+  .toggle-btn.active .bar:nth-child(1) {
+    transform: translateY(6px) rotate(45deg);
   }
 
+  .toggle-btn.active .bar:nth-child(2) {
+    opacity: 0;
+  }
+
+  .toggle-btn.active .bar:nth-child(3) {
+    transform: translateY(-6px) rotate(-45deg);
+  }
   /* Estilos para el nuevo carrusel */
   .product-carousel {
     flex-wrap: wrap;
@@ -387,34 +407,48 @@ header {
   }
 
   /* Estilos para el último carrusel */
-.logos-carousel-container {
-  width: 90%;
-  margin: 20px auto;
-  overflow: hidden;
-  position: relative;
-  max-width: 1200px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
+  .logos-carousel-container {
+    width: 90%;
+    margin: 20px auto;
+    overflow: hidden;
+    position: relative;
+    max-width: 1200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
 
-/* Estilos para el carrusel de logos */
-.logos-carousel {
-  display: flex;
-  flex-wrap: wrap; /* Permite que los logos se envuelvan en múltiples líneas */
-  justify-content: center; /* Centra los logos horizontalmente */
-  gap: 20px; /* Espacio entre los logos */
-}
+  /* Estilos para el carrusel de logos */
+  .logos-carousel {
+    display: flex;
+    flex-wrap: wrap; /* Permite que los logos se envuelvan en múltiples líneas */
+    justify-content: center; /* Centra los logos horizontalmente */
+    gap: 20px; /* Espacio entre los logos */
+  }
 
-/* Estilos para los logos en el carrusel */
-.logos-carousel img {
-  max-width: 100%; /* Ajusta el tamaño máximo de los logos */
-  height: auto;
-  border-radius: 10px; /* Agrega bordes redondeados a los logos */
-}
+  /* Estilos para los logos en el carrusel */
+  .logos-carousel img {
+    max-width: 100%; /* Ajusta el tamaño máximo de los logos */
+    height: auto;
+    border-radius: 10px; /* Agrega bordes redondeados a los logos */
+  }
 
+  /* Estilos para el pie de página */
   .footer {
-    position: fixed;
-    bottom: 0;
+    background-color: #e43636;
+    color: white;
+    text-align: left;
+    padding: 10px;
+    width: 100%;
+    margin-top: 20px;
+    left: 0;
+  }
+
+  .footer a {
+    color: white;
+    margin-bottom: 10px;
+    display: block;
+    font-size: 16px;
+    margin-right: 20px;
   }
 }

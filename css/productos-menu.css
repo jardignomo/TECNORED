@@ -3,6 +3,7 @@ body {
   background-color: #d3d3d3;
   margin: 0;
   padding: 0;
+  padding-bottom: 60px; /* Ajusta esto para dejar suficiente espacio para el footer */
 }
 
 /* Estilos para el encabezado */
@@ -187,6 +188,7 @@ header {
   display: flex;
   justify-content: center;
   margin-top: 20px;
+  margin-bottom: 70px; /* Ajusta esto para dejar espacio para el footer */
 }
 
 .pagination button {
@@ -212,9 +214,9 @@ header {
   color: white;
   text-align: left;
   padding: 10px;
-  position: relative; /* Fija el footer */
-  bottom: 0;
   width: 100%;
+  position: fixed;
+  bottom: 0;
 }
 .footer a {
   color: white;
@@ -249,9 +251,23 @@ header {
   }
 
   .navbar ul {
+    display: none;
+    position: absolute;
+    top: 130px;
+    left: 0;
+    width: 100%;
+    background-color: whitesmoke;
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .navbar ul.active {
     display: flex;
   }
 
+  .navbar li {
+    display: block;
+  }
   .toggle-btn {
     display: block;
     cursor: pointer;
@@ -260,56 +276,65 @@ header {
     position: relative;
     z-index: 2;
   }
-
+  .toggle-btn.active {
+    left: -100px; /* Ajusta este valor según sea necesario */
+  }
   .toggle-btn .bar {
     display: block;
     width: 25px;
     height: 3px;
     background-color: #000;
     margin: 5px 0;
+    transition: all 0.3s ease;
   }
- 
-  .navbar ul {
-    display: flex;
-    flex-direction: column; /* Cambiar la dirección a columna */
-    align-items: center; /* Centrar los elementos horizontalmente */
+
+  .toggle-btn.active .bar:nth-child(1) {
+    transform: translateY(6px) rotate(45deg);
   }
- 
+
+  .toggle-btn.active .bar:nth-child(2) {
+    opacity: 0;
+  }
+
+  .toggle-btn.active .bar:nth-child(3) {
+    transform: translateY(-6px) rotate(-45deg);
+  }
 
   .new-arrivals-carousel {
-    grid-template-columns: repeat(
-      2,
-      1fr
-    ); /* Cambia a dos columnas en dispositivos móviles */
-    gap: 10px; /* Reduce el espacio entre los productos */
-    padding: 10px; /* Reduce el relleno del carrusel */
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    gap: 20px;
+    padding: 20px;
+    box-sizing: border-box;
   }
 
-  /* Estilos para cada producto en el nuevo carrusel de novedades en dispositivos móviles */
   .new-arrivals-carousel .producto {
-    padding: 10px; /* Reduce el relleno de cada producto */
-    font-size: 14px; /* Reduce el tamaño del texto */
+    padding: 10px; /* Ajustado para mejor visualización en dispositivos móviles */
+    border-radius: 10px;
+    background-color: #fff;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    font-family: "Just Another Hand";
   }
 
-  /* Estilos para las imágenes de los productos en el nuevo carrusel de novedades en dispositivos móviles */
   .new-arrivals-carousel .producto img {
-    max-width: 100%; /* Ajusta el ancho máximo de las imágenes */
+    max-width: 100%;
     height: auto;
     border-radius: 5px;
     cursor: pointer;
   }
 
-  /* Estilos para el título de los productos en el nuevo carrusel de novedades en dispositivos móviles */
   .new-arrivals-carousel .producto h3 {
-    margin-top: 5px; /* Reduce el espacio superior */
+    margin-top: 10px;
     margin-bottom: 5px;
-    font-size: 16px; /* Ajusta el tamaño del texto */
+    font-size: 18px; /* Ligeramente más pequeño para ajustarse al espacio disponible */
   }
 
-  /* Estilos para el texto de los productos en el nuevo carrusel de novedades en dispositivos móviles */
   .new-arrivals-carousel .producto p {
-    margin-bottom: 5px; /* Reduce el espacio inferior */
-    font-size: 12px; /* Ajusta el tamaño del texto */
+    margin-bottom: 10px;
+    color: #666;
+    font-size: 13px; /* Ligeramente más pequeño para ajustarse al espacio disponible */
   }
   /* Estilos para el pie de página */
   .footer {
@@ -319,8 +344,6 @@ header {
     padding: 10px;
     width: 100%;
     margin-top: 20px;
-    position: relative;
-    bottom: 0;
     left: 0;
   }
 

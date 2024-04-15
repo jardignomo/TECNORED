@@ -266,12 +266,14 @@
         }
       }
     </script>
-    <script>
-      function toggleMenu() {
-        var ul = document.querySelector(".navbar ul");
-        ul.style.display = ul.style.display === "none" ? "block" : "none";
-      }
-    </script>
+   <script>
+    function toggleMenu() {
+      var ul = document.querySelector(".navbar ul");
+      ul.classList.toggle("active");
+      var toggleBtn = document.querySelector(".toggle-btn");
+      toggleBtn.classList.toggle("active");
+    }
+  </script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script>
       $(document).ready(function () {

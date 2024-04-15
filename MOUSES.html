@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>MOUSES</title>
-    <link rel="stylesheet" type="text/css" href="css/productos-menu.css" />
+    <link rel="stylesheet" href="css/productos-menu.css" />
     <link
       href="https://fonts.googleapis.com/css?family=Just+Another+Hand"
       rel="stylesheet"
@@ -13,19 +13,15 @@
   <body>
     <header>
       <div class="left-images">
-        <!-- Aquí coloca tus imágenes de la izquierda -->
         <img src="img/index/Logo.png" alt="Logo" />
         <img src="img/index/nombre empresa.png" alt="Nombre de la empresa" />
       </div>
       <div class="right-image">
-        <!-- Aquí coloca la imagen del carrito de compras -->
-
         <a href="Carrito.html">
-          <img src="img/carrito.png" alt="Carrito de compras"
-        /></a>
+          <img src="img/carrito.png" alt="Carrito de compras" />
+        </a>
       </div>
     </header>
-
     <div class="search-container">
       <input
         type="text"
@@ -35,11 +31,9 @@
       />
       <button class="search-button" onclick="buscarProducto()">Buscar</button>
     </div>
-
     <div id="resultados-busqueda">
       <!-- Aquí se mostrarán los resultados de la búsqueda -->
     </div>
-
     <div class="navbar">
       <div class="toggle-btn" onclick="toggleMenu()">
         <div class="bar"></div>
@@ -204,20 +198,17 @@
           <h3>Nombre del Producto 29</h3>
         </div>
       </div>
-
       <div class="pagination">
         <button id="prevPage">Anterior</button>
         <button id="nextPage">Siguiente</button>
       </div>
     </div>
-
     <footer class="footer">
       <a href="Terminos y Condiciones.html">Términos y condiciones</a>
       <a href="Politica de privacidad.html">Política de privacidad</a>
       <a href="Política de envíos.html">Política de envíos</a>
     </footer>
-    
-     
+
     <script>
       // Datos de ejemplo de productos
       var productos = [
@@ -226,17 +217,19 @@
         { nombre: "Producto 3", descripcion: "Descripción del Producto 3" },
         // Agrega más productos según sea necesario
       ];
-  
       // Función para buscar productos
       function buscarProducto() {
-        var query = document.getElementById("search-input").value.trim().toLowerCase();
+        var query = document
+          .getElementById("search-input")
+          .value.trim()
+          .toLowerCase();
         var resultados;
         if (query === "") {
           // Si la búsqueda está vacía, mostrar todos los productos
           resultados = productos;
         } else {
           // Filtrar productos según la consulta
-          resultados = productos.filter(function(producto) {
+          resultados = productos.filter(function (producto) {
             var nombre = producto.nombre.toLowerCase();
             var descripcion = producto.descripcion.toLowerCase();
             return nombre.includes(query) || descripcion.includes(query);
@@ -244,43 +237,46 @@
         }
         mostrarResultados(resultados);
       }
-  
       // Función para mostrar resultados de búsqueda
       function mostrarResultados(resultados) {
-        var resultadosContainer = document.getElementById("resultados-busqueda");
+        var resultadosContainer = document.getElementById(
+          "resultados-busqueda"
+        );
         resultadosContainer.innerHTML = "";
         if (resultados.length === 0) {
           resultadosContainer.innerHTML = "<p>No se encontraron resultados</p>";
         } else {
-          resultados.forEach(function(producto) {
+          resultados.forEach(function (producto) {
             var productoHTML = `
-              <div class="producto">
-                <h3>${producto.nombre}</h3>
-                <p>${producto.descripcion}</p>
-              </div>
-            `;
+            <div class="producto">
+              <h3>${producto.nombre}</h3>
+              <p>${producto.descripcion}</p>
+            </div>
+          `;
             resultadosContainer.innerHTML += productoHTML;
           });
         }
       }
     </script>
+
     <script>
       function toggleMenu() {
         var ul = document.querySelector(".navbar ul");
-        ul.style.display = ul.style.display === "none" ? "block" : "none";
+        ul.classList.toggle("active");
+        var toggleBtn = document.querySelector(".toggle-btn");
+        toggleBtn.classList.toggle("active");
       }
     </script>
+
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script>
       $(document).ready(function () {
         var currentPage = 0;
-        var itemsPerPage = 20; // Ajusta este valor al número total de productos
+        var itemsPerPage = 20;
         var itemsPerRow = 5;
         var numRows = 3;
-
         // Calcula el número total de páginas
         var totalPages = Math.ceil(itemsPerPage / (itemsPerRow * numRows));
-
         // Función para mostrar la página especificada
         function showPage(page) {
           var startIndex = page * itemsPerRow * numRows;
@@ -288,13 +284,10 @@
             startIndex + itemsPerRow * numRows,
             itemsPerPage
           );
-
           $(".producto").hide().slice(startIndex, endIndex).show();
         }
-
         // Mostrar la primera página al cargar
         showPage(currentPage);
-
         // Manejar el evento de clic para la página anterior
         $("#prevPage").click(function () {
           if (currentPage > 0) {
@@ -302,7 +295,6 @@
             showPage(currentPage);
           }
         });
-
         // Manejar el evento de clic para la página siguiente
         $("#nextPage").click(function () {
           if (currentPage < totalPages - 1) {
@@ -311,6 +303,65 @@
           }
         });
       });
+    </script>
+    <script>
+      // Variables globales para el índice actual y la cantidad de productos por página
+      var indiceActual = 0;
+      var productosPorPagina = 6;
+
+      // Función para mostrar los productos según el índice actual
+      function mostrarProductos() {
+        // Obtener todos los productos del carrusel
+        var productos = document.querySelectorAll(
+          ".new-arrivals-carousel .producto"
+        );
+
+        // Ocultar todos los productos
+        productos.forEach(function (producto) {
+          producto.style.display = "none";
+        });
+
+        // Mostrar los productos en el rango adecuado
+        for (
+          var i = indiceActual;
+          i < indiceActual + productosPorPagina && i < productos.length;
+          i++
+        ) {
+          productos[i].style.display = "block";
+        }
+      }
+
+      // Función para manejar el evento de hacer clic en el botón "Anterior"
+      function botonAnterior() {
+        // Verificar si es posible retroceder
+        if (indiceActual > 0) {
+          indiceActual -= productosPorPagina;
+          mostrarProductos();
+        }
+      }
+
+      // Función para manejar el evento de hacer clic en el botón "Siguiente"
+      function botonSiguiente() {
+        // Verificar si es posible avanzar
+        var productos = document.querySelectorAll(
+          ".new-arrivals-carousel .producto"
+        );
+        if (indiceActual + productosPorPagina < productos.length) {
+          indiceActual += productosPorPagina;
+          mostrarProductos();
+        }
+      }
+
+      // Ejecutar la función para mostrar los productos al cargar la página
+      document.addEventListener("DOMContentLoaded", mostrarProductos);
+
+      // Asignar eventos a los botones "Anterior" y "Siguiente"
+      document
+        .getElementById("boton-anterior")
+        .addEventListener("click", botonAnterior);
+      document
+        .getElementById("boton-siguiente")
+        .addEventListener("click", botonSiguiente);
     </script>
   </body>
 </html>
