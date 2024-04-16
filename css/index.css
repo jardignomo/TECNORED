@@ -280,6 +280,7 @@ header {
   display: flex;
   align-items: center;
   justify-content: center; /* Centramos horizontalmente */
+  margin-bottom: 60px; /* Ajustamos el margen inferior para dejar espacio al footer */
 }
 
 /* Estilos para el carrusel de logos */
@@ -295,16 +296,15 @@ header {
   margin: 0 10px;
 }
 
-/* Estilos para el pie de página */
 .footer {
   background-color: #e43636;
   color: white;
   text-align: left;
   padding: 10px;
+
   width: 100%;
-  position: fixed;
-  bottom: 0;
 }
+
 .footer a {
   color: white;
   margin-bottom: 10px;
@@ -406,33 +406,30 @@ header {
     padding: 10px;
   }
 
-  /* Estilos para el último carrusel */
+  /* Reducir el ancho máximo del contenedor */
   .logos-carousel-container {
     width: 90%;
     margin: 20px auto;
     overflow: hidden;
     position: relative;
-    max-width: 1200px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    max-width: 100%; /* Establecemos el ancho máximo como 100% para que se ajuste al tamaño de la pantalla */
   }
 
-  /* Estilos para el carrusel de logos */
+  /* Reducir el espacio entre logos */
   .logos-carousel {
-    display: flex;
-    flex-wrap: wrap; /* Permite que los logos se envuelvan en múltiples líneas */
-    justify-content: center; /* Centra los logos horizontalmente */
-    gap: 20px; /* Espacio entre los logos */
+    gap: 10px;
+    justify-content: center; /* Centramos los logos horizontalmente */
   }
 
-  /* Estilos para los logos en el carrusel */
+  /* Ajustar el tamaño de los logos para que se ajusten al contenedor */
   .logos-carousel img {
-    max-width: 100%; /* Ajusta el tamaño máximo de los logos */
+    width: calc(
+      50% - 5px
+    ); /* Ajustamos el ancho de los logos para ocupar la mitad del contenedor con el espacio entre ellos */
+    max-width: 100%;
     height: auto;
-    border-radius: 10px; /* Agrega bordes redondeados a los logos */
+    border-radius: 10px;
   }
-
   /* Estilos para el pie de página */
   .footer {
     background-color: #e43636;
