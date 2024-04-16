@@ -408,7 +408,7 @@ header {
 
   /* Reducir el ancho máximo del contenedor */
   .logos-carousel-container {
-    width: 90%;
+    width: 80%;
     margin: 20px auto;
     overflow: hidden;
     position: relative;
