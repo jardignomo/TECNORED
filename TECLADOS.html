@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html>
-
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -62,9 +61,9 @@
     <div class="new-arrivals-carousel-container">
       <h3 class="carousel-title">TECLADOS</h3>
       <div id="carousel" class="new-arrivals-carousel">
-        <div class="producto" onclick="location.href='pagina_producto1.html';">
-          <img src="img/index/Logo.png" alt="Producto 1" />
-          <h3>Nombre del Producto 1</h3>
+        <div class="producto" onclick="location.href='productoTeclado1.html';">
+          <img src="img/20058.png" alt="Producto 1" />
+          <h3>TECLADO GAMER REDRAGON MITRA RGB K551 MECANICO</h3>
         </div>
 
         <div class="producto" onclick="location.href='pagina_producto2.html';">
@@ -219,7 +218,7 @@
       <a href="Politica de privacidad.html">Política de privacidad</a>
       <a href="Política de envíos.html">Política de envíos</a>
     </footer>
-    
+
     <script>
       // Datos de ejemplo de productos
       var productos = [
@@ -228,17 +227,20 @@
         { nombre: "Producto 3", descripcion: "Descripción del Producto 3" },
         // Agrega más productos según sea necesario
       ];
-  
+
       // Función para buscar productos
       function buscarProducto() {
-        var query = document.getElementById("search-input").value.trim().toLowerCase();
+        var query = document
+          .getElementById("search-input")
+          .value.trim()
+          .toLowerCase();
         var resultados;
         if (query === "") {
           // Si la búsqueda está vacía, mostrar todos los productos
           resultados = productos;
         } else {
           // Filtrar productos según la consulta
-          resultados = productos.filter(function(producto) {
+          resultados = productos.filter(function (producto) {
             var nombre = producto.nombre.toLowerCase();
             var descripcion = producto.descripcion.toLowerCase();
             return nombre.includes(query) || descripcion.includes(query);
@@ -246,15 +248,17 @@
         }
         mostrarResultados(resultados);
       }
-  
+
       // Función para mostrar resultados de búsqueda
       function mostrarResultados(resultados) {
-        var resultadosContainer = document.getElementById("resultados-busqueda");
+        var resultadosContainer = document.getElementById(
+          "resultados-busqueda"
+        );
         resultadosContainer.innerHTML = "";
         if (resultados.length === 0) {
           resultadosContainer.innerHTML = "<p>No se encontraron resultados</p>";
         } else {
-          resultados.forEach(function(producto) {
+          resultados.forEach(function (producto) {
             var productoHTML = `
               <div class="producto">
                 <h3>${producto.nombre}</h3>
@@ -266,14 +270,14 @@
         }
       }
     </script>
-   <script>
-    function toggleMenu() {
-      var ul = document.querySelector(".navbar ul");
-      ul.classList.toggle("active");
-      var toggleBtn = document.querySelector(".toggle-btn");
-      toggleBtn.classList.toggle("active");
-    }
-  </script>
+    <script>
+      function toggleMenu() {
+        var ul = document.querySelector(".navbar ul");
+        ul.classList.toggle("active");
+        var toggleBtn = document.querySelector(".toggle-btn");
+        toggleBtn.classList.toggle("active");
+      }
+    </script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script>
       $(document).ready(function () {
