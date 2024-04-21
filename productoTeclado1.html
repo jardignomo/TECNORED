@@ -9,228 +9,223 @@
     />
     <title>Producto</title>
     <style>
-            /* Estilos generales */
-            body {
-              background-color: #d3d3d3;
-              margin: 0;
-              padding: 0;
-              font-family: "Just Another Hand", cursive;
-            }
+      /* Estilos generales */
+      body {
+        background-color: #d3d3d3;
+        margin: 0;
+        padding: 0;
+        font-family: "Just Another Hand", cursive;
+      }
 
-            /* Estilos para el encabezado */
-            header {
-              background-color: #e43636;
-              color: white;
-              padding: 10px;
-              text-align: center;
-              display: flex;
-              justify-content: space-between;
-              align-items: center;
-            }
+      /* Estilos para el encabezado */
+      header {
+        background-color: #e43636;
+        color: white;
+        padding: 10px;
+        text-align: center;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
 
-            .logo,
-            .cart {
-              width: 100px;
-              height: 100px;
-            }
+      .logo,
+      .cart {
+        width: 100px;
+        height: 100px;
+      }
 
-            /* Estilos para el menú de navegación */
-            .navbar {
-              list-style-type: none;
-              margin: 0;
-              padding: 10px;
-              font-size: 15px;
-              font-family: "Just Another Hand";
-              background-color: whitesmoke;
-              display: flex;
-              justify-content: center;
-              align-items: center;
-            }
+      /* Estilos para el menú de navegación */
+      .navbar {
+        list-style-type: none;
+        margin: 0;
+        padding: 10px;
+        font-size: 15px;
+        font-family: "Just Another Hand";
+        background-color: whitesmoke;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
 
-            .navbar ul {
-              margin: 0;
-              padding: 0;
-              display: flex;
-              flex-wrap: wrap;
-              justify-content: center;
-            }
+      .navbar ul {
+        margin: 0;
+        padding: 0;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+      }
 
-            .navbar li {
-              display: inline;
-            }
+      .navbar li {
+        display: inline;
+      }
 
-            .navbar li a {
-              text-decoration: none;
-              color: #000;
-              font-weight: bold;
-              transition: 0.7s;
-              padding: 10px;
-            }
+      .navbar li a {
+        text-decoration: none;
+        color: #000;
+        font-weight: bold;
+        transition: 0.7s;
+        padding: 10px;
+      }
 
-            .navbar li a:hover {
-              color: white;
-              background-color: red;
-            }
-            .product-image img {
-              width: 500%;
-              height: 100%;
-              border-radius: 15px;
-              border: 1px solid #ccc;
-            }
+      .navbar li a:hover {
+        color: white;
+        background-color: red;
+      }
+      .product-image img {
+        width: 500%;
+        height: 100%;
+        border-radius: 15px;
+        border: 1px solid #ccc;
+      }
 
-            .footer {
-              background-color: #e43636;
-              color: white;
-              text-align: left;
-              padding: 10px;
-              position: fixed;
-              bottom: 0;
-              width: 100%;
-            }
+      .footer {
+        background-color: #e43636;
+        color: white;
+        text-align: left;
+        padding: 10px;
+        position: fixed;
+        bottom: 0;
+        width: 100%;
+      }
 
-            .footer a {
-              color: white;
-              margin-bottom: 10px;
-              display: block;
-              font-family: "Just Another Hand";
-              font-size: 20px;
-            }
-            /* Estilos específicos para dispositivos móviles */
-            @media only screen and (max-width: 768px) {
-              .navbar ul {
-                display: none;
-                position: absolute;
-                top: 130px;
-                left: 0;
-                width: 100%;
-                background-color: whitesmoke;
-                flex-direction: column;
-                text-align: center;
-              }
-
-              .navbar ul.active {
-                display: flex;
-              }
-
-              .navbar li {
-                display: block;
-                margin-bottom: 10px; /* Ajusta el espacio entre cada elemento del menú */
-              }
-
-              .toggle-btn {
+      .footer a {
+        color: white;
+        margin-bottom: 10px;
         display: block;
-        cursor: pointer;
-        padding: 12px; /* Aumenta el tamaño del botón */
-        position: relative;
-        z-index: 2;
-        background-color: transparent;
+        font-family: "Just Another Hand";
+        font-size: 20px;
+      }
+      /* Estilos específicos para dispositivos móviles */
+      @media only screen and (max-width: 768px) {
+        .navbar ul {
+          display: none;
+          position: absolute;
+          top: 130px;
+          left: 0;
+          width: 100%;
+          background-color: whitesmoke;
+          flex-direction: column;
+          text-align: center;
+        }
+
+        .navbar ul.active {
+          display: flex;
+        }
+
+        .navbar li {
+          display: block;
+        }
+
+        .toggle-btn {
+          display: block;
+          cursor: pointer;
+          padding: 10px;
+          justify-content: center;
+          position: relative;
+          z-index: 2;
+        }
+        .toggle-btn.active {
+          left: -100px; /* Ajusta este valor según sea necesario */
+        }
+        .toggle-btn .bar {
+          display: block;
+          width: 25px;
+          height: 3px;
+          background-color: #000;
+          margin: 5px 0;
+          transition: all 0.3s ease;
+        }
+
+        .toggle-btn.active .bar:nth-child(1) {
+          transform: translateY(6px) rotate(45deg);
+        }
+
+        .toggle-btn.active .bar:nth-child(2) {
+          opacity: 0;
+        }
+
+        .toggle-btn.active .bar:nth-child(3) {
+          transform: translateY(-6px) rotate(-45deg);
+        }
+      }
+
+      /* Estilos para el contenedor principal */
+      .product-container {
+        display: flex;
+        padding: 20px;
+        border: 1px solid #ddd;
+        max-width: 800px;
+        margin: 0 auto;
+      }
+
+      .product-image {
+        width: 50%;
+        max-width: 200px;
+        min-width: 150px;
+        margin-right: 20px;
+      }
+
+      .product-image img {
+        width: 100%;
+        border-radius: 15px;
+        border: 1px solid #ccc;
+      }
+
+      .product-info {
+        flex-grow: 1;
+      }
+
+      .product-info h2 {
+        font-size: 1.5rem;
+        margin-bottom: 5px;
+      }
+
+      .product-info p {
+        font-size: 1.4rem;
+        margin-bottom: 3px;
+      }
+
+      .product-info input[type="number"] {
+        width: 50px;
+        margin-bottom: 10px;
+      }
+
+      .product-info button {
+        background-color: #007bff;
+        color: #fff;
         border: none;
-        border-radius: 5px; /* Redondea las esquinas del botón */
-        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Agrega una sombra */
+        padding: 10px 20px;
+        cursor: pointer;
+        transition: background-color 0.3s;
+        margin-top: 10px;
+        border-radius: 5px;
+        font-family: "Just Another Hand", cursive;
       }
 
-      .toggle-btn .bar {
+      .product-info button:hover {
+        background-color: #0056b3;
+      }
+
+      /* Estilos para el pie de página */
+      .footer {
+        background-color: #e43636;
+        color: white;
+        text-align: left;
+        padding: 10px;
+        width: 100%;
+        margin-top: 20px;
+        position: fixed;
+        bottom: 0;
+        left: 0;
+      }
+
+      .footer a {
+        color: white;
+        margin-bottom: 10px;
         display: block;
-        width: 25px;
-        height: 3px;
-        background-color: #000;
-        margin: 4px 0; /* Alinea las barras verticalmente */
-        transition: all 0.3s ease;
+        font-size: 16px;
+        margin-right: 20px;
       }
-
-      .toggle-btn.active {
-        left: -100px; /* Ajusta este valor según sea necesario */
-      }
-
-      .toggle-btn.active .bar:nth-child(1) {
-        transform: translateY(6px) rotate(45deg);
-      }
-
-      .toggle-btn.active .bar:nth-child(2) {
-        opacity: 0;
-      }
-
-      .toggle-btn.active .bar:nth-child(3) {
-        transform: translateY(-6px) rotate(-45deg);
-      }
-
-            /* Estilos para el contenedor principal */
-            .product-container {
-              display: flex;
-              padding: 20px;
-              border: 1px solid #ddd;
-              max-width: 800px;
-              margin: 0 auto;
-            }
-
-            .product-image {
-              width: 50%;
-              max-width: 200px;
-              min-width: 150px;
-              margin-right: 20px;
-            }
-
-            .product-image img {
-              width: 100%;
-              border-radius: 15px;
-              border: 1px solid #ccc;
-            }
-
-            .product-info {
-              flex-grow: 1;
-            }
-
-            .product-info h2 {
-              font-size: 1.5rem;
-              margin-bottom: 5px;
-            }
-
-            .product-info p {
-              font-size: 1.4rem;
-              margin-bottom: 3px;
-            }
-
-            .product-info input[type="number"] {
-              width: 50px;
-              margin-bottom: 10px;
-            }
-
-            .product-info button {
-              background-color: #007bff;
-              color: #fff;
-              border: none;
-              padding: 10px 20px;
-              cursor: pointer;
-              transition: background-color 0.3s;
-              margin-top: 10px;
-              border-radius: 5px;
-              font-family: "Just Another Hand", cursive;
-            }
-
-            .product-info button:hover {
-              background-color: #0056b3;
-            }
-
-            /* Estilos para el pie de página */
-            .footer {
-              background-color: #e43636;
-              color: white;
-              text-align: left;
-              padding: 10px;
-              width: 100%;
-              margin-top: 20px;
-              position: fixed;
-              bottom: 0;
-              left: 0;
-            }
-
-            .footer a {
-              color: white;
-              margin-bottom: 10px;
-              display: block;
-              font-size: 16px;
-              margin-right: 20px;
-            }
     </style>
   </head>
   <body>
