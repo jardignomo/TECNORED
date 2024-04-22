@@ -102,12 +102,6 @@
         font-size: 1.5rem;
         margin-bottom: 5px;
       }
-      .product-info p {
-        font-size: 1.45rem; /* Ajusta el tamaño de la fuente según sea necesario */
-        line-height: 1.5; /* Ajusta el espaciado entre líneas para mejorar la legibilidad */
-        margin-bottom: 15px; /* Incrementa el espacio inferior para una mejor separación entre párrafos */
-        text-align: justify; /* Justifica el texto para un mejor aspecto visual */
-      }
 
       .product-info input[type="number"] {
         width: 50px;
@@ -128,6 +122,13 @@
 
       .product-info button:hover {
         background-color: #0056b3;
+      }
+
+      .product-description {
+        font-size: 1.45rem; /* Ajusta el tamaño de la fuente según sea necesario */
+        line-height: 1.5; /* Ajusta el espaciado entre líneas para mejorar la legibilidad */
+        margin-bottom: 15px; /* Incrementa el espacio inferior para una mejor separación entre párrafos */
+        text-align: justify; /* Justifica el texto para un mejor aspecto visual */
       }
 
       .footer {
@@ -228,11 +229,11 @@
         }
 
         /* Ajustes para el párrafo del producto en dispositivos móviles */
-        .product-info p {
-          font-size: 0.8rem; /* Ajusta el tamaño de la fuente según sea necesario */
-          line-height: 1.2; /* Ajusta el espaciado entre líneas para mejorar la legibilidad */
-          margin-bottom: 5px; /* Incrementa el espacio inferior para una mejor separación entre párrafos */
-          text-align: justify; /* Justifica el texto para un mejor aspecto visual */
+        .product-description {
+          font-size: 0.8rem; /* Reducir el tamaño de la fuente para dispositivos móviles */
+          line-height: 1.1; /* Reducir el espaciado entre líneas para dispositivos móviles */
+          margin-bottom: 10px; /* Reducir el espacio inferior para dispositivos móviles */
+          text-align: justify; /* Justificar el texto para dispositivos móviles */
         }
 
         .product-info input[type="number"] {
@@ -306,7 +307,7 @@
         >
           Agregar al Carrito - Total: $205.000
         </button>
-        <p>
+        <p class="product-description">
           El Mitra K551 posee retroiluminación real LED RGB con 16.8 millones de
           nítidos colores para transformar el teclado en TU teclado. Como su
           nombre lo dice, esta tecla añade funcionalidad al teclado, evitando
