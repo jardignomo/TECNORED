@@ -151,16 +151,18 @@
         .navbar ul {
           display: none;
           position: absolute;
-          top: 130px;
+          top: 100%; /* Cambiar el valor para que el menú aparezca debajo del encabezado */
           left: 0;
           width: 100%;
           background-color: whitesmoke;
-          flex-direction: column;
           text-align: center;
+          z-index: 1000; /* Ajustar el z-index para asegurarse de que esté por encima del contenido */
         }
 
         .navbar ul.active {
           display: flex;
+          flex-direction: column; /* Mostrar los elementos del menú en una columna */
+          position: static; /* Cambiar la posición para que se muestre en el flujo normal del documento */
         }
 
         .navbar li {
@@ -202,7 +204,6 @@
           transform: translateY(-6px) rotate(-45deg);
         }
 
-        /* Estilos específicos para dispositivos móviles en el contenedor principal */
         .product-container {
           padding: 10px;
         }
@@ -214,32 +215,28 @@
           margin-right: 0;
         }
 
-        /* Ajustes para la imagen del producto */
         .product-image {
-          width: 100%; /* Cambia el ancho al 100% para ocupar todo el espacio */
-          max-width: none; /* Elimina el máximo ancho para que ocupe todo el contenedor */
-          margin-right: 0; /* Elimina el margen derecho */
-          margin-bottom: 10px; /* Agrega un margen inferior para separar del párrafo */
+          margin-bottom: 10px; /* Ajustar el margen inferior para separar del párrafo */
         }
-        /* Ajustes para la información del producto */
+
         .product-info h2 {
-          font-size: 1rem; /* Reducir el tamaño del título */
+          font-size: 1rem;
         }
 
         .product-info p {
-          font-size: 0.8rem; /* Reducir el tamaño del texto */
-          line-height: 1.2; /* Reducir el espaciado entre líneas */
-          text-align: justify; /* Centrar el texto */
-          margin-bottom: 0;
+          font-size: 0.8rem;
+          line-height: 1.2;
+          margin-bottom: 15px;
+          text-align: justify;
         }
 
         .product-info input[type="number"] {
-          width: 50px; /* Reducir el ancho del campo de entrada */
+          width: 50px;
         }
 
         .product-info button {
-          padding: 6px 12px; /* Reducir el padding del botón */
-          font-size: 0.8rem; /* Reducir el tamaño del texto del botón */
+          padding: 6px 12px;
+          font-size: 0.8rem;
         }
       }
     </style>
