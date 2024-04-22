@@ -71,22 +71,26 @@
         color: white;
         background-color: red;
       }
+      /* Estilos para el contenedor principal */
       .product-container {
         display: flex;
-        padding: 30px; /* Incrementa el espacio interno */
-        border: 2px solid #ddd; /* Borde más grueso */
-        max-width: 800px;
-        margin: 30px auto; /* Margen exterior mayor */
-        background-color: #fff;
-        border-radius: 15px; /* Bordes redondeados más pronunciados */
-        box-shadow: 0 0 15px rgba(0, 0, 0, 0.1); /* Sombra más pronunciada */
+        padding: 10px;
+        border: 1px solid #ddd;
+        max-width: 2000px;
+        margin: 0 auto;
       }
 
       .product-image {
-        width: 40%;
-        max-width: 300px; /* Ancho máximo de la imagen aumentado */
-        flex-shrink: 0;
-        margin-right: 30px; /* Espacio entre la imagen y la información del producto */
+        width: 50%;
+        max-width: 200px;
+        min-width: 150px;
+        margin-right: 20px;
+      }
+
+      .product-image img {
+        width: 100%;
+        border-radius: 15px;
+        border: 1px solid #ccc;
       }
 
       .product-info {
@@ -94,30 +98,31 @@
       }
 
       .product-info h2 {
-        font-size: 2rem; /* Tamaño de fuente del título aumentado */
-        margin-bottom: 15px; /* Incremento del espacio inferior */
+        font-size: 1.5rem;
+        margin-bottom: 5px;
       }
-
       .product-info p {
-        font-size: 1.46rem; /* Tamaño de fuente del contenido aumentado */
-        line-height: 1.6; /* Espaciado entre líneas aumentado */
-        margin-bottom: 25px; /* Incremento del espacio inferior */
+        font-size: 1.45rem; /* Ajusta el tamaño de la fuente según sea necesario */
+        line-height: 1.5; /* Ajusta el espaciado entre líneas para mejorar la legibilidad */
+        margin-bottom: 15px; /* Incrementa el espacio inferior para una mejor separación entre párrafos */
+        text-align: justify; /* Justifica el texto para un mejor aspecto visual */
       }
 
       .product-info input[type="number"] {
-        width: 80px; /* Ancho del campo de cantidad aumentado */
+        width: 50px;
+        margin-bottom: 10px;
       }
 
       .product-info button {
         background-color: #007bff;
         color: #fff;
         border: none;
-        padding: 12px 25px; /* Aumento del padding */
+        padding: 10px 20px;
         cursor: pointer;
         transition: background-color 0.3s;
-        margin-top: 15px; /* Incremento del espacio superior */
-        border-radius: 8px; /* Bordes redondeados más pronunciados */
-        font-size: 1.2rem; /* Tamaño de fuente aumentado */
+        margin-top: 10px;
+        border-radius: 5px;
+        font-family: "Just Another Hand", cursive;
       }
 
       .product-info button:hover {
@@ -171,9 +176,11 @@
           position: relative;
           z-index: 2;
         }
+
         .toggle-btn.active {
-          left: -100px; /* Ajusta este valor según sea necesario */
+          left: -100px;
         }
+
         .toggle-btn .bar {
           display: block;
           width: 25px;
@@ -194,85 +201,45 @@
         .toggle-btn.active .bar:nth-child(3) {
           transform: translateY(-6px) rotate(-45deg);
         }
-      }
 
-      /* Estilos para el contenedor principal */
-      .product-container {
-        display: flex;
-        padding: 20px;
-        border: 1px solid #ddd;
-        max-width: 2000px;
-        margin: 0 auto;
-      }
+        /* Estilos específicos para dispositivos móviles en el contenedor principal */
+        .product-container {
+          padding: 10px;
+        }
 
-      .product-image {
-        width: 50%;
-        max-width: 200px;
-        min-width: 150px;
-        margin-right: 20px;
-      }
+        .product-image,
+        .product-info {
+          width: 100%;
+          max-width: none;
+          margin-right: 0;
+        }
 
-      .product-image img {
-        width: 100%;
-        border-radius: 15px;
-        border: 1px solid #ccc;
-      }
+        /* Ajustes para la imagen del producto */
+        .product-image img {
+          max-width: 100%; /* Ajustar la imagen al ancho del contenedor */
+          height: auto; /* Mantener la proporción de la imagen */
+          border-radius: 5px; /* Reducir el radio del borde */
+        }
 
-      .product-info {
-        flex-grow: 1;
-      }
+        /* Ajustes para la información del producto */
+        .product-info h2 {
+          font-size: 1rem; /* Reducir el tamaño del título */
+        }
 
-      .product-info h2 {
-        font-size: 1.5rem;
-        margin-bottom: 5px;
-      }
-      .product-info p {
-        font-size: 1.45rem; /* Ajusta el tamaño de la fuente según sea necesario */
-        line-height: 1.5; /* Ajusta el espaciado entre líneas para mejorar la legibilidad */
-        margin-bottom: 10px; /* Incrementa el espacio inferior para una mejor separación entre párrafos */
-        text-align: justify; /* Justifica el texto para un mejor aspecto visual */
-      }
+        .product-info p {
+          font-size: 1rem; /* Reducir el tamaño del texto */
+          line-height: 1.6; /* Reducir el espaciado entre líneas */
+          text-align: justify; /* Centrar el texto */
+        }
 
-      .product-info input[type="number"] {
-        width: 50px;
-        margin-bottom: 10px;
-      }
+        .product-info input[type="number"] {
+          width: 50px; /* Reducir el ancho del campo de entrada */
+        }
 
-      .product-info button {
-        background-color: #007bff;
-        color: #fff;
-        border: none;
-        padding: 10px 20px;
-        cursor: pointer;
-        transition: background-color 0.3s;
-        margin-top: 10px;
-        border-radius: 5px;
-        font-family: "Just Another Hand", cursive;
-      }
-
-      .product-info button:hover {
-        background-color: #0056b3;
-      }
-
-      /* Estilos para el pie de página */
-      .footer {
-        background-color: #e43636;
-        color: white;
-        text-align: left;
-        padding: 10px;
-        width: 100%;
-        margin-top: 20px;
-        position: fixed;
-        bottom: 0;
-        left: 0;
-      }
-
-      .footer a {
-        color: white;
-        margin-bottom: 10px;
-        display: block;
-        font-size: 16px;
-        margin-right: 20px;
+        .product-info button {
+          padding: 6px 12px; /* Reducir el padding del botón */
+          font-size: 0.8rem; /* Reducir el tamaño del texto del botón */
+        }
       }
     </style>
   </head>
