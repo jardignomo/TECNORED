@@ -22,7 +22,7 @@
       header {
         background-color: #e43636;
         color: white;
-        padding: 10px;
+
         text-align: center;
         display: flex;
         justify-content: space-between;
@@ -72,6 +72,7 @@
         color: white;
         background-color: red;
       }
+
       /* Estilos para el contenedor principal */
       .product-container {
         display: flex;
@@ -125,10 +126,11 @@
       }
 
       .product-description {
-        font-size: 1.45rem; /* Ajusta el tamaño de la fuente según sea necesario */
+        font-size: 1.5rem; /* Ajusta el tamaño de la fuente según sea necesario */
         line-height: 1.5; /* Ajusta el espaciado entre líneas para mejorar la legibilidad */
         margin-bottom: 15px; /* Incrementa el espacio inferior para una mejor separación entre párrafos */
         text-align: justify; /* Justifica el texto para un mejor aspecto visual */
+        word-wrap: break-word; /* Permite que las palabras largas se rompan para ajustarse al ancho disponible */
       }
 
       .footer {
@@ -146,8 +148,9 @@
         margin-bottom: 10px;
         display: block;
         font-family: "Just Another Hand";
-        font-size: 20px;
+        font-size: 10px;
       }
+
       /* Estilos específicos para dispositivos móviles */
       @media only screen and (max-width: 768px) {
         .navbar ul {
@@ -204,40 +207,16 @@
           transform: translateY(-6px) rotate(-45deg);
         }
 
-        /* Estilos específicos para dispositivos móviles en el contenedor principal */
-        .product-container {
-          padding: 10px;
-        }
-
-        .product-image,
-        .product-info {
-          width: 100%;
-          max-width: none;
-          margin-right: 0;
-        }
-
-        /* Ajustes para la imagen del producto */
-        .product-image {
-          width: 100%; /* Cambia el ancho al 100% para ocupar todo el espacio */
-          max-width: none; /* Elimina el máximo ancho para que ocupe todo el contenedor */
-          margin-right: 0; /* Elimina el margen derecho */
-          margin-bottom: 10px; /* Agrega un margen inferior para separar del párrafo */
-        }
-        /* Ajustes para la información del producto */
-        .product-info h2 {
-          font-size: 1rem; /* Reducir el tamaño del título */
-        }
-
         /* Ajustes para el párrafo del producto en dispositivos móviles */
         .product-description {
-          font-size: 0.8rem; /* Reducir el tamaño de la fuente para dispositivos móviles */
+          font-size: 0.78rem; /* Reducir el tamaño de la fuente para dispositivos móviles */
           line-height: 1.1; /* Reducir el espaciado entre líneas para dispositivos móviles */
           margin-bottom: 10px; /* Reducir el espacio inferior para dispositivos móviles */
           text-align: justify; /* Justificar el texto para dispositivos móviles */
         }
 
         .product-info input[type="number"] {
-          width: 50px; /* Reducir el ancho del campo de entrada */
+          width: 40px; /* Reducir el ancho del campo de entrada */
         }
 
         .product-info button {
