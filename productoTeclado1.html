@@ -215,12 +215,12 @@
         }
 
         /* Ajustes para la imagen del producto */
-        .product-image img {
-          max-width: 100%; /* Ajustar la imagen al ancho del contenedor */
-          height: auto; /* Mantener la proporción de la imagen */
-          border-radius: 5px; /* Reducir el radio del borde */
+        .product-image {
+          width: 100%; /* Cambia el ancho al 100% para ocupar todo el espacio */
+          max-width: none; /* Elimina el máximo ancho para que ocupe todo el contenedor */
+          margin-right: 0; /* Elimina el margen derecho */
+          margin-bottom: 10px; /* Agrega un margen inferior para separar del párrafo */
         }
-
         /* Ajustes para la información del producto */
         .product-info h2 {
           font-size: 1rem; /* Reducir el tamaño del título */
@@ -230,6 +230,7 @@
           font-size: 0.8rem; /* Reducir el tamaño del texto */
           line-height: 1.2; /* Reducir el espaciado entre líneas */
           text-align: justify; /* Centrar el texto */
+          margin-bottom: 0;
         }
 
         .product-info input[type="number"] {
