@@ -13,6 +13,7 @@ header {
   text-align: center;
   display: flex;
   justify-content: space-between;
+  align-items: center;
 }
 
 /* Estilos para las imágenes en el lado izquierdo del encabezado */
@@ -25,7 +26,6 @@ header {
 .right-image img {
   margin-left: auto;
 }
-
 
 /* Estilos para la barra de navegación */
 .navbar {
@@ -69,14 +69,15 @@ header {
 .contenedor-carrito {
   display: flex;
   flex-direction: column;
-  align-items: flex-start; /* Alinea los elementos al lado izquierdo */
+  align-items: flex-start;
+  padding: 20px;
 }
 
 .contenedor-carrito p {
   font-family: "Just Another Hand", cursive;
-  font-size: 24px; /* Ajusta al tamaño deseado */
-  color: #000000; /* Ajusta al color deseado */
-  margin-left: 48px; /* Añade un margen izquierdo si es necesario */
+  font-size: 24px;
+  color: #000000;
+  margin-left: 48px;
 }
 
 .contenedor-carrito button {
@@ -85,21 +86,51 @@ header {
   border: none;
   padding: 10px 20px;
   font-family: "Just Another Hand", cursive;
-  font-size: 20px; /* Ajusta al tamaño deseado */
-  color: #000000; /* Ajusta al color deseado */
+  font-size: 20px;
+  color: #000000;
   cursor: pointer;
-  margin: 10px 20px; /* Añade un margen izquierdo para alinear con el texto */
+  margin: 10px 20px;
 }
 
 .contenedor-carrito button:hover {
-  background-color: #e57a7a; /* Color al pasar el mouse */
+  background-color: #e57a7a;
 }
+
+.producto-carrito {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  max-width: 600px;
+  border-bottom: 1px solid #ccc;
+  padding: 10px 0;
+}
+
 .producto-carrito img {
-  width: 256px;
-  height: 256px;
+  width: 100px;
+  height: 100px;
+  margin-right: 20px;
 }
 
+.producto-carrito p {
+  flex-grow: 1;
+  font-size: 18px;
+  margin: 0;
+}
 
+.producto-carrito button {
+  background: #ff8b8b;
+  border-radius: 27px;
+  border: none;
+  padding: 5px 10px;
+  font-family: "Just Another Hand", cursive;
+  font-size: 16px;
+  color: #000000;
+  cursor: pointer;
+}
+
+.producto-carrito button:hover {
+  background-color: #e57a7a;
+}
 
 .footer {
   background-color: #e43636;
@@ -113,27 +144,27 @@ header {
 
 .footer a {
   color: white;
-  margin-bottom: 10px; /* Agrega un espacio vertical entre los enlaces */
-  display: block; /* Hace que cada enlace ocupe toda la anchura disponible */
-  font-family: "Just Another Hand"; /* Establece la familia de fuentes de la barra de navegación */
-  font-size: 28px; /* Establece el tamaño de fuente de la barra de navegación */
+  margin-bottom: 10px;
+  display: block;
+  font-family: "Just Another Hand";
+  font-size: 28px;
 }
 
 @media screen and (max-width: 768px) {
+  /* Estilos para el encabezado */
   header {
-    display: flex;
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
   }
 
-  
+  /* Estilos para la barra de navegación */
   .navbar ul {
-    display: none; /* Oculta la lista de navegación */
+    display: none;
   }
 
   .toggle-btn {
-    display: block; /* Muestra el botón de alternar */
+    display: block;
     cursor: pointer;
     padding: 10px;
     justify-content: center;
@@ -150,29 +181,44 @@ header {
   }
 
   .navbar ul.active {
-    display: flex; /* Muestra la lista de navegación cuando está activa */
+    display: flex;
+    flex-direction: column;
+    width: 100%;
   }
+
   .contenedor-carrito {
-    align-items: flex-start; /* Alinea el contenido al lado izquierdo en dispositivos móviles */
-    text-align: left; /* Alinea el texto a la izquierda */
+    padding: 10px;
   }
 
   .contenedor-carrito p {
-    margin-left: 1px; /* Elimina el margen izquierdo */
-    font-size: 18px; /* Reduzca el tamaño de fuente para adaptarse a dispositivos móviles */
+    margin-left: 0;
+    font-size: 18px;
   }
 
   .contenedor-carrito button {
-    margin: 10px 0; /* Alinea el botón con el texto */
-    font-size: 18px; /* Reduzca el tamaño de fuente para adaptarse a dispositivos móviles */
+    margin: 10px 0;
+    font-size: 18px;
+  }
+
+  .producto-carrito {
+    flex-direction: column;
+    align-items: flex-start;
   }
 
   .producto-carrito img {
-    width: 200px; /* Reduzca el tamaño de la imagen para adaptarse a dispositivos móviles */
-    height: 200px;
+    width: 80px;
+    height: 80px;
+    margin-right: 0;
+    margin-bottom: 10px;
   }
+
+  .producto-carrito p {
+    font-size: 16px;
+    text-align: left;
+    margin-bottom: 10px;
+  }
+
   .footer {
     position: fixed;
-    bottom: 0;
   }
 }

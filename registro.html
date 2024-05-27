@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Registro</title>
+    <link rel="stylesheet" type="text/css" href="css/carrito.css" />
+    <link
+      href="https://fonts.googleapis.com/css?family=Just+Another+Hand"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="modal-content">
+      <span class="close" onclick="cerrarModal()">&times;</span>
+      <h2>Registro</h2>
+      <form id="form-registrarse">
+        <input
+          type="text"
+          id="registro-usuario"
+          placeholder="Usuario"
+          required
+        />
+        <input type="email" id="registro-email" placeholder="Email" required />
+        <input
+          type="password"
+          id="registro-password"
+          placeholder="Contraseña"
+          required
+        />
+        <button type="submit" onclick="registrarse()">Registrarse</button>
+      </form>
+    </div>
+
+    <script>
+      function cerrarModal() {
+        const modal = document.querySelector(".modal-content");
+        modal.style.display = "none";
+      }
+
+      function registrarse() {
+        const usuario = document.getElementById("registro-usuario").value;
+        const email = document.getElementById("registro-email").value;
+        const password = document.getElementById("registro-password").value;
+        // Aquí deberías enviar los datos del usuario al servidor para registrarlo en la base de datos
+        // Si el registro es exitoso:
+        localStorage.setItem("usuarioLogueado", usuario);
+        cerrarModal();
+        window.location.href = "carrito.html";
+      }
+    </script>
+  </body>
+</html>
