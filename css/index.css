@@ -3,6 +3,7 @@ body {
   background-color: #d3d3d3;
   margin: 0;
   padding: 0;
+  font-family: "Just Another Hand", sans-serif;
 }
 
 /* Estilos para el encabezado */
@@ -10,20 +11,15 @@ header {
   background-color: #e43636;
   color: white;
   padding: 10px;
-  text-align: center;
   display: flex;
   justify-content: space-between;
+  align-items: center;
+  text-align: center;
 }
 
 /* Estilos para las imágenes en el lado izquierdo del encabezado */
-.left-images img {
-  width: 100px;
-  height: 100px;
-}
-
-/* Estilos para la imagen del carrito de compras en el lado derecho del encabezado */
+.left-images img,
 .right-image img {
-  margin-left: auto;
   width: 100px;
   height: 100px;
 }
@@ -38,7 +34,7 @@ header {
   padding: 10px 20px;
   width: 80%;
   max-width: 400px;
-  margin: 0 auto;
+  margin: 20px auto;
 }
 
 /* Estilos para el campo de búsqueda */
@@ -48,8 +44,8 @@ header {
   border-radius: 25px;
   padding: 10px;
   font-size: 16px;
-  font-family: "Just Another Hand";
   outline: none;
+  font-family: "Just Another Hand", sans-serif;
 }
 
 /* Estilos para el botón de búsqueda */
@@ -61,7 +57,6 @@ header {
   padding: 10px 20px;
   cursor: pointer;
   font-size: 16px;
-  font-family: "Just Another Hand";
   transition: background-color 0.3s;
 }
 
@@ -76,6 +71,7 @@ header {
   justify-content: center;
   align-items: center;
   height: 100%;
+  margin-top: 20px;
 }
 
 #resultados-busqueda p {
@@ -83,48 +79,41 @@ header {
   font-weight: bold;
   font-size: 27px;
   text-align: center;
-  font-family: "Just Another Hand";
-}
-/* Estilos para la barra de navegación */
-.navbar {
-  list-style-type: none;
-  margin: 0;
-  padding: 10px;
-  font-size: 15px;
-  font-family: "Just Another Hand";
-  background-color: whitesmoke;
-  display: flex;
-  justify-content: center;
-  align-items: center;
 }
 
-/* Estilos para los elementos de la lista de navegación */
+/* Estilos para la barra de navegación */
+.navbar {
+  background-color: whitesmoke;
+  padding: 10px;
+  text-align: center;
+}
+
 .navbar ul {
+  list-style: none;
   margin: 0;
   padding: 0;
   display: flex;
+  justify-content: center;
 }
 
 .navbar li {
-  display: inline;
+  display: inline-block;
 }
 
-/* Estilos para los enlaces dentro de los elementos de la lista de navegación */
 .navbar li a {
   text-decoration: none;
   color: #000;
   font-weight: bold;
-  transition: 0.7s;
   padding: 10px;
+  transition: color 0.7s, background-color 0.7s;
 }
 
-/* Efecto de cambio de color al pasar el cursor sobre los enlaces de la barra de navegación */
 .navbar li a:hover {
   color: white;
   background-color: red;
 }
 
-/* Estilos de carrusel  para el carrusel */
+/* Estilos de carrusel */
 .container {
   position: relative;
   max-width: 800px;
@@ -163,7 +152,7 @@ header {
   right: 10px;
 }
 
-/* Estilos para el nuevo contenedor principal del carrusel lo mas */
+/* Estilos para el contenedor principal del carrusel de productos */
 .product-carousel-container {
   width: 80%;
   margin: 20px auto;
@@ -177,29 +166,26 @@ header {
 /* Estilos para el título del carrusel */
 .product-carousel-container .carousel-title {
   text-align: center;
-  margin-top: 10px;
-  margin-bottom: 20px;
+  margin: 10px 0 20px;
   font-size: 24px;
   font-weight: bold;
-  font-family: "Just Another Hand";
 }
 
-/* Estilos para el nuevo carrusel */
+/* Estilos para el carrusel de productos */
 .product-carousel {
   display: flex;
   transition: transform 0.5s ease;
 }
 
-/* Estilos para cada producto en el nuevo carrusel */
+/* Estilos para cada producto en el carrusel de productos */
 .product-carousel .producto {
   flex: 0 0 20%;
   padding: 20px;
   box-sizing: border-box;
   text-align: center;
-  font-family: "Just Another Hand";
 }
 
-/* Estilos para las imágenes de los productos en el nuevo carrusel */
+/* Estilos para las imágenes de los productos en el carrusel de productos */
 .product-carousel .producto img {
   width: 100%;
   height: auto;
@@ -207,19 +193,18 @@ header {
   cursor: pointer;
 }
 
-/* Estilos para el título de los productos en el nuevo carrusel */
+/* Estilos para el título de los productos en el carrusel de productos */
 .product-carousel .producto h2 {
-  margin-top: 10px;
-  margin-bottom: 5px;
+  margin: 10px 0 5px;
 }
 
-/* Estilos para el texto de los productos en el nuevo carrusel */
+/* Estilos para el texto de los productos en el carrusel de productos */
 .product-carousel .producto p {
   margin-bottom: 10px;
   color: #666;
 }
 
-/* Estilos para el nuevo carrusel de novedades */
+/* Estilos para el carrusel de novedades */
 .new-arrivals-carousel {
   display: grid;
   grid-template-columns: repeat(5, 1fr);
@@ -228,17 +213,16 @@ header {
   box-sizing: border-box;
 }
 
-/* Estilos para cada producto en el nuevo carrusel de novedades */
+/* Estilos para cada producto en el carrusel de novedades */
 .new-arrivals-carousel .producto {
   padding: 20px;
   border-radius: 10px;
   background-color: #fff;
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
   text-align: center;
-  font-family: "Just Another Hand";
 }
 
-/* Estilos para las imágenes de los productos en el nuevo carrusel de novedades */
+/* Estilos para las imágenes de los productos en el carrusel de novedades */
 .new-arrivals-carousel .producto img {
   max-width: 100%;
   height: auto;
@@ -246,27 +230,23 @@ header {
   cursor: pointer;
 }
 
-/* Estilos para el título de los productos en el nuevo carrusel de novedades */
+/* Estilos para el título de los productos en el carrusel de novedades */
 .new-arrivals-carousel .producto h3 {
-  margin-top: 10px;
-  margin-bottom: 5px;
+  margin: 10px 0 5px;
   font-size: 20px;
-  font-family: "Just Another Hand";
 }
 
-/* Estilos para el texto de los productos en el nuevo carrusel de novedades */
+/* Estilos para el texto de los productos en el carrusel de novedades */
 .new-arrivals-carousel .producto p {
   margin-bottom: 10px;
   color: #666;
   font-size: 14px;
-  font-family: "Just Another Hand";
 }
 
 /* Estilos para el título del carrusel de logos */
 .carousel-title {
-  text-align: center; /* Centramos horizontalmente */
-  font-family: "Just Another Hand"; /* Aplicamos la tipografía */
-  font-size: 30px; /* Aplicamos el tamaño de fuente */
+  text-align: center;
+  font-size: 30px;
 }
 
 /* Estilos para el contenedor principal del carrusel de logos */
@@ -279,15 +259,15 @@ header {
   max-width: 1200px;
   display: flex;
   align-items: center;
-  justify-content: center; /* Centramos horizontalmente */
-  margin-bottom: 60px; /* Ajustamos el margen inferior para dejar espacio al footer */
+  justify-content: center;
+  margin-bottom: 60px;
 }
 
 /* Estilos para el carrusel de logos */
 .logos-carousel {
   display: flex;
   transition: transform 0.5s ease;
-  align-items: center; /* Centramos verticalmente */
+  align-items: center;
 }
 
 /* Estilos para los logos en el carrusel */
@@ -301,7 +281,6 @@ header {
   color: white;
   text-align: left;
   padding: 10px;
-
   width: 100%;
 }
 
@@ -309,29 +288,22 @@ header {
   color: white;
   margin-bottom: 10px;
   display: block;
-  font-family: "Just Another Hand";
   font-size: 20px;
 }
 
 @media screen and (max-width: 768px) {
   header {
-    display: flex;
     flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
   }
 
-  /* Estilos para el contenedor del buscador en dispositivos móviles */
   .search-container {
     width: 90%;
   }
 
-  /* Estilos para el campo de búsqueda en dispositivos móviles */
   .search-input {
     font-size: 28px;
   }
 
-  /* Estilos para el botón de búsqueda en dispositivos móviles */
   .search-button {
     padding: 8px 16px;
     font-size: 14px;
@@ -355,19 +327,20 @@ header {
   .navbar li {
     display: block;
   }
+
   .toggle-btn {
     display: block;
     cursor: pointer;
     padding: 10px;
-    justify-content: center;
     position: relative;
     z-index: 2;
   }
+
   .toggle-btn.active {
-    left: -100px; /* Ajusta este valor según sea necesario */
+    left: -100px;
   }
+
   .toggle-btn .bar {
-    display: block;
     width: 25px;
     height: 3px;
     background-color: #000;
@@ -386,7 +359,7 @@ header {
   .toggle-btn.active .bar:nth-child(3) {
     transform: translateY(-6px) rotate(-45deg);
   }
-  /* Estilos para el nuevo carrusel */
+
   .product-carousel {
     flex-wrap: wrap;
   }
@@ -396,7 +369,6 @@ header {
     padding: 10px;
   }
 
-  /* Estilos para el nuevo carrusel de novedades */
   .new-arrivals-carousel {
     grid-template-columns: repeat(2, 1fr);
     gap: 10px;
@@ -406,45 +378,28 @@ header {
     padding: 10px;
   }
 
-  /* Reducir el ancho máximo del contenedor */
   .logos-carousel-container {
     width: 80%;
-    margin: 20px auto;
-    overflow: hidden;
-    position: relative;
-    max-width: 100%; /* Establecemos el ancho máximo como 100% para que se ajuste al tamaño de la pantalla */
+    max-width: 100%;
   }
 
-  /* Reducir el espacio entre logos */
   .logos-carousel {
     gap: 10px;
-    justify-content: center; /* Centramos los logos horizontalmente */
+    justify-content: center;
   }
 
-  /* Ajustar el tamaño de los logos para que se ajusten al contenedor */
   .logos-carousel img {
-    width: calc(
-      50% - 5px
-    ); /* Ajustamos el ancho de los logos para ocupar la mitad del contenedor con el espacio entre ellos */
+    width: calc(50% - 5px);
     max-width: 100%;
     height: auto;
     border-radius: 10px;
   }
-  /* Estilos para el pie de página */
+
   .footer {
-    background-color: #e43636;
-    color: white;
-    text-align: left;
-    padding: 10px;
-    width: 100%;
     margin-top: 20px;
-    left: 0;
   }
 
   .footer a {
-    color: white;
-    margin-bottom: 10px;
-    display: block;
     font-size: 16px;
     margin-right: 20px;
   }
