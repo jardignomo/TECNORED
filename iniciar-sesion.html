@@ -3,13 +3,105 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Iniciar sesión</title>
-    <link rel="stylesheet" type="text/css" href="css/iniciar-sesion.css" />
+    <title>Inicio de Sesión</title>
+    <link
+      href="https://fonts.googleapis.com/css?family=Just+Another+Hand"
+      rel="stylesheet"
+    />
+    <style>
+      body {
+        font-family: "Just Another Hand", cursive;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        background-color: #ff6f61;
+        margin: 0;
+      }
+
+      .login-container {
+        background-color: #ff6f61;
+        padding: 50px;
+        border-radius: 10px;
+        text-align: center;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      }
+
+      .login-header {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+      /* Estilos para las imágenes en el lado izquierdo del encabezado */
+      .left-images img {
+        width: 100px;
+        height: 100px;
+      }
+
+      h2 {
+        color: #fff;
+        margin: 0;
+        font-size: 36px; /* Increased font size for header */
+      }
+
+      form {
+        display: flex;
+        flex-direction: column;
+        margin-top: 20px;
+      }
+
+      input[type="text"],
+      input[type="password"] {
+        padding: 10px;
+        margin-bottom: 10px;
+        border: none;
+        border-radius: 5px;
+        font-size: 24px; /* Increased font size for inputs */
+        font-family: "Just Another Hand", cursive;
+      }
+
+      button {
+        background-color: #fff;
+        color: #ff6f61;
+        border: none;
+        padding: 10px;
+        border-radius: 5px;
+        font-size: 24px; /* Increased font size for button */
+        cursor: pointer;
+        font-family: "Just Another Hand", cursive;
+      }
+
+      button:hover {
+        background-color: #f2f2f2;
+      }
+
+      .register-link {
+        margin-top: 20px;
+        color: #fff;
+        font-size: 24px; /* Increased font size for register link */
+      }
+
+      .register-link a {
+        color: #fff;
+        text-decoration: none;
+        font-weight: bold;
+        font-size: 24px; /* Increased font size for register link */
+      }
+
+      .register-link a:hover {
+        text-decoration: underline;
+      }
+    </style>
   </head>
   <body>
-    <div class="modal-content">
-      <span class="close" onclick="cerrarModal()">&times;</span>
-      <h2>Iniciar sesión</h2>
+    <div class="login-container">
+      <div class="login-header">
+        <div class="left-images">
+          <img src="img/index/Logo.png" alt="Logo" />
+          <img src="img/index/nombre empresa.png" alt="Nombre de la empresa" />
+        </div>
+        <h2>Inicio de Sesión</h2>
+      </div>
       <form id="form-iniciar-sesion">
         <input type="text" id="login-usuario" placeholder="Usuario" required />
         <input
@@ -18,10 +110,15 @@
           placeholder="Contraseña"
           required
         />
-        <button type="submit" onclick="iniciarSesion()">Iniciar sesión</button>
+        <button type="submit" onclick="iniciarSesion()">
+          Inicio de Sesión
+        </button>
       </form>
+      <div class="register-link">
+        <p>¿No tienes una cuenta?</p>
+        <a href="registro.html">Regístrate aquí</a>
+      </div>
     </div>
-
     <script>
       function cerrarModal() {
         const modal = document.querySelector(".modal-content");

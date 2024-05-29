@@ -4,34 +4,138 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Registro</title>
-    <link rel="stylesheet" type="text/css" href="css/carrito.css" />
     <link
       href="https://fonts.googleapis.com/css?family=Just+Another+Hand"
       rel="stylesheet"
     />
+    <style>
+      body {
+        font-family: "Just Another Hand", cursive;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        background-color: #ff6f61;
+        margin: 0;
+      }
+
+      .register-container {
+        background-color: #ff6f61;
+        padding: 20px;
+        border-radius: 10px;
+        text-align: center;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      }
+
+      .register-header {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+
+      /* Estilos para las imágenes en el lado izquierdo del encabezado */
+      .left-images img {
+        width: 100px;
+        height: 100px;
+      }
+
+      h2 {
+        color: #fff;
+        margin: 0;
+        font-size: 36px;
+      }
+
+      form {
+        display: flex;
+        flex-direction: column;
+        margin-top: 20px;
+      }
+
+      input[type="text"],
+      input[type="email"],
+      input[type="password"] {
+        padding: 10px;
+        margin-bottom: 10px;
+        border: none;
+        border-radius: 5px;
+        font-size: 24px;
+        font-family: "Just Another Hand", cursive;
+      }
+
+      button {
+        background-color: #fff;
+        color: #ff6f61;
+        border: none;
+        padding: 10px;
+        border-radius: 5px;
+        font-size: 24px;
+        cursor: pointer;
+        font-family: "Just Another Hand", cursive;
+      }
+
+      button:hover {
+        background-color: #f2f2f2;
+      }
+
+      .login-link {
+        margin-top: 20px;
+        color: #fff;
+        font-size: 24px;
+      }
+
+      .login-link a {
+        color: #fff;
+        text-decoration: none;
+        font-weight: bold;
+        font-size: 24px;
+      }
+
+      .login-link a:hover {
+        text-decoration: underline;
+      }
+    </style>
   </head>
   <body>
-    <div class="modal-content">
-      <span class="close" onclick="cerrarModal()">&times;</span>
-      <h2>Registro</h2>
+    <div class="register-container">
+      <div class="register-header">
+        <div class="left-images">
+          <img src="img/index/Logo.png" alt="Logo" />
+          <img src="img/index/nombre empresa.png" alt="Nombre de la empresa" />
+        </div>
+        <h2>Registro para realizar tu compra</h2>
+      </div>
       <form id="form-registrarse">
         <input
           type="text"
           id="registro-usuario"
-          placeholder="Usuario"
+          placeholder="Nombre de Usuario"
           required
         />
-        <input type="email" id="registro-email" placeholder="Email" required />
+        <input
+          type="email"
+          id="registro-email"
+          placeholder="Correo Electronico"
+          required
+        />
         <input
           type="password"
           id="registro-password"
           placeholder="Contraseña"
           required
         />
-        <button type="submit" onclick="registrarse()">Registrarse</button>
+        <input
+          type="password"
+          id="registro-repassword"
+          placeholder="Repetir Contraseña"
+          required
+        />
+        <button type="submit" onclick="registrarse()">Regístrate</button>
       </form>
+      <div class="login-link">
+        <p>¿Tienes una cuenta?</p>
+        <a href="iniciar-sesion.html">Inicia Sesión</a>
+      </div>
     </div>
-
     <script>
       function cerrarModal() {
         const modal = document.querySelector(".modal-content");
@@ -42,10 +146,16 @@
         const usuario = document.getElementById("registro-usuario").value;
         const email = document.getElementById("registro-email").value;
         const password = document.getElementById("registro-password").value;
+        const repassword = document.getElementById("registro-repassword").value;
+
+        if (password !== repassword) {
+          alert("Las contraseñas no coinciden");
+          return;
+        }
+
         // Aquí deberías enviar los datos del usuario al servidor para registrarlo en la base de datos
         // Si el registro es exitoso:
         localStorage.setItem("usuarioLogueado", usuario);
-        cerrarModal();
         window.location.href = "carrito.html";
       }
     </script>

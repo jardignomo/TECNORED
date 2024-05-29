@@ -14,7 +14,7 @@
     <header>
       <div class="left-images">
         <img src="img/index/Logo.png" alt="Logo" />
-        <img src="img/index/nombre empresa.png" alt="Nombre de la empresa" />
+        <img src="img/index/nombre_empresa.png" alt="Nombre de la empresa" />
       </div>
       <div class="right-image">
         <a href="carrito.html">
@@ -35,7 +35,7 @@
         <li><a href="MOUSES.html">MOUSES</a></li>
         <li><a href="AURICULARES-CASCOS.html">AURICULARES/CASCOS</a></li>
         <li><a href="TORRES.html">TORRES</a></li>
-        <li><a href="COMPONENTES PC.html">COMPONENTES PC</a></li>
+        <li><a href="COMPONENTES_PC.html">COMPONENTES PC</a></li>
         <li><a href="PORTATILES.html">PORTATILES</a></li>
       </ul>
     </div>
@@ -59,22 +59,78 @@
       </button>
     </div>
 
+    <!-- Modal para inicio de sesión o registro -->
     <div id="modal-sesion" class="modal" style="display: none">
       <div class="modal-content">
         <span class="close" onclick="cerrarModal()">&times;</span>
         <h2>Iniciar sesión o Registrarse</h2>
-        <p>
-          ¿Ya tienes una cuenta?
-          <a href="iniciar-sesion.html">Iniciar sesión</a>
-        </p>
-        <p>¿No tienes una cuenta? <a href="registro.html">Registrarse</a></p>
+        <div class="form-container">
+          <div id="form-login" style="display: none">
+            <h3>Iniciar Sesión</h3>
+            <form>
+              <input
+                type="text"
+                id="login-usuario"
+                placeholder="Usuario"
+                required
+              />
+              <input
+                type="password"
+                id="login-password"
+                placeholder="Contraseña"
+                required
+              />
+              <button type="button" onclick="iniciarSesion()">
+                Iniciar Sesión
+              </button>
+            </form>
+            <p>
+              ¿No tienes una cuenta?
+              <a href="#" onclick="mostrarRegistro()">Registrarse</a>
+            </p>
+          </div>
+          <div id="form-registro" style="display: none">
+            <h3>Registrarse</h3>
+            <form>
+              <input
+                type="text"
+                id="registro-usuario"
+                placeholder="Usuario"
+                required
+              />
+              <input
+                type="email"
+                id="registro-email"
+                placeholder="Correo Electrónico"
+                required
+              />
+              <input
+                type="password"
+                id="registro-password"
+                placeholder="Contraseña"
+                required
+              />
+              <input
+                type="password"
+                id="registro-password2"
+                placeholder="Repetir Contraseña"
+                required
+              />
+              <button type="button" onclick="registrarse()">Registrarse</button>
+            </form>
+            <p>
+              ¿Ya tienes una cuenta?
+              <a href="#" onclick="mostrarLogin()">Iniciar Sesión</a>
+            </p>
+          </div>
+        </div>
       </div>
     </div>
 
     <footer class="footer">
-      <a href="Terminos y Condiciones.html">Términos y condiciones</a>
-      <a href="Politica de privacidad.html">Política de privacidad</a>
-      <a href="Política de envíos.html">Política de envíos</a>
+      <a href="Terminos_y_Condiciones.html">Términos y condiciones</a>
+      <a href="Politica_de_privacidad.html">Política de privacidad</a>
+      <a href="Politica_de_envios.html">Política de envíos</a>
     </footer>
 
     <script>
@@ -92,10 +148,10 @@
           const productoDiv = document.createElement("div");
           productoDiv.classList.add("producto-carrito");
           productoDiv.innerHTML = `
-                    <img src="img/20058.png" alt="${producto.nombre}">
-                    <p>${producto.nombre} - $${producto.precio}</p>
-                    <button onclick="eliminarProducto('${producto.nombre}', this)">Eliminar</button>
-                `;
+            <img src="img/20058.png" alt="${producto.nombre}">
+            <p>${producto.nombre} - $${producto.precio}</p>
+            <button onclick="eliminarProducto('${producto.nombre}', this)">Eliminar</button>
+          `;
           contenedorProductos.appendChild(productoDiv);
         });
 
@@ -140,9 +196,11 @@
       function verificarSesion() {
         const usuarioLogueado = localStorage.getItem("usuarioLogueado");
         if (usuarioLogueado) {
+          // Si hay un usuario logueado, redirige a la página de pago
           window.location.href = "pago.html";
         } else {
-          document.getElementById("modal-sesion").style.display = "block";
+          // Si no hay un usuario logueado, muestra el modal de inicio de sesión o registro
+          mostrarModal();
         }
       }
 
@@ -156,25 +214,39 @@
         modal.style.display = "none";
       }
 
+      function mostrarLogin() {
+        document.getElementById("form-login").style.display = "block";
+        document.getElementById("form-registro").style.display = "none";
+      }
+
+      function mostrarRegistro() {
+        document.getElementById("form-login").style.display = "none";
+        document.getElementById("form-registro").style.display = "block";
+      }
+
       function iniciarSesion() {
         const usuario = document.getElementById("login-usuario").value;
         const password = document.getElementById("login-password").value;
         // Aquí deberías verificar las credenciales del usuario con el servidor
         // Si son correctas:
         localStorage.setItem("usuarioLogueado", usuario);
+        cerrarModal();
         window.location.href = "pago.html";
-        document.getElementById("modal-sesion").style.display = "none";
       }
 
       function registrarse() {
         const usuario = document.getElementById("registro-usuario").value;
         const email = document.getElementById("registro-email").value;
         const password = document.getElementById("registro-password").value;
-        // Aquí deberías enviar los datos al servidor para registrar al usuario
-        // Si el registro es exitoso:
-        localStorage.setItem("usuarioLogueado", usuario);
-        window.location.href = "pago.html";
-        document.getElementById("modal-sesion").style.display = "none";
+        const password2 = document.getElementById("registro-password2").value;
+        // Aquí deberías verificar que las contraseñas coincidan y registrar al usuario en el servidor
+        if (password === password2) {
+          localStorage.setItem("usuarioLogueado", usuario);
+          cerrarModal();
+          window.location.href = "pago.html";
+        } else {
+          alert("Las contraseñas no coinciden.");
+        }
       }
 
       function toggleMenu() {
