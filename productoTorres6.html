@@ -22,6 +22,7 @@
       header {
         background-color: #e43636;
         color: white;
+
         text-align: center;
         display: flex;
         justify-content: space-between;
@@ -245,6 +246,7 @@
         </a>
       </div>
     </header>
+
     <div class="navbar">
       <div class="toggle-btn" onclick="toggleMenu()">
         <div class="bar"></div>
@@ -265,14 +267,17 @@
     <div class="product-container">
       <div class="product-image">
         <img
-          src="img/index/MEMORIA RAM PARA PC DDR4 8G 3600 MHz CORSAIR VENGEANCE LPX.png"
-          alt="MEMORIA RAM PARA PC DDR4 8G 3600 MHz CORSAIR VENGEANCE LPX"
+          src="img/index/CAJA ATX CORSAIR MID TOWER 4000D VIDRIO TEMPLADO AIRFLOW NEGRA + 2 FAN NO LED.png  "
+          alt="CAJA ATX CORSAIR MID TOWER 4000D VIDRIO TEMPLADO AIRFLOW NEGRA + 2 FAN NO LED"
           class="product-img"
         />
       </div>
       <div class="product-info">
-        <h2>MEMORIA RAM PARA PC DDR4 8G 3600 MHz CORSAIR VENGEANCE LPX</h2>
-        <p>Precio: <strong id="precioProducto">$140.000</strong></p>
+        <h2>
+          CAJA ATX CORSAIR MID TOWER 4000D VIDRIO TEMPLADO AIRFLOW NEGRA + 2 FAN
+          NO LED
+        </h2>
+        <p>Precio: <strong id="precioProducto">$419.000</strong></p>
         <label for="cantidadProducto">Cantidad:</label>
         <input
           type="number"
@@ -284,19 +289,19 @@
         />
         <button
           id="btnAgregarCarrito"
-          onclick="agregarAlCarrito('MEMORIA RAM PARA PC DDR4 8G 3600 MHz CORSAIR VENGEANCE LPX', 140000, 'img/index/MEMORIA RAM PARA PC DDR4 8G 3600 MHz CORSAIR VENGEANCE LPX.png')"
+          onclick="agregarAlCarrito('CAJA ATX CORSAIR MID TOWER 4000D VIDRIO TEMPLADO AIRFLOW NEGRA + 2 FAN NO LED',419000, 'img/index/CAJA ATX CORSAIR MID TOWER 4000D VIDRIO TEMPLADO AIRFLOW NEGRA + 2 FAN NO LED.png')"
         >
-          Agregar al Carrito - Total: $140.000
+          Agregar al Carrito - Total: $419.000
         </button>
         <p class="product-description">
-          La memoria VENGEANCE LPX se ha diseñado para overclocking de alto
-          rendimiento. El disipador de calor está hecho de aluminio puro, lo
-          cual permite una disipación térmica más rápida, mientras que el
-          circuito está diseñado especialmente para obtener el mayor
-          rendimiento, mantener a raya el calor y proporcionar una capacidad
-          superior para incrementar el overclocking. Cada circuito integrado
-          está seleccionado individualmente para el máximo potencial de
-          rendimiento.
+          Chasis ATX semitorre distintivo, optimizado para disponer de un
+          elevado caudal de aire, con una sencilla gestión del cableado y dos
+          ventiladores CORSAIR AirGuide de 120 mm incluidos para que la
+          refrigeración sea excepcionalCon ventilación mejorada, el 4000D
+          Airflow proporciona un flujo de aire increíble para el sistema dentro
+          de un paquete estiloso. Diseñar el PC de sus sueños nunca ha sido tan
+          fácil como ahora. Un panel frontal optimizado genera un buen flujo de
+          aire hacia el sistema para maximizar la refrigeración.
         </p>
       </div>
     </div>
@@ -308,10 +313,11 @@
     </footer>
 
     <script>
-      function agregarAlCarrito(nombre, precioUnitario, imagen) {
+      function agregarAlCarrito(nombre, precio, imagen) {
         const cantidad = parseInt(
           document.getElementById("cantidadProducto").value
         );
+        const precioUnitario = parseFloat(precio);
         const precioTotal = cantidad * precioUnitario;
         let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
         let productoExistente = carrito.find(
@@ -326,6 +332,7 @@
         }
         localStorage.setItem("carrito", JSON.stringify(carrito));
         alert("¡Producto agregado al carrito!");
+        actualizarPrecioTotal();
       }
 
       function actualizarPrecioTotal() {
@@ -333,7 +340,10 @@
           document.getElementById("cantidadProducto").value
         );
         const precioUnitario = parseFloat(
-          document.getElementById("prec140.000").innerText.replace("$", "")
+          document
+            .getElementById("precioProducto")
+            .innerText.replace("$", "")
+            .replace(".", "")
         );
         const precioTotal = cantidad * precioUnitario;
         document.getElementById(
@@ -342,7 +352,9 @@
           "es-CO"
         )}`;
       }
+    </script>
 
+    <script>
       function toggleMenu() {
         var ul = document.querySelector(".navbar ul");
         ul.classList.toggle("active");

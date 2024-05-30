@@ -22,6 +22,7 @@
       header {
         background-color: #e43636;
         color: white;
+
         text-align: center;
         display: flex;
         justify-content: space-between;
@@ -245,6 +246,7 @@
         </a>
       </div>
     </header>
+
     <div class="navbar">
       <div class="toggle-btn" onclick="toggleMenu()">
         <div class="bar"></div>
@@ -265,14 +267,16 @@
     <div class="product-container">
       <div class="product-image">
         <img
-          src="img/index/MEMORIA RAM PARA PC DDR4 8G 3600 MHz CORSAIR VENGEANCE LPX.png"
-          alt="MEMORIA RAM PARA PC DDR4 8G 3600 MHz CORSAIR VENGEANCE LPX"
+          src="img/index/TECLADO REDRAGON DEIMOS RGB K599-KRS SWITCH RED.png
+          "
+          alt="TECLADO REDRAGON DEIMOS RGB K599-KRS SWITCH RED
+          "
           class="product-img"
         />
       </div>
       <div class="product-info">
-        <h2>MEMORIA RAM PARA PC DDR4 8G 3600 MHz CORSAIR VENGEANCE LPX</h2>
-        <p>Precio: <strong id="precioProducto">$140.000</strong></p>
+        <h2>TECLADO REDRAGON DEIMOS RGB K599-KRS SWITCH RED</h2>
+        <p>Precio: <strong id="precioProducto">$289.000</strong></p>
         <label for="cantidadProducto">Cantidad:</label>
         <input
           type="number"
@@ -284,19 +288,25 @@
         />
         <button
           id="btnAgregarCarrito"
-          onclick="agregarAlCarrito('MEMORIA RAM PARA PC DDR4 8G 3600 MHz CORSAIR VENGEANCE LPX', 140000, 'img/index/MEMORIA RAM PARA PC DDR4 8G 3600 MHz CORSAIR VENGEANCE LPX.png')"
+          onclick="agregarAlCarrito('TECLADO REDRAGON DEIMOS RGB K599-KRS SWITCH RED', 289000, 'img/index/TECLADO REDRAGON DEIMOS RGB K599-KRS SWITCH RED.png')"
         >
-          Agregar al Carrito - Total: $140.000
+          Agregar al Carrito - Total: $289000
         </button>
         <p class="product-description">
-          La memoria VENGEANCE LPX se ha diseñado para overclocking de alto
-          rendimiento. El disipador de calor está hecho de aluminio puro, lo
-          cual permite una disipación térmica más rápida, mientras que el
-          circuito está diseñado especialmente para obtener el mayor
-          rendimiento, mantener a raya el calor y proporcionar una capacidad
-          superior para incrementar el overclocking. Cada circuito integrado
-          está seleccionado individualmente para el máximo potencial de
-          rendimiento.
+          ¿Qué tiene de especial? Es casi tan compacto como un 60%, con lo que
+          ahorra valiosísimo espacio para el ratón (un rasgo muy apreciado en el
+          gaming competitivo actual), pero incluye dos bloques de teclas cuya
+          ausencia en los 60% se siente: las cuatro flechas de dirección y las
+          seis nobles compañeras que van desde Insert hasta AvPág (PgDn),
+          incluyendo a la por todos amada Suprimir. En suma, una alternativa más
+          que interesante. El Deimos está equipado con un sistema de conexión
+          inalámbrica de 2,4 GHz y una batería interna de alto rendimiento que
+          permite hasta 60 horas de uso sin cable. En términos prácticos: lo
+          llevas de acá para allá y lo usas donde quieras con absoluta
+          comodidad, ante la mirada estupefacta de Firulais. Además, posee un
+          cable desmontable USB-C de conexión lateral para que puedas retornar
+          al modo cableado rápida y cómodamente, cuando quieras. Y de paso,
+          cargas la batería. ¡Práctico!
         </p>
       </div>
     </div>
@@ -308,10 +318,11 @@
     </footer>
 
     <script>
-      function agregarAlCarrito(nombre, precioUnitario, imagen) {
+      function agregarAlCarrito(nombre, precio, imagen) {
         const cantidad = parseInt(
           document.getElementById("cantidadProducto").value
         );
+        const precioUnitario = parseFloat(precio);
         const precioTotal = cantidad * precioUnitario;
         let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
         let productoExistente = carrito.find(
@@ -326,6 +337,7 @@
         }
         localStorage.setItem("carrito", JSON.stringify(carrito));
         alert("¡Producto agregado al carrito!");
+        actualizarPrecioTotal();
       }
 
       function actualizarPrecioTotal() {
@@ -333,7 +345,10 @@
           document.getElementById("cantidadProducto").value
         );
         const precioUnitario = parseFloat(
-          document.getElementById("prec140.000").innerText.replace("$", "")
+          document
+            .getElementById("precioProducto")
+            .innerText.replace("$", "")
+            .replace(".", "")
         );
         const precioTotal = cantidad * precioUnitario;
         document.getElementById(
@@ -342,7 +357,9 @@
           "es-CO"
         )}`;
       }
+    </script>
 
+    <script>
       function toggleMenu() {
         var ul = document.querySelector(".navbar ul");
         ul.classList.toggle("active");

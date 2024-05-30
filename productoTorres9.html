@@ -22,6 +22,7 @@
       header {
         background-color: #e43636;
         color: white;
+
         text-align: center;
         display: flex;
         justify-content: space-between;
@@ -245,6 +246,7 @@
         </a>
       </div>
     </header>
+
     <div class="navbar">
       <div class="toggle-btn" onclick="toggleMenu()">
         <div class="bar"></div>
@@ -265,14 +267,17 @@
     <div class="product-container">
       <div class="product-image">
         <img
-          src="img/index/MEMORIA RAM PARA PC DDR4 8G 3600 MHz CORSAIR VENGEANCE LPX.png"
-          alt="MEMORIA RAM PARA PC DDR4 8G 3600 MHz CORSAIR VENGEANCE LPX"
+          src="img/index/CAJA ATX CORSAIR ICUE 7000X VIDRIO TEMPLADO + 4 FAN RGB FULL TORRE BLANCA.png  "
+          alt="CAJA ATX CORSAIR ICUE 7000X VIDRIO TEMPLADO + 4 FAN RGB FULL TORRE BLANCA"
           class="product-img"
         />
       </div>
       <div class="product-info">
-        <h2>MEMORIA RAM PARA PC DDR4 8G 3600 MHz CORSAIR VENGEANCE LPX</h2>
-        <p>Precio: <strong id="precioProducto">$140.000</strong></p>
+        <h2>
+          CAJA ATX CORSAIR ICUE 7000X VIDRIO TEMPLADO + 4 FAN RGB FULL TORRE
+          BLANCA
+        </h2>
+        <p>Precio: <strong id="precioProducto">$1.469.000</strong></p>
         <label for="cantidadProducto">Cantidad:</label>
         <input
           type="number"
@@ -284,19 +289,27 @@
         />
         <button
           id="btnAgregarCarrito"
-          onclick="agregarAlCarrito('MEMORIA RAM PARA PC DDR4 8G 3600 MHz CORSAIR VENGEANCE LPX', 140000, 'img/index/MEMORIA RAM PARA PC DDR4 8G 3600 MHz CORSAIR VENGEANCE LPX.png')"
+          onclick="agregarAlCarrito('CAJA ATX CORSAIR ICUE 7000X VIDRIO TEMPLADO + 4 FAN RGB FULL TORRE BLANCA',1469000, 'img/index/CAJA ATX CORSAIR ICUE 7000X VIDRIO TEMPLADO + 4 FAN RGB FULL TORRE BLANCA.png')"
         >
-          Agregar al Carrito - Total: $140.000
+          Agregar al Carrito - Total: $1.469.000
         </button>
         <p class="product-description">
-          La memoria VENGEANCE LPX se ha diseñado para overclocking de alto
-          rendimiento. El disipador de calor está hecho de aluminio puro, lo
-          cual permite una disipación térmica más rápida, mientras que el
-          circuito está diseñado especialmente para obtener el mayor
-          rendimiento, mantener a raya el calor y proporcionar una capacidad
-          superior para incrementar el overclocking. Cada circuito integrado
-          está seleccionado individualmente para el máximo potencial de
-          rendimiento.
+          El chasis ATX tipo torre CORSAIR iCUE 7000X RGB muestra su sistema
+          gracias a tres paneles de cristal templado, con espacio para tres
+          radiadores de 360 mm, cableado oculto y cuatro ventiladores CORSAIR
+          SP140 RGB ELITE incluidos.El espacioso interior, el enorme flujo de
+          aire y el diseño inteligente de la iCUE 7000X RGB abre un mundo de
+          posibilidades para dar forma a montajes creativos e inolvidables. La
+          iCUE 7000X RGB es una de las torres más completas del mercado, pues
+          está dotada de enormes capacidades de ampliación. Con un volumen
+          superior a 80 l, la 7000 Series es entre un 40 y un 60 % más amplia
+          que una semitorre estándar, lo que le brinda espacio para infinitas
+          posibilidades. El espacioso interior permite albergar hasta 12
+          ventiladores de 120 mm o 7 de 140 mm. Hasta tres radiadores de 360 mm
+          a la vez (parte superior, lateral y delantera), dos radiadores
+          simultáneos de 420 mm (parte superior y delantera) o incluso un
+          radiador de 480 mm (lateral) ofrecen la posibilidad de diseñar el
+          circuito de sus sueños.
         </p>
       </div>
     </div>
@@ -308,10 +321,11 @@
     </footer>
 
     <script>
-      function agregarAlCarrito(nombre, precioUnitario, imagen) {
+      function agregarAlCarrito(nombre, precio, imagen) {
         const cantidad = parseInt(
           document.getElementById("cantidadProducto").value
         );
+        const precioUnitario = parseFloat(precio);
         const precioTotal = cantidad * precioUnitario;
         let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
         let productoExistente = carrito.find(
@@ -326,6 +340,7 @@
         }
         localStorage.setItem("carrito", JSON.stringify(carrito));
         alert("¡Producto agregado al carrito!");
+        actualizarPrecioTotal();
       }
 
       function actualizarPrecioTotal() {
@@ -333,7 +348,10 @@
           document.getElementById("cantidadProducto").value
         );
         const precioUnitario = parseFloat(
-          document.getElementById("prec140.000").innerText.replace("$", "")
+          document
+            .getElementById("precioProducto")
+            .innerText.replace("$", "")
+            .replace(".", "")
         );
         const precioTotal = cantidad * precioUnitario;
         document.getElementById(
@@ -342,7 +360,9 @@
           "es-CO"
         )}`;
       }
+    </script>
 
+    <script>
       function toggleMenu() {
         var ul = document.querySelector(".navbar ul");
         ul.classList.toggle("active");

@@ -22,6 +22,7 @@
       header {
         background-color: #e43636;
         color: white;
+
         text-align: center;
         display: flex;
         justify-content: space-between;
@@ -245,6 +246,7 @@
         </a>
       </div>
     </header>
+
     <div class="navbar">
       <div class="toggle-btn" onclick="toggleMenu()">
         <div class="bar"></div>
@@ -265,14 +267,17 @@
     <div class="product-container">
       <div class="product-image">
         <img
-          src="img/index/MEMORIA RAM PARA PC DDR4 8G 3600 MHz CORSAIR VENGEANCE LPX.png"
-          alt="MEMORIA RAM PARA PC DDR4 8G 3600 MHz CORSAIR VENGEANCE LPX"
+          src="img/index/TECLADO LOGITECH WAVE KEYS ERGO INALAMBRICO (ESP) NEGRO.png  "
+          alt="TECLADO LOGITECH WAVE KEYS ERGO INALAMBRICO (ESP) NEGRO
+
+
+          "
           class="product-img"
         />
       </div>
       <div class="product-info">
-        <h2>MEMORIA RAM PARA PC DDR4 8G 3600 MHz CORSAIR VENGEANCE LPX</h2>
-        <p>Precio: <strong id="precioProducto">$140.000</strong></p>
+        <h2>TECLADO LOGITECH WAVE KEYS ERGO INALAMBRICO (ESP) NEGRO</h2>
+        <p>Precio: <strong id="precioProducto">$256.000</strong></p>
         <label for="cantidadProducto">Cantidad:</label>
         <input
           type="number"
@@ -284,19 +289,26 @@
         />
         <button
           id="btnAgregarCarrito"
-          onclick="agregarAlCarrito('MEMORIA RAM PARA PC DDR4 8G 3600 MHz CORSAIR VENGEANCE LPX', 140000, 'img/index/MEMORIA RAM PARA PC DDR4 8G 3600 MHz CORSAIR VENGEANCE LPX.png')"
+          onclick="agregarAlCarrito('TECLADO LOGITECH WAVE KEYS ERGO INALAMBRICO (ESP) NEGRO', 256000, 'img/index/TECLADO LOGITECH WAVE KEYS ERGO INALAMBRICO (ESP) NEGRO.png')"
         >
-          Agregar al Carrito - Total: $140.000
+          Agregar al Carrito - Total: $256.000
         </button>
         <p class="product-description">
-          La memoria VENGEANCE LPX se ha diseñado para overclocking de alto
-          rendimiento. El disipador de calor está hecho de aluminio puro, lo
-          cual permite una disipación térmica más rápida, mientras que el
-          circuito está diseñado especialmente para obtener el mayor
-          rendimiento, mantener a raya el calor y proporcionar una capacidad
-          superior para incrementar el overclocking. Cada circuito integrado
-          está seleccionado individualmente para el máximo potencial de
-          rendimiento.
+          Un teclado ergonómico inalámbrico con un reposamanos acolchado, para
+          una escritura natural y agradable durante todo el día.Experimente las
+          delicias de un teclado con forma de onda con un reposamanos acolchado.
+          Disfrute de más soporte para las muñecas, menos presión y una postura
+          de escritura natural durante todo el día. El diseño ondulado de este
+          teclado compacto coloca las manos, las muñecas y los antebrazos en una
+          posición de escritura natural para que se sienta bien durante todo el
+          día. Con un reposamanos acolchado con 3 capas de espuma viscoelástica,
+          Wave Keys le da a sus muñecas el soporte que necesitan para seguir
+          escribiendo con comodidad. Wave Keys ha sido desarrollado y probado
+          con The Logi Ergo Lab, y ergonómico certificado con el sello de
+          aprobación de United States Ergonomics. Manténgase relajado con la
+          escritura fluida, natural y las teclas personalizables con la
+          aplicación Logi Options +. Incluso puedes personalizar tus accesos
+          directos para aplicaciones específicas.
         </p>
       </div>
     </div>
@@ -308,10 +320,11 @@
     </footer>
 
     <script>
-      function agregarAlCarrito(nombre, precioUnitario, imagen) {
+      function agregarAlCarrito(nombre, precio, imagen) {
         const cantidad = parseInt(
           document.getElementById("cantidadProducto").value
         );
+        const precioUnitario = parseFloat(precio);
         const precioTotal = cantidad * precioUnitario;
         let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
         let productoExistente = carrito.find(
@@ -326,6 +339,7 @@
         }
         localStorage.setItem("carrito", JSON.stringify(carrito));
         alert("¡Producto agregado al carrito!");
+        actualizarPrecioTotal();
       }
 
       function actualizarPrecioTotal() {
@@ -333,7 +347,10 @@
           document.getElementById("cantidadProducto").value
         );
         const precioUnitario = parseFloat(
-          document.getElementById("prec140.000").innerText.replace("$", "")
+          document
+            .getElementById("precioProducto")
+            .innerText.replace("$", "")
+            .replace(".", "")
         );
         const precioTotal = cantidad * precioUnitario;
         document.getElementById(
@@ -342,7 +359,9 @@
           "es-CO"
         )}`;
       }
+    </script>
 
+    <script>
       function toggleMenu() {
         var ul = document.querySelector(".navbar ul");
         ul.classList.toggle("active");
