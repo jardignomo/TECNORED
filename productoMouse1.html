@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://fonts.googleapis.com/css?family=Just+Another+Hand"
+      rel="stylesheet"
+    />
+    <title>Producto</title>
+    <style>
+      /* Estilos generales */
+      body {
+        background-color: #d3d3d3;
+        margin: 0;
+        padding: 0;
+        font-family: "Just Another Hand", cursive;
+        padding-bottom: 60px; /* Ajusta según la altura del footer */
+      }
+
+      /* Estilos para el encabezado */
+      header {
+        background-color: #e43636;
+        color: white;
+
+        text-align: center;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      .logo,
+      .cart {
+        width: 100px;
+        height: 100px;
+      }
+
+      /* Estilos para el menú de navegación */
+      .navbar {
+        list-style-type: none;
+        margin: 0;
+        padding: 10px;
+        font-size: 15px;
+        font-family: "Just Another Hand";
+        background-color: whitesmoke;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .navbar ul {
+        margin: 0;
+        padding: 0;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+
+      .navbar li {
+        display: inline;
+      }
+
+      .navbar li a {
+        text-decoration: none;
+        color: #000;
+        font-weight: bold;
+        transition: 0.7s;
+        padding: 10px;
+      }
+
+      .navbar li a:hover {
+        color: white;
+        background-color: red;
+      }
+
+      /* Estilos para el contenedor principal */
+      .product-container {
+        display: flex;
+        padding: 10px;
+        border: 1px solid #ddd;
+        max-width: 2000px;
+        margin: 0 auto;
+      }
+
+      .product-image {
+        width: 50%;
+        max-width: 200px;
+        min-width: 150px;
+        margin-right: 20px;
+      }
+
+      .product-image img {
+        width: 100%;
+        border-radius: 15px;
+        border: 1px solid #ccc;
+      }
+
+      .product-info {
+        flex-grow: 1;
+      }
+
+      .product-info h2 {
+        font-size: 1.5rem;
+        margin-bottom: 5px;
+      }
+
+      .product-info input[type="number"] {
+        width: 50px;
+        margin-bottom: 10px;
+      }
+
+      .product-info button {
+        background-color: #007bff;
+        color: #fff;
+        border: none;
+        padding: 10px 20px;
+        cursor: pointer;
+        transition: background-color 0.3s;
+        margin-top: 10px;
+        border-radius: 5px;
+        font-family: "Just Another Hand", cursive;
+      }
+
+      .product-info button:hover {
+        background-color: #0056b3;
+      }
+
+      .product-description {
+        font-size: 1.5rem; /* Ajusta el tamaño de la fuente según sea necesario */
+        line-height: 1.5; /* Ajusta el espaciado entre líneas para mejorar la legibilidad */
+        margin-bottom: 15px; /* Incrementa el espacio inferior para una mejor separación entre párrafos */
+        text-align: justify; /* Justifica el texto para un mejor aspecto visual */
+        word-wrap: break-word; /* Permite que las palabras largas se rompan para ajustarse al ancho disponible */
+      }
+
+      .footer {
+        background-color: #e43636;
+        color: white;
+        text-align: left;
+        padding: 10px;
+        position: fixed;
+        bottom: 0;
+        width: 100%;
+      }
+
+      .footer a {
+        color: white;
+        margin-bottom: 5px;
+        display: block;
+        font-family: "Just Another Hand";
+        font-size: 14px;
+      }
+
+      /* Estilos específicos para dispositivos móviles */
+      @media only screen and (max-width: 768px) {
+        .navbar {
+          padding: 5px;
+        }
+
+        .navbar ul {
+          display: none;
+          position: absolute;
+          top: 130px;
+          left: 0;
+          width: 100%;
+          background-color: whitesmoke;
+          flex-direction: column;
+          text-align: center;
+        }
+
+        .navbar ul.active {
+          display: flex;
+        }
+
+        .navbar li {
+          display: block;
+          margin-bottom: 10px;
+        }
+
+        .toggle-btn {
+          display: block;
+          cursor: pointer;
+          padding: 10px;
+          justify-content: center;
+          position: relative;
+          z-index: 2;
+        }
+
+        .toggle-btn.active {
+          left: -100px;
+        }
+
+        .toggle-btn .bar {
+          display: block;
+          width: 25px;
+          height: 3px;
+          background-color: #000;
+          margin: 5px 0;
+          transition: all 0.3s ease;
+        }
+
+        .toggle-btn.active .bar:nth-child(1) {
+          transform: translateY(6px) rotate(45deg);
+        }
+
+        .toggle-btn.active .bar:nth-child(2) {
+          opacity: 0;
+        }
+
+        .toggle-btn.active .bar:nth-child(3) {
+          transform: translateY(-6px) rotate(-45deg);
+        }
+
+        /* Ajustes para el párrafo del producto en dispositivos móviles */
+        .product-description {
+          font-size: 0.78rem; /* Reducir el tamaño de la fuente para dispositivos móviles */
+          line-height: 1.1; /* Reducir el espaciado entre líneas para dispositivos móviles */
+          margin-bottom: 10px; /* Reducir el espacio inferior para dispositivos móviles */
+          text-align: justify; /* Justificar el texto para dispositivos móviles */
+        }
+
+        .product-info input[type="number"] {
+          width: 40px; /* Reducir el ancho del campo de entrada */
+        }
+
+        .product-info button {
+          padding: 6px 12px; /* Reducir el padding del botón */
+          font-size: 0.8rem; /* Reducir el tamaño del texto del botón */
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <div class="left-images">
+        <img src="img/index/Logo.png" alt="Logo" class="logo" />
+        <img
+          src="img/index/nombre empresa.png"
+          alt="Nombre de la empresa"
+          class="logo"
+        />
+      </div>
+      <div class="right-image">
+        <a href="Carrito.html">
+          <img src="img/carrito.png" alt="Carrito de compras" class="cart" />
+        </a>
+      </div>
+    </header>
+
+    <div class="navbar">
+      <div class="toggle-btn" onclick="toggleMenu()">
+        <div class="bar"></div>
+        <div class="bar"></div>
+        <div class="bar"></div>
+      </div>
+      <ul>
+        <li><a href="index.html">INICIO</a></li>
+        <li><a href="TECLADOS.html">TECLADOS</a></li>
+        <li><a href="MOUSES.html">MOUSES</a></li>
+        <li><a href="AURICULARES-CASCOS.html">AURICULARES/CASCOS</a></li>
+        <li><a href="TORRES.html">TORRES</a></li>
+        <li><a href="COMPONENTES PC.html">COMPONENTES PC</a></li>
+        <li><a href="PORTATILES.html">PORTATILES</a></li>
+      </ul>
+    </div>
+
+    <div class="product-container">
+      <div class="product-image">
+        <img
+          src="img/index/MOUSE LOGITECH G502 LIGTHSPEED INALÁMBRICO GAMING.png  "
+          alt="MOUSE LOGITECH G502 LIGTHSPEED INALÁMBRICO GAMING"
+          class="product-img"
+        />
+      </div>
+      <div class="product-info">
+        <h2>MOUSE LOGITECH G502 LIGTHSPEED INALÁMBRICO GAMING</h2>
+        <p>Precio: <strong id="precioProducto">$419.000</strong></p>
+        <label for="cantidadProducto">Cantidad:</label>
+        <input
+          type="number"
+          id="cantidadProducto"
+          min="1"
+          max="5"
+          value="1"
+          onchange="actualizarPrecioTotal()"
+        />
+        <button
+          id="btnAgregarCarrito"
+          onclick="agregarAlCarrito('MOUSE LOGITECH G502 LIGTHSPEED INALÁMBRICO GAMING',419000, 'img/index/MOUSE LOGITECH G502 LIGTHSPEED INALÁMBRICO GAMING.png')"
+        >
+          Agregar al Carrito - Total: $419.000
+        </button>
+        <p class="product-description">
+          el mouse G502 se une a las filas de los mouse inalámbricos para juegos
+          más avanzados del mundo con el lanzamiento de G502 LIGHTSPEED.
+          LIGHTSPEED es una tecnología ultrarrápida y confiable con desempeño
+          probado en competencia por profesionales de eSports. G502 LIGHTSPEED
+          posee además el sensor de próxima generación HERO 25K y es compatible
+          con POWERPLAY. Junto con esta novedosa tecnología avanzada, G502
+          LIGHTSPEED mantiene esa forma apreciada por todos y logra una
+          reducción de peso de 7 gramos.
+        </p>
+      </div>
+    </div>
+
+    <footer class="footer">
+      <a href="Terminos y Condiciones.html">Términos y condiciones</a>
+      <a href="Politica de privacidad.html">Política de privacidad</a>
+      <a href="Política de envíos.html">Política de envíos</a>
+    </footer>
+
+    <script>
+      function agregarAlCarrito(nombre, precio, imagen) {
+        const cantidad = parseInt(
+          document.getElementById("cantidadProducto").value
+        );
+        const precioUnitario = parseFloat(precio);
+        const precioTotal = cantidad * precioUnitario;
+        let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
+        let productoExistente = carrito.find(
+          (producto) => producto.nombre === nombre
+        );
+        if (productoExistente) {
+          productoExistente.cantidad += cantidad;
+          productoExistente.precio += precioTotal;
+        } else {
+          const producto = { nombre, precio: precioTotal, imagen, cantidad };
+          carrito.push(producto);
+        }
+        localStorage.setItem("carrito", JSON.stringify(carrito));
+        alert("¡Producto agregado al carrito!");
+        actualizarPrecioTotal();
+      }
+
+      function actualizarPrecioTotal() {
+        const cantidad = parseInt(
+          document.getElementById("cantidadProducto").value
+        );
+        const precioUnitario = parseFloat(
+          document
+            .getElementById("precioProducto")
+            .innerText.replace("$", "")
+            .replace(".", "")
+        );
+        const precioTotal = cantidad * precioUnitario;
+        document.getElementById(
+          "btnAgregarCarrito"
+        ).innerText = `Agregar al Carrito - Total: $${precioTotal.toLocaleString(
+          "es-CO"
+        )}`;
+      }
+    </script>
+
+    <script>
+      function toggleMenu() {
+        var ul = document.querySelector(".navbar ul");
+        ul.classList.toggle("active");
+        var toggleBtn = document.querySelector(".toggle-btn");
+        toggleBtn.classList.toggle("active");
+      }
+    </script>
+  </body>
+</html>
